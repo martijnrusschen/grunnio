@@ -18,6 +18,7 @@ group :assets do
 end
 
 gem 'simple_form'
+gem 'country_select'
 gem 'jquery-rails'
 gem 'jbuilder'
 gem 'capistrano'
