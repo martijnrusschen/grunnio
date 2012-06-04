@@ -13,10 +13,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platform => :ruby
   gem 'uglifier', '>= 1.0.3'
-  gem 'haml'
+  gem 'haml-rails'
   gem 'twitter-bootstrap-rails'
 end
 
+gem 'simple_form'
 gem 'jquery-rails'
 gem 'jbuilder'
 gem 'capistrano'
