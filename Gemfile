@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.5'
 
 gem 'sqlite3'
-gem 'mongoid', '~> 3.0.0.rc'
+gem 'mongoid', '~> 3.0.0'
 gem 'bson_ext', '~> 1.6.2'
 
 # Gems used only for assets and not required
