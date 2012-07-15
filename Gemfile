@@ -6,6 +6,8 @@ gem 'sqlite3'
 gem 'mongoid', '~> 3.0.0'
 gem 'bson_ext', '~> 1.6.2'
 
+gem 'geocoder', git: "git://github.com/bhammond/geocoder.git"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
