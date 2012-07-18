@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.6'
 
 gem 'sqlite3'
 gem 'mongoid', '~> 3.0.0'
@@ -20,21 +20,25 @@ group :assets do
 end
 
 gem 'simple_form'
+gem 'nested_form'
 gem 'country_select'
 gem 'jquery-rails'
 gem 'jbuilder'
 gem 'capistrano'
 
 group :development, :test do
+  gem 'database_cleaner'
+  gem 'minitest'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara' # Minispec and Capybara
+  gem 'minitest-capybara' # Rspec style Capybara helpers
+  gem 'turn' # Beautify Minitest output
+
+  gem 'miniskirt' # Factories
+  gem 'mocha' # Mocking and stubbing
+
+  # Replace irb with Pry
   gem 'pry-rails' #vervang IRB met pry (http://pry.github.com/); http://lucapette.com/pry/pry-everywhere/
   gem 'pry-doc'
   gem 'pry-remote'
-  gem 'database_cleaner'
-  gem 'minitest-spec-rails'
-  #gem 'mongoid-rspec', '>= 1.4.4'
-  #gem 'factory_girl_rails', '>= 1.4.0'
-  #gem 'rspec-rails', '>= 2.8.0.rc1'
-  #gem 'ZenTest'
-  #gem 'autotest-rails'
-  #gem 'capybara'
 end
