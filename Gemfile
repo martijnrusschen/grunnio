@@ -28,6 +28,10 @@ gem 'capistrano'
 
 group :development, :test do
   gem 'database_cleaner'
+
+  gem 'guard'
+  gem 'guard-minitest'
+
   gem 'minitest'
   gem 'minitest-rails'
   gem 'minitest-rails-capybara' # Minispec and Capybara
