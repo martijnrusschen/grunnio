@@ -13,8 +13,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require "minitest/rails"
 require 'minitest/autorun'
 require "minitest/rails/capybara"
-# require "minitest/pride"
-
 require 'miniskirt'
 require "factories" # If you define your factories in test/factories.rb
 require 'mocha'
@@ -27,9 +25,8 @@ class MiniTest::Rails::ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
+# Extends the class provided by the minitest-rails gem
 class MiniTest::Rails::ActionDispatch::IntegrationTest
-  # include Rails.application.routes.url_helpers
-  # include Capybara::DSL
   include Capybara::RSpecMatchers
 end
 
@@ -49,9 +46,9 @@ Turn.config do |c|
   # :pretty   - new pretty reporter
   # :marshal  - dump output as YAML (normal run mode only)
   # :cue      - interactive testing
-  c.format  = :cue
+  c.format  = :outline
   # turn on invoke/execute tracing, enable full backtrace
-  c.trace   = true
+  c.trace   = false
   # use humanized test names (works only with :outline format)
   c.natural = true
 end
