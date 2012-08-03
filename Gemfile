@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 gem 'capistrano'
 gem 'pg'
+gem 'therubyracer'
 
 # IMHO Foreign keys should be set in the database ;)
 gem 'foreigner'
