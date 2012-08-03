@@ -1,0 +1,31 @@
+.span8
+  = simple_form_for(@person, :defaults => { :input_html => { :class => 'span4' } }) do |f|
+    = f.error_notification
+
+    .form-inputs.well
+      %legend gegevens
+      = f.input :name,  placeholder: 'John Appleseed'
+      = f.input :headline, input_html: {rows: 10}, placeholder: 'Wie doet wat waar?'
+      / = f.input :categories, input_html: {value: @company.categories.join(","), data:{ categories: Company.popular_tags_list } , type: "hidden" }
+
+      = f.input :specialities
+      = f.input :birthdate, as: :datepicker
+      = f.input :biography
+
+    = f.simple_fields_for :card do |c|
+      .form-inputs.well
+        %legend contact
+        = c.input :general_email_address, as: :email, placeholder: 'john@appleseed.com'
+        = c.input :phone, as: :tel, placeholder: '0501234567'
+
+        = c.input :twitter_username, :wrapper => :prepend, :label => false do
+          = content_tag :span, "@", :class => "add-on", :style => 'margin-right: -5px;'
+          = c.input_field :twitter_username, placeholder: 'tweetme'
+        / = c.input :twitter_username, maxlength: :lookup
+        = c.input :website_url, :wrapper => :prepend, :label => false, as: :url do
+          = content_tag :span, "http://", :class => "add-on", :style => 'margin-right: -5px;'
+          = c.input_field :website_url, placeholder: 'www.website.nl'
+
+    .form-actions
+      = f.button :wrapped, cancel: companies_path, class: 'btn-large'
+

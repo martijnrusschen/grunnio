@@ -1,0 +1,24 @@
+-content_for :page_header do
+  %h1 Initiatieven
+
+-content_for :main do
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th= Initiative.human_attribute_name(:name)
+
+    - @initiatives.each do |initiative|
+      %tr
+        %td= link_to initiative.name, initiative
+        %td.btn-group
+          = link_to initiative_path(initiative), class: 'btn btn-mini' do
+            %i.icon-zoom-in
+          = link_to edit_initiative_path(initiative), class: 'btn btn-mini' do
+            %i.icon-edit
+          = link_to initiative, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
+            %i.icon-trash
+
+  =link_to t('actions.add', model: Initiative.model_name.human), new_initiative_path, class: 'btn btn-large'
+
+-content_for :sidebar do
+  =render partial: "shared/admin/actions"

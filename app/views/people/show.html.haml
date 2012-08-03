@@ -1,0 +1,31 @@
+%p#notice= notice
+
+-content_for :page_header do
+  %h1
+    = @person.name
+    =link_to t('actions.edit'), edit_person_path(@person), class: 'btn btn-mini'
+
+-content_for :main do
+  .well
+    %h4 gegevens
+    .row
+      %strong.span2= Person.human_attribute_name(:name)
+      %p.span9= @person.name
+    .row
+      %strong.span2= Person.human_attribute_name(:headline)
+      %p.span9= @person.headline
+    .row
+      %strong.span2= Person.human_attribute_name(:specialities)
+      %p.span9= @person.specialities
+    .row
+      %strong.span2= Person.human_attribute_name(:birthdate)
+      %p.span9= @person.birthdate
+    .row
+      %strong.span2= Person.human_attribute_name(:biography)
+      %p.span9= @person.biography
+
+  .well
+    =render "shared/cards/show", :card => @card
+
+-content_for :sidebar do
+  =render partial: "shared/admin/actions"

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+-content_for :page_header do
+  %h1
+    = @initiative.name
+    =link_to t('actions.edit'), edit_initiative_path(@initiative), class: 'btn btn-mini'
+
+-content_for :main do
+  .well
+    %h4 gegevens
+    .row
+      %strong.span2= Initiative.human_attribute_name(:name)
+      %p.span9= @initiative.name
+
+  .well
+    =render "shared/cards/show", :card => @card
+  .well
+    =render "shared/locations/show", :location => @location
+
+-content_for :sidebar do
+  =render partial: "shared/admin/actions"

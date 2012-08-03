@@ -1,0 +1,55 @@
+nl:
+  headers:
+    new: nieuw %{model}
+  navigation:
+    companies: bedrijven
+    initiatives: initiatieven
+    jobs: vacatures
+    persons: personen
+    actions: acties
+  actions:
+    show: toon
+    edit: wijzigen
+    delete: verwijder
+    add: "%{model} toevoegen"
+  activerecord:
+      models:
+        company: bedrijf
+        person: persoon
+        initiative: initiatief
+        job: vacature
+        card: adreskaart
+        location: locatie
+      attributes:
+        company:
+          category: categorie
+          description: beschrijving
+          founded_in: opgericht in
+          kvk_number: KVK-nummer
+          name: bedrijfsnaam
+          number_of_employees: "# werknemers"
+          company_type: type
+        person:
+          biography: bio
+          birthdate: geboortedatum
+          headline: headline
+          name: naam
+          specialities: specialiteiten
+        initiative:
+          name: naam
+        job:
+          description: functieomschrijving
+          title: functietitel
+        card:
+          general_email_address: e-mail
+          phone: telefoon
+          twitter_username: twitter
+          website_url: website
+        location:
+          street_address: straat
+          extended_address: toevoeging
+          postal_code: postcode
+          city: stad
+          locality: localiteit
+          region: provincie
+          country: land

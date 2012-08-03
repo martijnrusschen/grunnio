@@ -1,0 +1,8 @@
+-content_for :page_header do
+  %h1= @initiative.name
+
+-content_for :main do
+  =render 'form'
+
+-content_for :sidebar do
+  =render partial: "shared/admin/actions"

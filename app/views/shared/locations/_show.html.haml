@@ -1,0 +1,22 @@
+%h4 bezoekadres
+.row
+  %strong.span2= Location.human_attribute_name(:street_address)
+  %p.span4= location.street_address
+.row
+  %strong.span2= Location.human_attribute_name(:extended_address)
+  %p.span4= location.extended_address
+.row
+  %strong.span2= Location.human_attribute_name(:postal_code)
+  %p.span4= location.postal_code
+.row
+  %strong.span2= Location.human_attribute_name(:city)
+  %p.span4= location.city
+.row
+  %strong.span2= Location.human_attribute_name(:locality)
+  %p.span4= location.locality
+.row
+  %strong.span2= Location.human_attribute_name(:region)
+  %p.span4= location.region
+.row
+  %strong.span2= Location.human_attribute_name(:country)
+  %p.span4= location.country
