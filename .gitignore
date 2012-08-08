@@ -13,6 +13,9 @@ test/tmp
 test/version_tmp
 tmp
 
+# Ignore .lock files, eg Gemfile.lock
+*.lock
+
 # YARD artifacts
 .yardoc
 _yardoc
