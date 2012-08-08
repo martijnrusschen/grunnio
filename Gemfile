@@ -20,6 +20,7 @@ gem "rocket_tag"
 gem 'haml-rails'
 
 gem 'devise'
+gem 'devise_invitable'
 
 # Gems used only for assets and not required
 # in production environments by default.
