@@ -15,7 +15,7 @@ require 'minitest/autorun'
 require "minitest/rails/capybara"
 require 'miniskirt'
 require "factories" # If you define your factories in test/factories.rb
-require 'mocha'
+# require 'mocha'
 require 'turn'
 
 class MiniTest::Rails::ActiveSupport::TestCase
