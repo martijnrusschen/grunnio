@@ -8,7 +8,6 @@ gem 'therubyracer'
 # IMHO Foreign keys should be set in the database ;)
 gem 'foreigner'
 gem 'immigrant'
-
 gem 'geocoder'
 
 gem 'jbuilder'
@@ -18,8 +17,9 @@ gem 'nested_form'
 gem 'country_select'
 
 gem "rocket_tag"
-
 gem 'haml-rails'
+
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
