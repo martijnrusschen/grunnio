@@ -1,5 +1,7 @@
 SiliconGroningen::Application.routes.draw do
 
+  devise_for :accounts
+
   root to: 'companies#index'
 
   resources :jobs
