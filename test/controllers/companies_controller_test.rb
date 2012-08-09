@@ -45,6 +45,6 @@ class CompaniesControllerTest < MiniTest::Rails::ActionController::TestCase
       delete :destroy, id: @company.to_param
     end
 
-    assert_redirected_to companies_path
+    assert_redirected_to admin_companies_path
   end
 end
