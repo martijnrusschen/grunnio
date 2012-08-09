@@ -28,7 +28,7 @@
               / %li= link_to I18n.t('navigation.companies'), companies_path
               / %li= link_to I18n.t('navigation.initiatives'), initiatives_path
               / %li= link_to I18n.t('navigation.persons'), admin_people_path
-              / %li= link_to I18n.t('navigation.jobs'), jobs_path
+              / %li= link_to I18n.t('navigation.jobs'), admin_jobs_path
 
     .container
       .row
@@ -38,7 +38,7 @@
         / %li= link_to I18n.t('navigation.companies'), companies_path, data: {toggle: "tab"}
         / %li= link_to I18n.t('navigation.initiatives'), initiatives_path, data: {toggle: "tab"}
         / %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.jobs'), jobs_path, data: {toggle: "tab"}
+        / %li= link_to I18n.t('navigation.jobs'), admin_jobs_path, data: {toggle: "tab"}
       .row
         .page-header
           =yield :page_header

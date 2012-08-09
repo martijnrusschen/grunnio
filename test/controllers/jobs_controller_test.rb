@@ -45,7 +45,7 @@ describe JobsController do
       delete :destroy, id: @job.to_param
     end
 
-    assert_redirected_to jobs_path
+    assert_redirected_to admin_jobs_path
   end
 
 end
