@@ -22,7 +22,7 @@ describe JobsController do
       post :create, job: @job.attributes
     end
 
-    assert_redirected_to job_path(assigns(:job))
+    assert_redirected_to admin_job_path(assigns(:job))
   end
 
   it "must show job" do
@@ -37,7 +37,7 @@ describe JobsController do
 
   it "must update job" do
     put :update, id: @job.to_param, job: @job.attributes
-    assert_redirected_to job_path(assigns(:job))
+    assert_redirected_to admin_job_path(assigns(:job))
   end
 
   it "must destroy job" do

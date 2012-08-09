@@ -13,9 +13,9 @@
       %td= job.title
       %td= job.description
       %td= link_to 'Show', job
-      %td= link_to 'Edit', edit_job_path(job)
+      %td= link_to 'Edit', edit_admin_job_path(job)
       %td= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Job', new_job_path
+= link_to 'New Job', new_admin_job_path
