@@ -13,7 +13,7 @@
 
     - @people.each do |person|
       %tr
-        %td= link_to person.name, person
+        %td= link_to person.name, [:admin, person]
         %td= person.headline
         %td= person.specialities
         %td= person.birthdate
@@ -24,7 +24,7 @@
             %i.icon-zoom-in
           = link_to edit_admin_person_path(person), class: 'btn btn-mini' do
             %i.icon-edit
-          = link_to person, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
+          = link_to [:admin, person], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
             %i.icon-trash
 
   =link_to t('actions.add', model: Person.model_name.human), new_admin_person_path, class: 'btn btn-large'

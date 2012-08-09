@@ -15,7 +15,7 @@
 
     - @companies.each do |company|
       %tr
-        %td= link_to company.name, company
+        %td= link_to(company.name, [:admin, company])
         / %td
         /   %p.description= company.description
         / %td= company.category
@@ -27,7 +27,7 @@
             %i.icon-zoom-in
           = link_to edit_admin_company_path(company), class: 'btn btn-mini' do
             %i.icon-edit
-          = link_to admin_company, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
+          = link_to [:admin, company], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
             %i.icon-trash
 
   =link_to t('actions.add', model: Company.model_name.human), new_admin_company_path, class: 'btn btn-large'
