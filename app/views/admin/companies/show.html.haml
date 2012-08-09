@@ -1,0 +1,33 @@
+%p#notice= notice
+
+-content_for :page_header do
+  %h1
+    = @company.name
+    =link_to t('actions.edit'), edit_admin_company_path(@company), class: 'btn btn-mini'
+
+-content_for :main do
+  .well
+    %h4 gegevens
+    .row
+      %strong.span2= Company.human_attribute_name(:description)
+      %p.span9= @company.description
+    .row
+      %strong.span2= Company.human_attribute_name(:categories)
+      %p.span9= @company.categories
+    .row
+      %strong.span2= Company.human_attribute_name(:founded_in)
+      %p.span9= @company.founded_in
+    .row
+      %strong.span2= Company.human_attribute_name(:number_of_employees)
+      %p.span9= @company.number_of_employees
+    .row
+      %strong.span2= Company.human_attribute_name(:kvk_number)
+      %p.span9= @company.kvk_number
+
+  .well
+    =render "shared/cards/show", :card => @card
+  .well
+    =render "shared/locations/show", :location => @location
+
+-content_for :sidebar do
+  =render partial: "shared/admin/actions"

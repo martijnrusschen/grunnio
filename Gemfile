@@ -19,6 +19,7 @@ gem 'country_select'
 gem "rocket_tag"
 gem 'haml-rails'
 
+gem 'inherited_resources'
 gem 'devise'
 gem 'devise_invitable'
 

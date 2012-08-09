@@ -2,28 +2,31 @@ SiliconGroningen::Application.routes.draw do
 
   devise_for :accounts
 
-  root to: 'companies#index'
+  root to: 'home#show'
 
-  resources :jobs
-
-  resources :people do
-    resource :card
-    resources :companies
-    resources :initiatives
-  end
-
-
-  resources :initiatives do
-    resource :card
-    resource :location
-    resources :people
-  end
-
-  resources :companies do
-    resource :card
-    resource :location
+  namespace :admin do
+    root to: 'companies#index'
     resources :jobs
-    resources :people
+
+    resources :people do
+      resource :card
+      resources :companies
+      resources :initiatives
+    end
+
+
+    resources :initiatives do
+      resource :card
+      resource :location
+      resources :people
+    end
+
+    resources :companies do
+      resource :card
+      resource :location
+      resources :jobs
+      resources :people
+    end
   end
 
 

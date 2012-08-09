@@ -22,7 +22,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href=root_path) Silicon Groningen
+          %a.brand(href=root_path) Silicon Groningen | Admin
           .container.nav-collapse
             %ul.nav
               / %li= link_to I18n.t('navigation.companies'), companies_path
@@ -35,10 +35,10 @@
         %p.notice= notice
         %p.alert= alert
       %ul.nav.nav-tabs
-        / %li= link_to I18n.t('navigation.companies'), companies_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.initiatives'), initiatives_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.persons'), people_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.jobs'), jobs_path, data: {toggle: "tab"}
+        %li= link_to I18n.t('navigation.companies'), admin_companies_path, data: {toggle: "tab"}
+        %li= link_to I18n.t('navigation.initiatives'), admin_initiatives_path, data: {toggle: "tab"}
+        %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
+        %li= link_to I18n.t('navigation.jobs'), admin_jobs_path, data: {toggle: "tab"}
       .row
         .page-header
           =yield :page_header
