@@ -45,7 +45,7 @@ describe PeopleController do
       delete :destroy, id: @person.to_param
     end
 
-    assert_redirected_to people_path
+    assert_redirected_to admin_people_path
   end
 
 end

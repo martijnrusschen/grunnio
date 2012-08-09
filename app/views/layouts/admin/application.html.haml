@@ -27,7 +27,7 @@
             %ul.nav
               / %li= link_to I18n.t('navigation.companies'), companies_path
               / %li= link_to I18n.t('navigation.initiatives'), admin_initiatives_path
-              / %li= link_to I18n.t('navigation.persons'), people_path
+              / %li= link_to I18n.t('navigation.persons'), admin_people_path
               / %li= link_to I18n.t('navigation.jobs'), jobs_path
 
     .container
@@ -37,7 +37,7 @@
       %ul.nav.nav-tabs
         %li= link_to I18n.t('navigation.companies'), admin_companies_path, data: {toggle: "tab"}
         %li= link_to I18n.t('navigation.initiatives'), admin_admin_initiatives_path, data: {toggle: "tab"}
-        %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
+        %li= link_to I18n.t('navigation.persons'), admin_admin_people_path, data: {toggle: "tab"}
         %li= link_to I18n.t('navigation.jobs'), admin_jobs_path, data: {toggle: "tab"}
       .row
         .page-header

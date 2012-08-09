@@ -27,7 +27,7 @@
             %ul.nav
               / %li= link_to I18n.t('navigation.companies'), companies_path
               / %li= link_to I18n.t('navigation.initiatives'), initiatives_path
-              / %li= link_to I18n.t('navigation.persons'), people_path
+              / %li= link_to I18n.t('navigation.persons'), admin_people_path
               / %li= link_to I18n.t('navigation.jobs'), jobs_path
 
     .container
@@ -37,7 +37,7 @@
       %ul.nav.nav-tabs
         / %li= link_to I18n.t('navigation.companies'), companies_path, data: {toggle: "tab"}
         / %li= link_to I18n.t('navigation.initiatives'), initiatives_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.persons'), people_path, data: {toggle: "tab"}
+        / %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
         / %li= link_to I18n.t('navigation.jobs'), jobs_path, data: {toggle: "tab"}
       .row
         .page-header
