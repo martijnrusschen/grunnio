@@ -1,79 +1,25 @@
-class Admin::PeopleController < ApplicationController
-  respond_to :html, :json
-
-  # GET /people
-  # GET /people.json
-  def index
-    @people = Person.all
-    respond_with @people
-  end
-
-  # GET /people/1
-  # GET /people/1.json
-  def show
-    @person = Person.find(params[:id])
-    @card = @person.card
-
-    respond_with @person
-  end
-
-  # GET /people/new
-  # GET /people/new.json
+class Admin::PeopleController < Admin::ResourceController
   def new
     @person = Person.new
     @card = @person.build_card
-
-    respond_with @person, @card
+    new!
   end
 
-  # GET /people/1/edit
-  def edit
-    @person = Person.find(params[:id])
-    @card = @person.card.nil? ? @person.build_card : @person.card
-  end
-
-  # POST /people
-  # POST /people.json
   def create
     @person = Person.new(params[:person])
     @card = @person.card
-
-    respond_to do |format|
-      if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
-        format.json { render json: @person, status: :created, location: @person }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
+    create!
   end
 
-  # PUT /people/1
-  # PUT /people/1.json
-  def update
+  def show
     @person = Person.find(params[:id])
-
-    respond_to do |format|
-      if @person.update_attributes(params[:person])
-        format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
+    @card = @person.card
+    show!
   end
 
-  # DELETE /people/1
-  # DELETE /people/1.json
-  def destroy
+  def edit
     @person = Person.find(params[:id])
-    @person.destroy
-
-    respond_to do |format|
-      format.html { redirect_to people_url }
-      format.json { head :no_content }
-    end
+    @card = @person.card.nil? ? @person.build_card : @person.card
+    edit!
   end
 end
