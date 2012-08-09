@@ -29,12 +29,27 @@
               / %li= link_to I18n.t('navigation.initiatives'), initiatives_path
               / %li= link_to I18n.t('navigation.persons'), admin_people_path
               / %li= link_to I18n.t('navigation.jobs'), admin_jobs_path
+            %ul.nav.pull-right
+              -if account_signed_in? && current_account.admin?
+                %li= link_to('admin', admin_root_path)
+                %li= link_to('sign out', destroy_account_session_path, :method => :delete)
+              -elsif account_signed_in?
+                %li= link_to('sign out', destroy_account_session_path, :method => :delete)
+              -else
+                %li= link_to('sign in', new_account_session_path)
+
+    -if notice
+      %div.alert.alert-info.fade.in
+        = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
+        = notice
+
+    -if alert
+      %div.alert.alert-error.fade.in
+        = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
+        = alert
 
     .container
-      .row
-        %p.notice= notice
-        %p.alert= alert
-      %ul.nav.nav-tabs
+      -#  %ul.nav.nav-tabs
         / %li= link_to I18n.t('navigation.companies'), companies_path, data: {toggle: "tab"}
         / %li= link_to I18n.t('navigation.initiatives'), initiatives_path, data: {toggle: "tab"}
         / %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
