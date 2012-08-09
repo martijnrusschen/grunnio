@@ -22,7 +22,7 @@ describe InitiativesController do
       post :create, initiative: @initiative.attributes
     end
 
-    assert_redirected_to initiative_path(assigns(:initiative))
+    assert_redirected_to admin_initiative_path(assigns(:initiative))
   end
 
   it "must show initiative" do
@@ -37,7 +37,7 @@ describe InitiativesController do
 
   it "must update initiative" do
     put :update, id: @initiative.to_param, initiative: @initiative.attributes
-    assert_redirected_to initiative_path(assigns(:initiative))
+    assert_redirected_to admin_initiative_path(assigns(:initiative))
   end
 
   it "must destroy initiative" do
@@ -45,7 +45,7 @@ describe InitiativesController do
       delete :destroy, id: @initiative.to_param
     end
 
-    assert_redirected_to initiatives_path
+    assert_redirected_to admin_initiatives_path
   end
 
 end
