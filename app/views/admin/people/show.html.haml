@@ -3,7 +3,7 @@
 -content_for :page_header do
   %h1
     = @person.name
-    =link_to t('actions.edit'), edit_person_path(@person), class: 'btn btn-mini'
+    =link_to t('actions.edit'), edit_admin_person_path(@person), class: 'btn btn-mini'
 
 -content_for :main do
   .well

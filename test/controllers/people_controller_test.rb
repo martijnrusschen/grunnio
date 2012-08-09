@@ -22,7 +22,7 @@ describe PeopleController do
       post :create, person: @person.attributes
     end
 
-    assert_redirected_to person_path(assigns(:person))
+    assert_redirected_to admin_person_path(assigns(:person))
   end
 
   it "must show person" do
@@ -37,7 +37,7 @@ describe PeopleController do
 
   it "must update person" do
     put :update, id: @person.to_param, person: @person.attributes
-    assert_redirected_to person_path(assigns(:person))
+    assert_redirected_to admin_person_path(assigns(:person))
   end
 
   it "must destroy person" do
