@@ -47,6 +47,16 @@ body {
 @navbarLinkColor: darken(@navbarBackground, 40%);
 @navbarLinkColorHover: darken(@navbarBackground, 90%);
 
+.alert p {
+  text-align: center;
+  margin: 0;
+  font-family: @headingsFontFamily;
+  font-weight: @headingsFontWeight;
+  font-size: 18px;
+  line-height: @baseLineHeight * 1.5;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+}
+
 
 table p {
 word-wrap: break-word;

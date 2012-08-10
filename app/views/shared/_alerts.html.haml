@@ -1,0 +1,9 @@
+-if notice
+  %div.alert.alert-info.fade.in
+    = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
+    %p= notice
+
+-if alert
+  %div.alert.alert-error.fade.in
+    = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
+    %p= alert

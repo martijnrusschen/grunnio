@@ -38,15 +38,7 @@
               -else
                 %li= link_to('sign in', new_account_session_path)
 
-    -if notice
-      %div.alert.alert-info.fade.in
-        = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
-        = notice
-
-    -if alert
-      %div.alert.alert-error.fade.in
-        = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
-        = alert
+    =render partial: 'shared/alerts'
 
     .container
       -#  %ul.nav.nav-tabs
