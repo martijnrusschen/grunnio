@@ -2,35 +2,7 @@
   %h1 Bedrijven
 
 -content_for :main do
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th= Company.human_attribute_name(:name)
-        / %th= Company.human_attribute_name(:description)
-        / %th= Company.human_attribute_name(:category)
-        %th= Company.human_attribute_name(:founded_in)
-        %th= Company.human_attribute_name(:number_of_employees)
-        %th= Company.human_attribute_name(:kvk_number)
-        / %th
-
-    - @companies.each do |company|
-      %tr
-        %td= link_to(company.name, [:admin, company])
-        / %td
-        /   %p.description= company.description
-        / %td= company.category
-        %td= company.founded_in
-        %td= company.number_of_employees
-        %td= company.kvk_number
-        %td.btn-group
-          = link_to admin_company_path(company), class: 'btn btn-mini' do
-            %i.icon-zoom-in
-          = link_to edit_admin_company_path(company), class: 'btn btn-mini' do
-            %i.icon-edit
-          = link_to [:admin, company], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
-            %i.icon-trash
-
-  =link_to t('actions.add', model: Company.model_name.human), new_admin_company_path, class: 'btn btn-large'
+  =render 'index', :companies => @companies
 
 -content_for :sidebar do
   =render partial: "shared/admin/actions"

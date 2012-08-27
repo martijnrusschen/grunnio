@@ -2,32 +2,4 @@
   %h1 Personen
 
 -content_for :main do
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th= Person.human_attribute_name(:name)
-        %th= Person.human_attribute_name(:headline)
-        %th= Person.human_attribute_name(:specialities)
-        %th= Person.human_attribute_name(:birthdate)
-        %th= Person.human_attribute_name(:biography)
-
-    - @people.each do |person|
-      %tr
-        %td= link_to person.name, [:admin, person]
-        %td= person.headline
-        %td= person.specialities
-        %td= person.birthdate
-        %td= person.biography
-
-        %td.btn-group
-          = link_to admin_person_path(person), class: 'btn btn-mini' do
-            %i.icon-zoom-in
-          = link_to edit_admin_person_path(person), class: 'btn btn-mini' do
-            %i.icon-edit
-          = link_to [:admin, person], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
-            %i.icon-trash
-
-  =link_to t('actions.add', model: Person.model_name.human), new_admin_person_path, class: 'btn btn-large'
-
--content_for :sidebar do
-  =render partial: "shared/admin/actions"
+  =render 'index', people: @people

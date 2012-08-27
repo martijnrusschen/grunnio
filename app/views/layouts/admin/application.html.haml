@@ -35,22 +35,12 @@
               -else
                 %li= link_to('sign in', new_account_session_path)
 
-    =render partial: 'shared/alerts'
+    =render 'shared/alerts'
+    =render 'admin/shared/breadcrumbs'
 
     .container
-      %ul.nav.nav-tabs
-        %li= link_to I18n.t('navigation.companies'), admin_companies_path, data: {toggle: "tab"}
-        %li= link_to I18n.t('navigation.initiatives'), admin_initiatives_path, data: {toggle: "tab"}
-        %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
-        %li= link_to I18n.t('navigation.jobs'), admin_jobs_path, data: {toggle: "tab"}
       .row
-        .page-header
-          =yield :page_header
-      .row
-        .span12.content
-          =yield :main
-        / .span3
-        /   =yield :sidebar
+        =yield :main
 
     /
       Javascripts

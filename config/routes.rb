@@ -4,7 +4,7 @@ SiliconGroningen::Application.routes.draw do
   devise_for :accounts, skip: :registrations
 
   namespace :admin do
-    root to: 'companies#index'
+    root to: 'dashboard#show'
 
     resources :accounts
     resources :jobs

@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'nested_form'
 gem 'country_select'
+gem 'breadcrumbs_on_rails'
 
 gem "rocket_tag"
 gem 'haml-rails'

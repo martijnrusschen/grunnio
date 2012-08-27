@@ -1,0 +1,30 @@
+=content_for :main do
+  %ul.thumbnails
+    %li.span3
+      .thumbnail
+        =link_to image_tag('http://placehold.it/250x250&text=bedrijven'), admin_companies_path, class: 'thumbnail'
+        .caption
+          =link_to '+ bedrijf', new_admin_company_path, class: 'btn btn-large btn-primary'
+          =link_to 'alle bedrijven', admin_companies_path, class: 'btn btn-large'
+
+    %li.span3
+      .thumbnail
+        =link_to image_tag('http://placehold.it/250x250&text=initiatieven'), admin_initiatives_path, class: 'thumbnail'
+        .caption
+          =link_to '+ initiatief', new_admin_initiative_path, class: 'btn btn-large btn-primary'
+          =link_to 'alle initiatieven', admin_initiatives_path, class: 'btn btn-large'
+
+    %li.span3
+      .thumbnail
+        =link_to image_tag('http://placehold.it/250x250&text=personen'), admin_people_path, class: 'thumbnail'
+        .caption
+          =link_to '+ persoon', new_admin_person_path, class: 'btn btn-large btn-primary'
+          =link_to 'alle personen', admin_people_path, class: 'btn btn-large'
+
+    %li.span3
+      .thumbnail
+        =link_to image_tag('http://placehold.it/250x250&text=vacatures'), admin_jobs_path, class: 'thumbnail'
+        .caption
+          =link_to '+ vacature', new_admin_job_path, class: 'btn btn-large btn-primary'
+          =link_to 'alle vacatures', admin_jobs_path, class: 'btn btn-large'
+
