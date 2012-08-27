@@ -7,8 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-RocketTag::Tag.create(name: "design")
-RocketTag::Tag.create(name: "development")
-RocketTag::Tag.create(name: "services")
-RocketTag::Tag.create(name: "products")
+# RocketTag::Tag.create(name: "design")
+# RocketTag::Tag.create(name: "development")
+# RocketTag::Tag.create(name: "services")
+# RocketTag::Tag.create(name: "products")
 # RocketTag::Tag.create(name: "consultancy")
+
+Account.create!(email: 'sebastiaan@pouyet.nl', password: 'silgrongrunnio')
