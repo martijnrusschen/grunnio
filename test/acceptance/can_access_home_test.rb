@@ -4,6 +4,6 @@ require "test_helper"
 describe "CanAccessHome Acceptance Test" do
   it "must have a content" do
     visit "/"
-    must_have_content "Silicon Groningen"
+    must_have_content "grunn.io"
     end
 end
