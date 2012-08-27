@@ -1,12 +1,13 @@
 SiliconGroningen::Application.routes.draw do
-
   root to: 'home#show'
   devise_for :accounts, skip: :registrations
+
 
   namespace :admin do
     root to: 'dashboard#show'
 
     resources :accounts
+
     resources :jobs
 
     resources :people do
@@ -14,7 +15,6 @@ SiliconGroningen::Application.routes.draw do
       resources :companies
       resources :initiatives
     end
-
 
     resources :initiatives do
       # resource :card
@@ -28,6 +28,7 @@ SiliconGroningen::Application.routes.draw do
       resources :jobs
       resources :people
     end
+
   end
 
 

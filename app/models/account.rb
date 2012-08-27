@@ -6,6 +6,8 @@ class Account < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :invitable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
   # attr_accessible :title, :body
+
+  default_scope order: 'id ASC'
 end

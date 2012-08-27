@@ -22,15 +22,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href=root_path) Silicon Groningen | Admin
+          %a.brand(href=admin_root_path) Silicon Groningen | Admin
           .container.nav-collapse
             %ul.nav
               %li= link_to I18n.t('navigation.companies'), admin_companies_path
               %li= link_to I18n.t('navigation.initiatives'), admin_initiatives_path
               %li= link_to I18n.t('navigation.persons'), admin_people_path
               %li= link_to I18n.t('navigation.jobs'), admin_jobs_path
-
-              -if account_signed_in?
+            %ul.nav.pull-right
+              -if account_signed_in? && current_account.admin?
                 %li= link_to('sign out', destroy_account_session_path, :method => :delete)
               -else
                 %li= link_to('sign in', new_account_session_path)
