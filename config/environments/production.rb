@@ -49,7 +49,9 @@ SiliconGroningen::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Add default url in mails as per Devise setup instructions
-  config.action_mailer.default_url_options = { :host => 'sg.serepo.com' }
+  config.action_mailer.default_url_options = { :host => 'grunn.io' }
+
+  config.action_mailer.delivery_method = :sendmail
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
