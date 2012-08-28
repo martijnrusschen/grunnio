@@ -20,7 +20,7 @@ class Admin::CompaniesController < Admin::ResourceController
     @company = Company.find(params[:id])
     @card = @company.card
     @location = @company.location
-    add_breadcrumb @company.name
+    # add_breadcrumb @company.name
     show!
   end
 
