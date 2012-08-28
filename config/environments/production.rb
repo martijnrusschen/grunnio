@@ -54,7 +54,7 @@ SiliconGroningen::Application.configure do
   config.action_mailer.delivery_method = :sendmail
 
   config.middleware.use ExceptionNotifier,
-    sender_address: %{"ExceptionNotifier grunn.io (production)" <exceptions@grunn.io>},
+    sender_address: %w{"ExceptionNotifier grunn.io (production)" <exceptions@grunn.io>},
     exception_recipients: %w{'sebastiaan@pouyet.nl'}
 
   # Disable delivery errors, bad email addresses will be ignored
