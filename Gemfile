@@ -24,6 +24,8 @@ gem 'inherited_resources'
 gem 'devise'
 gem 'devise_invitable'
 
+gem 'exception_notification'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -35,6 +37,7 @@ end
 
 group :development, :test do
   gem 'database_cleaner'
+  gem 'letter_opener'
 
   gem 'guard'
   gem 'guard-minitest'

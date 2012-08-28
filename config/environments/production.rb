@@ -53,6 +53,11 @@ SiliconGroningen::Application.configure do
 
   config.action_mailer.delivery_method = :sendmail
 
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'grunnio-exceptions@asimov.serepo.com',
+    exception_recipients: 'sebastiaan@pouyet.nl'
+
+
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
