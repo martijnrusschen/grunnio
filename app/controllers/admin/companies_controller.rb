@@ -2,7 +2,7 @@ class Admin::CompaniesController < Admin::ResourceController
   add_breadcrumb "bedrijven", :admin_companies_path
 
   def new
-    add_breadcrumb "nieuw"
+    add_breadcrumb "nieuw", new_admin_company_path
     @company = Company.new
     @card = @company.build_card
     @location = @company.build_location
@@ -20,7 +20,7 @@ class Admin::CompaniesController < Admin::ResourceController
     @company = Company.find(params[:id])
     @card = @company.card
     @location = @company.location
-    # add_breadcrumb @company.name
+    add_breadcrumb @company.name, admin_company_path(@company)
     show!
   end
 
@@ -28,7 +28,7 @@ class Admin::CompaniesController < Admin::ResourceController
     @company = Company.find(params[:id])
     @card = @company.card.nil? ? @company.build_card : @company.card
     @location = @company.location.nil? ? @company.build_location : @company.location
-    add_breadcrumb "wijzigen"
+    add_breadcrumb "wijzigen", edit_admin_company_path(@company)
     edit!
   end
 end
