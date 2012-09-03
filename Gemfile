@@ -9,7 +9,7 @@ gem 'rails-i18n'
 # IMHO Foreign keys should be set in the database ;)
 gem 'foreigner'
 gem 'immigrant'
-gem 'activerecord-postgres-hstore'
+gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 gem 'geocoder'
 
 gem 'jbuilder'
