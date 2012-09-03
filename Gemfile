@@ -4,6 +4,7 @@ gem 'rails', '3.2.6'
 gem 'capistrano'
 gem 'pg'
 gem 'therubyracer'
+gem 'rails-i18n'
 
 # IMHO Foreign keys should be set in the database ;)
 gem 'foreigner'
