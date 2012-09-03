@@ -19,13 +19,12 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :location, update_only: true
   accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-
   attr_taggable :categories
 
   validates :name, length: { maximum: 255 }, presence: true
-  validates :founded_in, numericality: { only_integer: true }, length: { is: 4 }, allow_nil: true
-  validates :kvk_number, length: { is: 8 }, numericality: { only_integer: true }, allow_nil: true
-  validates :number_of_employees, numericality: { only_integer: true }, allow_nil: true
+  validates :founded_in, numericality: { only_integer: true }, length: { is: 4 }, allow_blank: true
+  validates :kvk_number, length: { is: 8 }, numericality: { only_integer: true }, allow_blank: true
+  validates :number_of_employees, numericality: { only_integer: true }, allow_blank: true
 
   # TODO Category: tagging
   # design, development, services, product, consultancy - een per bedrijf
