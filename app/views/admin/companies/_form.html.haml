@@ -14,6 +14,11 @@
     = f.input :number_of_employees, :input_html => { :class => 'span1' }, placeholder: "1..."
     = f.input :kvk_number, :input_html => { :class => 'span1' }, placeholder: "12345678..."
 
+  = f.simple_fields_for :products do |product|
+    = render 'product_fields', f: product
+  .links
+    = link_to_add_association "Add product", f, :products
+
   = f.simple_fields_for :card do |c|
     .form-inputs.well
       %legend contact

@@ -4,6 +4,7 @@ gem 'rails', '3.2.6'
 gem 'capistrano'
 gem 'pg'
 gem 'therubyracer'
+gem 'rails-i18n'
 
 # IMHO Foreign keys should be set in the database ;)
 gem 'foreigner'
@@ -13,7 +14,8 @@ gem 'geocoder'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'nested_form'
+gem 'cocoon'
+# gem 'nested_form'
 gem 'country_select'
 gem 'breadcrumbs_on_rails'
 
@@ -24,7 +26,7 @@ gem 'inherited_resources'
 gem 'devise'
 gem 'devise_invitable'
 
-gem 'exception_notification'
+gem 'airbrake'
 
 # Gems used only for assets and not required
 # in production environments by default.

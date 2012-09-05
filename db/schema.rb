@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809212550) do
+ActiveRecord::Schema.define(:version => 20120903125428) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",                                :default => "",    :null => false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20120809212550) do
     t.string   "category"
     t.integer  "founded_in"
     t.integer  "number_of_employees"
-    t.integer  "kvk_number"
+    t.string   "kvk_number"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
@@ -122,6 +122,19 @@ ActiveRecord::Schema.define(:version => 20120809212550) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "website_url"
+    t.date     "market_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "productable_id"
+    t.string   "productable_type"
+  end
+
+  add_index "products", ["productable_id", "productable_type"], :name => "index_products_on_productable_id_and_productable_type"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

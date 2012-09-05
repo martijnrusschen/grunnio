@@ -11,7 +11,7 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :initiatives
 
-  accepts_nested_attributes_for :card
+  accepts_nested_attributes_for :card, update_only: true
 
 end
 
