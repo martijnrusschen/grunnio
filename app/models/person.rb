@@ -13,6 +13,11 @@ class Person < ActiveRecord::Base
 
   accepts_nested_attributes_for :card, update_only: true
 
+  # hstore_accessor :websites, :personal, :blog, :portfolio
+
+  # oneindig adressen, met keuzelijst label corporate / blog
+
+
 end
 
 # TODO: Personen alleen via bedrijf en/of initiatief toevoegen
