@@ -26,6 +26,7 @@ gem 'haml-rails'
 gem 'inherited_resources'
 gem 'devise'
 gem 'devise_invitable'
+gem 'cancan'
 
 gem 'airbrake'
 
