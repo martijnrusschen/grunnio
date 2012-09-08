@@ -45,7 +45,7 @@ GEM
     ansi (1.4.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    blankslate (2.1.2.4)
+    blankslate (3.1.2)
     breadcrumbs_on_rails (2.2.0)
     builder (3.0.2)
     cancan (1.6.8)
