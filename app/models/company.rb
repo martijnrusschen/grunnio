@@ -1,4 +1,6 @@
 class Company < ActiveRecord::Base
+  include Authority::Abilities
+
   serialize :websites, ActiveRecord::Coders::Hstore
 
   attr_accessible :description,

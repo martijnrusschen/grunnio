@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  include Authority::Abilities
+
   attr_accessible :description,
                   :market_date,
                   :name,
