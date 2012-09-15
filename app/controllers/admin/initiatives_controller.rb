@@ -1,29 +1,38 @@
 class Admin::InitiativesController < Admin::ResourceController
- def new
+  authorize_actions_for Initiative
+
+  def new
    @initiative = Initiative.new
    @card = @initiative.build_card
    @location = @initiative.build_location
    new!
- end
+  end
 
- def create
+  def create
    @initiative = Initiative.new(params[:initiative])
    @card = @initiative.card
    @location = @initiative.location
    create!
- end
+  end
 
- def show
+  def show
    @initiative = Initiative.find(params[:id])
    @card = @initiative.card
    @location = @initiative.location
    show!
- end
+  end
 
- def edit
+  def edit
    @initiative = Initiative.find(params[:id])
+   authorize_action_for(@initiative)
    @card = @initiative.card.nil? ? @initiative.build_card : @initiative.card
    @location = @initiative.location.nil? ? @initiative.build_location : @initiative.location
    edit!
- end
+  end
+
+  def destroy
+   @initiative = Initiative.find(params[:id])
+   authorize_action_for(@initiative)
+   destroy!
+  end
 end

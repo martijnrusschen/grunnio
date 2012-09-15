@@ -1,4 +1,5 @@
 class Admin::CompaniesController < Admin::ResourceController
+  authorize_actions_for Company
   add_breadcrumb "bedrijven", :admin_companies_path
 
   def new
@@ -26,9 +27,16 @@ class Admin::CompaniesController < Admin::ResourceController
 
   def edit
     @company = Company.find(params[:id])
+    authorize_action_for(@company)
     @card = @company.card.nil? ? @company.build_card : @company.card
     @location = @company.location.nil? ? @company.build_location : @company.location
     add_breadcrumb "wijzigen", edit_admin_company_path(@company)
     edit!
+  end
+
+  def destroy
+    @company = Company.find(params[:id])
+    authorize_action_for(@company)
+    destroy!
   end
 end
