@@ -22,44 +22,39 @@ class ApplicationAuthorizer < Authority::Authorizer
 
   # Example call: `default(:creatable, current_account)`
   def self.default(able, account)
-    account.admin?
+    account.has_role? :admin
   end
 
-  def self.creatable_by?(account)
-    account.admin?
-  end
+  # def self.creatable_by?(account)
+  #   account.has_role? :admin
+  # end
 
   def self.readable_by?(account)
     true
   end
 
   def self.updatable_by?(account)
-    account.admin?
+    account.has_role? :admin
   end
 
-  def self.deletable_by?(account)
-    account.admin?
-  end
+  # def self.deletable_by?(account)
+  #   account.has_role? :admin
+  # end
 
 # Instances
-  # def creatable_by?(account)
-  #   account.admin?
-  # end
+  def default(able, account)
+    account.has_role?(:editor, resource) || account.has_role?(:admin)
+  end
 
   def readable_by?(account)
     true
   end
 
   def updatable_by?(account)
-    account.admin?
-    # TODO: ownership implementeren
-    # account.admin? || resource.owner == account
+    account.has_role?(:editor, resource) || account.has_role?(:admin)
   end
 
   def deletable_by?(account)
-    account.admin?
+    account.has_role? :admin
   end
-
-
-
 end
