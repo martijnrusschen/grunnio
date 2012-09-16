@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   include Authority::Abilities
+  resourcify
 
   serialize :websites, ActiveRecord::Coders::Hstore
 

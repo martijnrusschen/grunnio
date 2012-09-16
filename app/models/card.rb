@@ -1,5 +1,6 @@
 class Card < ActiveRecord::Base
   include Authority::Abilities
+  resourcify
 
   attr_accessible :general_email_address,
                   :phone,

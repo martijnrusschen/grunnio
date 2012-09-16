@@ -31,7 +31,7 @@
               / %li= link_to I18n.t('navigation.persons'), admin_people_path
               / %li= link_to I18n.t('navigation.jobs'), admin_jobs_path
             %ul.nav.pull-right
-              -if account_signed_in? && current_account.admin?
+              -if account_signed_in? && current_account.is_admin?
                 %li= link_to('admin', admin_root_path)
                 %li= link_to('sign out', destroy_account_session_path, :method => :delete)
               -elsif account_signed_in?

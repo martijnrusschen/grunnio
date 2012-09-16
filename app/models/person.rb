@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
   include Authority::Abilities
+  resourcify
 
   attr_accessible :biography,
                   :birthdate,

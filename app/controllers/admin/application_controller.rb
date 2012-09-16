@@ -7,6 +7,6 @@ class Admin::ApplicationController < ActionController::Base
 
 private
   def authenticate_admin!
-    (current_account.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_account.admin?)
+    (current_account.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_account.is_admin?)
   end
 end

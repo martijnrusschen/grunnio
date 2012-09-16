@@ -13,6 +13,7 @@ class Account < ActiveRecord::Base
   # attr_accessible :title, :body
 
   default_scope order: 'id ASC'
+
 end
 
 #TODO Sebastiaan :admin protected maken + bijlezen attr_accessible :)
