@@ -2,6 +2,9 @@ SiliconGroningen::Application.routes.draw do
   root to: 'home#show'
   devise_for :accounts, skip: :registrations
 
+  resources :companies
+  resources :people
+  resources :initiatives
 
   namespace :admin do
     root to: 'dashboard#show'

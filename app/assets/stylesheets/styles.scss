@@ -1,0 +1,84 @@
+﻿//  Taiga Boilerplate 1.0
+//  Copyright 2012 by Studio Wolf
+//  Licensed under the MIT license
+
+//  Run the following SASS command: 'sass --watch stylesheets --style compressed'
+//  Make sure you set the variables below (find the grid documentation in lib/_grid.scss)
+
+/* ========================= Variables ================================== */
+
+$font-family: 'Helvetica Neue', Arial, sans-serif;
+$font-size: 15px;
+
+$grid-columns: 48;
+$max-width: 960px;
+$margin-bottom: 1.25em;
+
+$color-brand: #0e8a41;
+$color-error: #d24226;
+$color-success: #5DA423;
+$black: #050505;
+$white: #fff;
+
+/* ========================= Basic includes ============================= */
+
+@import "taiga/_reset";
+@import "taiga/_mixins";
+@import "taiga/_grid";
+
+/* ========================= General tags =============================== */
+
+html {
+    color: lighten($black, 25%);
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+body { line-height: 1.5em; }
+
+/* ========================= Structure ================================== */
+
+div.container {
+    @include clearfix;
+    max-width: $max-width;
+    margin: auto;
+    padding: 2.5em; /* TEMP */
+}
+
+/* Example for types.html */
+header { @include grid(48, 1); }
+section {
+    @include clearfix;
+    margin-bottom: $margin-bottom;
+    @include grid(48, 1);
+
+    &.whole { @include grid(48, 1);  }
+    &.half { @include grid(24, 1); }
+    &.one-third { @include grid(16, 1); }
+    &.one-fourth { @include grid(12, 1); }
+
+}
+
+/* ========================= Includes =================================== */
+
+/* =========== Types */
+
+@import "taiga/_typography";
+@import "taiga/_forms";
+@import "taiga/_tables";
+
+@import "taiga/_labels";
+@import "taiga/_buttons";
+
+@import "taiga/_icons";
+@import "taiga/_messages";
+@import "taiga/_pagination";
+@import "taiga/_popover";
+
+@import "taiga/_tabs";
+@import "taiga/_panels";
+
+/* =========== Media queries */
+
+@import "taiga/_responsive";
+@import "taiga/_print";
