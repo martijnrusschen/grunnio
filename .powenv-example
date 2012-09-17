@@ -1,0 +1,15 @@
+# Facebook OAuth Credentials
+export FB_APP_ID=<app id>
+export FB_SECRET=<secret key>
+
+# Twitter OAuth Credentials
+export TW_APP_ID=<app id>
+export TW_SECRET=<secret key>
+
+# Github OAuth Credentials
+export GH_APP_ID=<app id>
+export GH_SECRET=<secret key>
+
+# Linkein OAuth Credentials
+export LI_APP_ID=<app id>
+export LI_SECRET=<secret key>
