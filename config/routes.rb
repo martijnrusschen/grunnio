@@ -1,6 +1,8 @@
 SiliconGroningen::Application.routes.draw do
   root to: 'home#show'
-  devise_for :accounts, skip: :registrations
+  # devise_for :accounts, skip: :registrations,
+  #                       controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :accounts, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
 
   namespace :admin do

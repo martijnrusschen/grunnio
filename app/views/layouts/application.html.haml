@@ -35,8 +35,12 @@
                 %li= link_to('admin', admin_root_path)
                 %li= link_to('sign out', destroy_account_session_path, :method => :delete)
               -elsif account_signed_in?
+                %li= link_to current_account.email, '#'
                 %li= link_to('sign out', destroy_account_session_path, :method => :delete)
               -else
+                %li= link_to('Sign in with Facebook', account_omniauth_authorize_path(:facebook))
+                %li= link_to('Sign in with Github', account_omniauth_authorize_path(:github))
+                %li= link_to('Sign in with Linkedin', account_omniauth_authorize_path(:linkedin))
                 %li= link_to('sign in', new_account_session_path)
 
     =render partial: 'shared/alerts'
