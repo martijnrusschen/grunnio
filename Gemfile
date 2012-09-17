@@ -19,12 +19,23 @@ gem 'cocoon'
 gem 'country_select'
 gem 'breadcrumbs_on_rails'
 
-gem "rocket_tag"
+gem 'rocket_tag'
 gem 'haml-rails'
 
 gem 'inherited_resources'
+
+gem 'exception_notification'
+
+
+# Authentication
 gem 'devise'
 gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+
 
 gem 'airbrake'
 
@@ -43,6 +54,10 @@ group :development, :test do
 
   gem 'guard'
   gem 'guard-minitest'
+  gem 'guard-bundler'
+  gem 'guard-pow'
+  gem 'terminal-notifier' # Notifier for Mountain Lion
+  gem 'rb-fsevent', '~> 0.9.1'
 
   gem 'minitest'
   gem 'minitest-rails'
