@@ -12,6 +12,31 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :initiatives
 
   accepts_nested_attributes_for :card, update_only: true
+  
+  
+  def self.create_from_omniauth(omniauth)
+    # raise omniauth.to_yaml
+    
+    person            = self.new
+    person.name       = omniauth.info.name
+    person.headline   = headline_from_omniauth omniauth
+    person.biography  = biography_from_omniauth omniauth
+    person.card       = person.build_card
+    person.card.general_email_address = omniauth.info.email
+    person.save
+  end
+  
+  
+  private
+  
+  def self.headline_from_omniauth(omniauth)
+    return omniauth.info.headline if omniauth.provider == 'linkedin'
+  end
+  
+  def self.biography_from_omniauth(omniauth)
+    return omniauth.info.description if omniauth.provider == 'linkedin'
+    return omniauth.extra.raw_info.bio if omniauth.provider == 'github'
+  end
 
 end
 

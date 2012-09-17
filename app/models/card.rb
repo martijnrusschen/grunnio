@@ -8,7 +8,7 @@ class Card < ActiveRecord::Base
 
   validates :general_email_address, length: { maximum: 255 }, allow_nil: true
   validates :phone, numericality: { only_integer: true }, allow_blank: true
-  validates :twitter_username, length: {maximum: 15}, allow_nil: true
+  validates :twitter_username, length: { maximum: 15 }, allow_nil: true
   # validates :website_url
 
 

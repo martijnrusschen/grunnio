@@ -7,4 +7,12 @@ class Authentication < ActiveRecord::Base
   # Associations
   belongs_to :account
   
+  # Callbacks
+  after_create do |authentication|
+    Person.create_from_omniauth authentication.omniauth
+  end
+  
+  # Serialize
+  serialize :omniauth
+  
 end

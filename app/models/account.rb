@@ -12,24 +12,22 @@ class Account < ActiveRecord::Base
   # Associations
   has_many :authentications
   
-  # Callbacks
-  # after_create do |account|
-  #   account.create_person name: 
-  # end
+  
   
   # Scopes
   default_scope order: 'id ASC'
   
   
   def self.from_omniauth(omniauth)
-    password = (0...8).map{65.+(rand(25)).chr}.join
+    password = (0...8).map{65.+(rand(25)).chr}.join # Random password
     authentication = Authentication.where(omniauth.slice(:provider, :uid)).first_or_create do |authentication|
       account = where(email: omniauth.info.email).first_or_create do |account|
         account.password              = password
         account.password_confirmation = password
         account.confirm!
       end
-      authentication.account = account
+      authentication.omniauth = omniauth
+      authentication.account  = account
     end
     return authentication.account
   end
