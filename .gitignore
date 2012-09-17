@@ -42,6 +42,7 @@ pickle-email-*.html
 
 # Pow
 .powenv
+.rbenv-version
 
 # Middleman
 build
