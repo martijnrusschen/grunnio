@@ -9,12 +9,12 @@ Install using brew: brew install git-flow
 
 To release the development branch to master:
 
-```
+```bash
 $ git flow release start 0.0.x
 ```
 
 Bump the version number and commit
 
-```
+```bash
 $ git flow release finish 0.0.x
 ```
