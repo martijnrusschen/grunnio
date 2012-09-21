@@ -9,7 +9,7 @@ Install using brew: brew install git-flow
 
 To release the development branch to master:
 
-```bash
+```ruby
 $ git flow release start 0.0.x
 ```
 
