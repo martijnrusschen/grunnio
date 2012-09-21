@@ -1,4 +1,4 @@
-== Grunn.io
+# Grunn.io
 
 We're using git-flow as branching model. http://nvie.com/posts/a-successful-git-branching-model/
 
@@ -9,7 +9,7 @@ Install using brew: brew install git-flow
 
 To release the development branch to master:
 
-```ruby
+```bash
 $ git flow release start 0.0.x
 ```
 
