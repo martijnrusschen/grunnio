@@ -13,6 +13,7 @@ class CompaniesController < ResourceController
     @company = Company.new(params[:company])
     @card = @company.card
     @location = @company.location
+    @current_account.add_role :owner, @company
     create!
   end
 
