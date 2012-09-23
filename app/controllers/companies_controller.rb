@@ -38,4 +38,12 @@ class CompaniesController < ResourceController
     authorize_action_for(@company)
     destroy!
   end
+
+  # protected
+
+  # def company_params
+  #   role = is_admin? ? :admin : :default
+  #   sanitize_for_mass_assignment(params[:company], role)
+  # end
+
 end
