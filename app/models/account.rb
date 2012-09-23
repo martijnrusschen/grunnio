@@ -10,10 +10,11 @@ class Account < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, as: :admin
+
   # attr_accessible :title, :body
 
   default_scope order: 'id ASC'
-
 end
 
-#TODO Sebastiaan :admin protected maken + bijlezen attr_accessible :)
+# TODO Sebastiaan :admin protected maken + bijlezen attr_accessible :)
