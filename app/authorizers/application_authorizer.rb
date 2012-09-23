@@ -43,7 +43,7 @@ class ApplicationAuthorizer < Authority::Authorizer
 
 # Instances
   def default(able, account)
-    account.has_role?(:editor, resource) || account.has_role?(:admin)
+    account.has_role?(:owner, resource) || account.has_role?(:admin)
   end
 
   def readable_by?(account)
@@ -51,10 +51,10 @@ class ApplicationAuthorizer < Authority::Authorizer
   end
 
   def updatable_by?(account)
-    account.has_role?(:editor, resource) || account.has_role?(:admin)
+    account.has_role?(:owner, resource) || account.has_role?(:editor, resource) || account.has_role?(:admin)
   end
 
   def deletable_by?(account)
-    account.has_role? :admin
+    account.has_role?(:owner, resource) || account.has_role?(:admin)
   end
 end
