@@ -13,6 +13,7 @@ class CompaniesController < ResourceController
     @company = Company.new(params[:company])
     @card = @company.card
     @location = @company.location
+    @current_account.add_role :owner, @company
     create!
   end
 
@@ -38,4 +39,12 @@ class CompaniesController < ResourceController
     authorize_action_for(@company)
     destroy!
   end
+
+  # protected
+
+  # def company_params
+  #   role = is_admin? ? :admin : :default
+  #   sanitize_for_mass_assignment(params[:company], role)
+  # end
+
 end

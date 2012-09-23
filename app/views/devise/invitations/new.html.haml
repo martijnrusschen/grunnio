@@ -4,5 +4,5 @@
     = devise_error_messages!
     - resource.class.invite_key_fields.each do |field|
       = f.input field
-    = f.input :admin
+      //= f.association :roles, :collection => Role.global, as: :check_boxes
     = f.submit t("devise.invitations.new.submit_button")
