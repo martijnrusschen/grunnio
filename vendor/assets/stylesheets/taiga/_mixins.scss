@@ -78,8 +78,8 @@
 
 @mixin gradient($side, $start, $end) {
     background-color: $end;
-    background-image: -webkit-linear-gradient($side, $start, $end); 
-    background-image: -moz-linear-gradient($side, $start, $end); 
+    background-image: -webkit-linear-gradient($side, $start, $end);
+    background-image: -moz-linear-gradient($side, $start, $end);
     background-image: -ms-linear-gradient($side, $start, $end);
     background-image: -o-linear-gradient($side, $start, $end);
     background-image: linear-gradient($side, $start, $end);
@@ -91,7 +91,40 @@
     -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
 }
 
-@font-face {
-    font-family: 'fontName';
-    src: url('../fonts/fontName.eot?') format('eot'), url('../fonts/fontName.woff') format('woff'), url('../fonts/fontName.ttf') format('truetype');
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal ) {
+  @font-face {
+      font-family: $font-family;
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+           url('#{$file-path}.woff') format('woff'),
+           url('#{$file-path}.ttf') format('truetype'),
+           url('#{$file-path}.svg##{$font-family}') format('svg');
+      font-weight: $weight;
+      font-style: $style;
+  }
 }
+
+@mixin letterpress($color) {
+  text-shadow: 0 -1px 0 darken($color, 15%), 0 1px 0 lighten($color, 15%)
+}
+
+@mixin inset($color, $padding) {
+      color: $medium-grey;
+      padding: $padding;
+      position: relative;
+      &:after, &:before {
+        content: attr(title);
+        padding: $padding;
+        color: rgba(255,255,255,.1);
+        position: absolute;
+      }
+      &:after {
+        top: 1px;
+        left: 1px;
+      }
+      &:before {
+        top: 2px;
+        left: 2px;
+      }
+    }
+
