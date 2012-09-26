@@ -1,0 +1,68 @@
+@import "taiga/_mixins";
+@include font-face('iconSweetsRegular', 'iconsweets-webfont');
+
+/*  Font IconSweet styles
+    ------------------------------------------------------- */
+[class^="sweets-"]:before, [class*="sweets-"]:before {
+  font-family: 'iconSweetsRegular';
+/*  font-weight: normal;
+  font-style: normal;*/
+  display: inline;
+  text-decoration: inherit;
+}
+
+a [class^="sweets-"], a [class*="sweets-"] {
+  display: inline-block;
+  text-decoration: inherit;
+}
+/* makes the font 33% larger relative to the icon container */
+.sweets-large:before {
+  vertical-align: top;
+  font-size: 1.3333333333333333em;
+}
+
+/* makes the font superduper relative to the icon container */
+.sweets-superduper:before {
+  vertical-align: top;
+  font-size: 6em;
+}
+
+.btn [class^="sweets-"], .btn [class*="sweets-"] {
+  /* keeps button heights with and without icons the same */
+
+  line-height: .9em;
+}
+li [class^="sweets-"], li [class*="sweets-"] {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+}
+li .sweets-large[class^="sweets-"], li .icon-large[class*="sweets-"] {
+  /* 1.5 increased font size for icon-large * 1.25 width */
+  width: 1.875em;
+}
+
+li .sweets-superduper[class^="sweets-"], li .icon-superduper[class*="sweets-"] {
+  /* 1.5 increased font size for icon-large * 1.25 width */
+  width: 3em;
+}
+
+
+li[class^="sweets-"], li[class*="sweets-"] {
+  margin-left: 0;
+  list-style-type: none;
+}
+li[class^="sweets-"]:before, li[class*="sweets-"]:before {
+  text-indent: -2em;
+  text-align: center;
+}
+li[class^="sweets-"].icon-large:before, li[class*="sweets-"].icon-large:before {
+  text-indent: -1.3333333333333333em;
+}
+
+
+li[class^="sweets-"].icon-superduper:before, li[class*="sweets-"].icon-superduper:before {
+  text-indent: -1.3333333333333333em;
+}
+
+.sweets-lab:before { content: "r"; }
