@@ -11,53 +11,24 @@
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag "application", :media => "all"
     / %link(href="images/favicon.ico" rel="shortcut icon")
-    %link(href="images/apple-touch-icon.png" rel="apple-touch-icon")
-    %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72")
-    %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114")
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato|Poly"
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href=root_path) grunn.io
-          .container.nav-collapse
-            %ul.nav
-              / %li= link_to I18n.t('navigation.companies'), companies_path
-              / %li= link_to I18n.t('navigation.initiatives'), initiatives_path
-              / %li= link_to I18n.t('navigation.persons'), admin_people_path
-              / %li= link_to I18n.t('navigation.jobs'), admin_jobs_path
-            %ul.nav.pull-right
-              -if account_signed_in? && current_account.is_admin?
-                %li= link_to('admin', admin_root_path)
-                %li= link_to('sign out', destroy_account_session_path, :method => :delete)
-              -elsif account_signed_in?
-                %li= link_to('sign out', destroy_account_session_path, :method => :delete)
-              -else
-                %li= link_to('sign in', new_account_session_path)
-
-    =render partial: 'shared/alerts'
-
     .container
-      -#  %ul.nav.nav-tabs
-        / %li= link_to I18n.t('navigation.companies'), companies_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.initiatives'), initiatives_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.persons'), admin_people_path, data: {toggle: "tab"}
-        / %li= link_to I18n.t('navigation.jobs'), admin_jobs_path, data: {toggle: "tab"}
-      .row
-        .page-header
-          =yield :page_header
-      .row
-        .span12.content
-          =yield :main
-        / .span3
-        /   =yield :sidebar
+      %header
+        %h1.text-center.center grunn.i/o
+        .whole.nav
+          %ul.tabs.text-center
+            %li= link_to "home", root_path
+            %li= link_to "bedrijven", companies_path
+            %li= link_to "personen", people_path
+            %li= link_to "initiatieven", initiatives_path
 
-    /
-      Javascripts
-      \==================================================
+      = yield :introduction
+
+      = yield :main
+
+
+
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"

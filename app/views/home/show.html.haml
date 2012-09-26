@@ -3,7 +3,25 @@
 -content_for :page_header do
   %h1 Welcome to grunn.io!
 
+-content_for :introduction do
+  %section.whole.introduction
+    %p Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met bedrijven als Voys en de personen achter Online24,voeg zelf gegevens toe of lees het laatste nieuws.
+
+
 -content_for :main do
-  %p This is the public front page.
-  %p
-    = link_to "new company page", new_company_path
+  %section.whole.bedrijven
+    .third
+      .bigtitle
+        %i.sweets-lab.sweets-large
+        %h2{title: 'Bedrijven'} Bedrijven
+      %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg bedrijfsgegevens toe.
+      %button toevoegen
+    .third
+      .title.blue
+        %i.icon-share-alt.blue-icon.left
+        %h3 Recent toegevoegd
+    .third
+      .title.blue
+        %i.icon-random.blue-icon.left
+        %h3 Willekeurig bedrijf
+      = link_to "new company page", new_company_path
