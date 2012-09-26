@@ -1,24 +1,31 @@
-﻿//  Taiga Boilerplate 1.0
+//  Taiga Boilerplate 1.0
 //  Copyright 2012 by Studio Wolf
 //  Licensed under the MIT license
-
-//  Run the following SASS command: 'sass --watch stylesheets --style compressed'
-//  Make sure you set the variables below (find the grid documentation in lib/_grid.scss)
+//  Modified 2012 by Mark Vletter & Sebastiaan Pouyet
 
 /* ========================= Variables ================================== */
 
-$font-family: 'Helvetica Neue', Arial, sans-serif;
+$font-family: 'Poly', serif;
 $font-size: 15px;
 
 $grid-columns: 48;
 $max-width: 960px;
-$margin-bottom: 1.25em;
+$margin-bottom: 4em;
 
-$color-brand: #0e8a41;
+$color-brand: #4f4f4f;
 $color-error: #d24226;
 $color-success: #5DA423;
+
 $black: #050505;
 $white: #fff;
+
+// grunn.io colors
+$dark-green: #4f4f4f;
+$dark-grey: #454545;
+$medium-grey: #aaaaaa;
+$blue: #0f5b95;
+$background: #a1a1a1;
+$border: #e0e0e0;
 
 /* ========================= Basic includes ============================= */
 
@@ -29,7 +36,7 @@ $white: #fff;
 /* ========================= General tags =============================== */
 
 html {
-    color: lighten($black, 25%);
+    color: $dark-grey;
     font-family: $font-family;
     font-size: $font-size;
 }
@@ -42,7 +49,7 @@ div.container {
     @include clearfix;
     max-width: $max-width;
     margin: auto;
-    padding: 2.5em; /* TEMP */
+    // padding: 2.5em; /* TEMP */
 }
 
 /* Example for types.html */
@@ -59,10 +66,17 @@ section {
 
 }
 
+.whole { @include grid(48, 1);  }
+.half { @include grid(24, 1); }
+.third { @include grid(16, 1); }
+.fourth { @include grid(12, 1); }
+
+
 /* ========================= Includes =================================== */
 
 /* =========== Types */
 
+@import "_iconSweets";
 @import "taiga/_typography";
 @import "taiga/_forms";
 @import "taiga/_tables";
@@ -82,3 +96,161 @@ section {
 
 @import "taiga/_responsive";
 @import "taiga/_print";
+
+/* GRUNN.IO OVERRIDES */
+
+html {
+    background: #f4f3f4 url('html-bg.png') repeat left top;
+}
+
+body {
+    background: url('vieze-header-veegjes.png') no-repeat center top;
+}
+
+header h1 {
+  font-size:4em;
+  font-weight: normal;
+  margin: 2em 0 1em 0;
+}
+
+a.button, a.btn, input[type="submit"], button {
+    font-family: 'Lato', sans-serif; /*m*/
+    height: 1.8em; /*m*/
+    padding: 0em 1em 1em 1em; /*m*/
+
+}
+
+a.button:active, a.button:focus, a.btn:active, a.btn:focus, input[type="submit"]:active, input[type="submit"]:focus, button:active, button:focus {
+    color: #FFF; /*m*/
+}
+
+ul.tabs {
+  margin: 3em 0 3em 0; /*m*/
+}
+
+ul.tabs a {
+  border: 1px solid transparent;
+  color: #666;
+  display: block;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif; /*m*/
+  font-weight: bold; /*m*/
+  font-size: 1.1em;
+}
+
+ul.tabs a:hover { /*m*/
+  color: #333;
+}
+
+/* Grunn.io Overrides */
+h1 {
+  color: $dark-green;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 2.4em;
+  color: $medium-grey;
+}
+
+h3 {
+  font-family: 'Lato', Arial, sans-serif; /*m*/
+  font-weight: normal;
+  font-size: 1.3em;
+  color: $blue;
+}
+
+section.bedrijven, section.personen {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow:
+    1px 1px 1px 0px #ccc,
+    2px 3px 0px 1px white,
+    4px 4px 1px 0px #ccc,
+    5px 6px 0px 1px white,
+    6px 7px 2px 1px #ccc;
+}
+
+.introduction p {
+  font-size: 2em; /*m*/
+  text-align: center; /*m*/
+  line-height: 1.2em; /*m*/
+  color:#919191; /*m*/
+  margin:0 2.5em 0 2.5em; /*m*/
+}
+
+.bedrijven .third h2, .personen .third h2 {
+  // color: #888888;
+  font-size: 3em; margin-bottom:0;
+  display: inline-block;
+  text-align: left;
+}
+
+.bedrijven .third h3, .personen .third h3 {
+  // margin: 1.4em 0 0.6em 0;
+}
+
+.bedrijven .third p, .personen .third p {
+  font-size:1.1em;
+  line-height: 1.6em;
+  margin-bottom:0.5em;
+}
+
+.bedrijven .third li, .personen .third li {
+  font-size: 1.1em;
+}
+
+.bedrijven .third li span, .personen .third li span {
+  color: #999;
+  display: inline;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.bedrijven .third button {
+  margin-bottom:1em;
+}
+
+.blue {
+  color: $blue;
+}
+
+.sweets-lab.sweets-large {
+ // margin-left: -30px;
+ // margin-right: -20px;
+ // margin-top: -20px;
+}
+
+.bigtitle h2 {
+  color: $medium-grey;
+  margin-left: -20px;
+  padding: 13px 0 0 0;
+  position: relative;
+  @include inset($medium-grey, 13px 0 0 0);
+  }
+
+i.sweets-lab {
+  font-size: 80px;
+  color: $medium-grey;
+  @include letterpress($medium-grey);
+  margin-left: -25px;
+  padding: 0;
+}
+
+.blue-icon  {
+  font-size: 2em;
+  // color: $blue;
+  display: inline;
+  padding: 5px 5px 0 0;
+}
+
+.superduper {
+  font-size: 8em;
+}
+
+
+.title {
+  margin-top: 25px;
+}
+
