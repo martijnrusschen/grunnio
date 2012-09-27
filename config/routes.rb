@@ -1,30 +1,26 @@
 SiliconGroningen::Application.routes.draw do
   root to: 'home#show'
-  devise_for :accounts, skip: :registrations
+  devise_for :accounts
 
   resources :companies
   resources :people
   resources :initiatives
+  # resources :accounts
 
   namespace :admin do
     root to: 'dashboard#show'
-
     resources :accounts
-
     resources :jobs
-
     resources :people do
       # resource :card
       resources :companies
       resources :initiatives
     end
-
     resources :initiatives do
       # resource :card
       # resource :location
       resources :people
     end
-
     resources :companies do
       # resource :card
       # resource :location
