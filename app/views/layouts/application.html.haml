@@ -14,7 +14,14 @@
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato|Poly"
 
   %body
+    = render 'shared/alerts'
+
     .container
+      - if account_signed_in?
+        = link_to("|x| #{current_account.email}", destroy_account_session_path, :method => :delete)
+        / = link_to("Mijn profiel", account_path(current_account))
+      - else
+        = link_to('login', new_account_session_path)
       %header
         %h1.text-center.center grunn.i/o
         .whole.nav
