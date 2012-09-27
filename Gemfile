@@ -22,6 +22,7 @@ gem 'breadcrumbs_on_rails', '~> 2.2.0'
 
 gem 'rocket_tag', '~> 0.5.6'
 gem 'haml-rails', '~> 0.3.4'
+gem 'carrierwave'
 
 gem 'inherited_resources', '~> 1.3.1'
 gem 'devise', '~> 2.1.2'
