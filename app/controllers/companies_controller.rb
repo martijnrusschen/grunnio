@@ -1,8 +1,8 @@
 class CompaniesController < ResourceController
-  authorize_actions_for Company
+  authorize_actions_for Company, :except => [:show, :index]
 
   def new
-    add_breadcrumb "nieuw", new_admin_company_path
+    add_breadcrumb "nieuw", new_company_path
     @company = Company.new
     @card = @company.build_card
     @location = @company.build_location
@@ -39,12 +39,4 @@ class CompaniesController < ResourceController
     authorize_action_for(@company)
     destroy!
   end
-
-  # protected
-
-  # def company_params
-  #   role = is_admin? ? :admin : :default
-  #   sanitize_for_mass_assignment(params[:company], role)
-  # end
-
 end
