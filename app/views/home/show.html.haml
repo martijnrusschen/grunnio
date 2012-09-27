@@ -3,11 +3,6 @@
 -content_for :page_header do
   %h1 Welcome to grunn.io!
 
--content_for :introduction do
-  %section.whole.introduction
-    %p Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met bedrijven als Voys en de personen achter Online24,voeg zelf gegevens toe of lees het laatste nieuws.
-
-
 -content_for :main do
   %section.whole.bedrijven
     .third
@@ -23,5 +18,38 @@
     .third
       .title.blue
         %i.icon-random.blue-icon.left
-        %h3 Willekeurig bedrijf
+        %h3 Willekeurige bedrijven
+
+  %section.whole.personen
+    .third
+      .bigtitle
+        %i.sweets-lab.sweets-large
+        %h2{title: 'Personen'} Personen
+      %p Personen, wie kent ze niet?.
+      = link_to "toevoegen", new_person_path, class: 'btn'
+    .third
+      .title.blue
+        %i.icon-share-alt.blue-icon.left
+        %h3 Recent toegevoegd
+    .third
+      .title.blue
+        %i.icon-random.blue-icon.left
+        %h3 Willekeurige personen
+
+  %section.whole.initiatieven
+    .third
+      .bigtitle
+        %i.sweets-lab.sweets-large
+        %h2{title: 'Initiatieven'} Initiatieven
+      %p Dag en nacht, altijd wat te doen.
+      = link_to "toevoegen", new_initiative_path, class: 'btn'
+    .third
+      .title.blue
+        %i.icon-share-alt.blue-icon.left
+        %h3 Recent toegevoegd
+    .third
+      .title.blue
+        %i.icon-random.blue-icon.left
+        %h3 Willekeurige initiatieven
+
 
