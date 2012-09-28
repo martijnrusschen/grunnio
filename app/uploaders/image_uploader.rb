@@ -37,7 +37,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process scale: [50, 50]
+    process resize_and_pad: [50, 50]
   end
 
   version :logo do
