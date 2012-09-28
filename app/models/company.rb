@@ -20,6 +20,9 @@ class Company < ActiveRecord::Base
   has_one :card, as: :cardable
   has_one :location, as: :locatable
   has_many :products, as: :productable
+  has_many :images, as: :imageable
+  # has_one :image, as: :imageable, through: :company_logo
+
   has_many :jobs
   has_and_belongs_to_many :people
 

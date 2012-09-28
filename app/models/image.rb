@@ -2,7 +2,8 @@ class Image < ActiveRecord::Base
   include Authority::Abilities
   resourcify
 
-  # attr_accessible :title, :body
-  mount_uploader :file, ImageUploader
+  attr_accessible :description
+
+  mount_uploader :image, ImageUploader
   belongs_to :imageable, polymorphic: true
 end
