@@ -26,16 +26,16 @@ class ApplicationAuthorizer < Authority::Authorizer
   end
 
   def self.creatable_by?(account)
-    true
+    account
   end
 
   def self.readable_by?(account)
     true
   end
 
-  # def self.updatable_by?(account)
-  #   account.has_role? :admin
-  # end
+  def self.updatable_by?(account)
+    account
+  end
 
   # def self.deletable_by?(account)
   #   account.has_role? :admin

@@ -1,10 +1,12 @@
-= simple_form_for([@company], :defaults => { :input_html => { :class => 'span4' } }) do |f|
+= simple_form_for([@company], :html => {:multipart => true}, :defaults => { :input_html => { :class => 'span4' } }) do |f|
   = f.error_notification
 
   .form-inputs.well
     %legend gegevens
     = f.input :name
     = f.input :description, input_html: {rows: 10}
+    = f.input :logo, as: :file
+    = f.input :logo_cache, as: :hidden
 
     = f.input :categories, input_html: {value: @company.categories.join(","), data:{ categories: Company.popular_tags_list } , type: "hidden" }
 

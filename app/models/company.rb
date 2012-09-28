@@ -12,7 +12,9 @@ class Company < ActiveRecord::Base
   :card_attributes,
   :location_attributes,
   :products_attributes,
-  :categories
+  :categories,
+  :logo,
+  :logo_cache
 
   hstore_accessor :websites, :corporate, :blog
   # oneindig adressen, met keuzelijst label corporate / blog
@@ -20,8 +22,13 @@ class Company < ActiveRecord::Base
   has_one :card, as: :cardable
   has_one :location, as: :locatable
   has_many :products, as: :productable
+  has_many :images, as: :imageable
+  # has_one :image, as: :imageable, through: :company_logo
+
   has_many :jobs
   has_and_belongs_to_many :people
+
+  mount_uploader :logo, ImageUploader
 
   accepts_nested_attributes_for :card, update_only: true
   accepts_nested_attributes_for :location, update_only: true

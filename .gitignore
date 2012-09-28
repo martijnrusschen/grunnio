@@ -55,3 +55,4 @@ iTunesArtwork
 .Trashes
 .rails_generators~
 zeus.json
+public/uploads/*
