@@ -8,7 +8,7 @@
     = f.input :logo, as: :file
     = f.input :logo_cache, as: :hidden
 
-    = f.input :categories, input_html: {value: @company.categories.join(","), data:{ categories: Company.popular_tags_list } , type: "hidden" }
+    = f.input :specialities, input_html: {value: @company.specialities.join(","), data:{ specialities: Company.popular_tags_list } , type: "hidden" }
 
     / = f.input :category
 
