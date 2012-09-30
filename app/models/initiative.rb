@@ -2,6 +2,13 @@ class Initiative < ActiveRecord::Base
   include Authority::Abilities
   resourcify
 
+  # naam
+  # categorie
+  # beschijving
+  # agenda
+  # url
+  # personen
+
   attr_accessible :name,
   :card_attributes,
   :products_attributes,
@@ -17,6 +24,12 @@ class Initiative < ActiveRecord::Base
   accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
   attr_taggable :categories
+  # Design
+  # Development
+  # Consultancy
+  # Full service
+  # Product
+  # Overig
 
 end
 
