@@ -8,11 +8,18 @@ class Account < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :invitable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, as: :admin
+  attr_accessible :email,
+                  :password,
+                  :password_confirmation,
+                  :remember_me
 
-  # attr_accessible :title, :body
+  attr_accessible :email,
+                  :password,
+                  :password_confirmation,
+                  :remember_me,
+                  :role_ids,
+                  as: :admin
+
 
   default_scope order: 'id ASC'
 end
