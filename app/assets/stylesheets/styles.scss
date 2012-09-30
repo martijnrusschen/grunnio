@@ -1,11 +1,12 @@
 //  Taiga Boilerplate 1.0
 //  Copyright 2012 by Studio Wolf
 //  Licensed under the MIT license
-//  Modified 2012 by Mark Vletter & Sebastiaan Pouyet
+//  Modified 2012 by Mark Vletter, Sebastiaan Pouyet & Patrick Loonstra
 
 /* ========================= Variables ================================== */
 
-$font-family: 'Poly', serif;
+$font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-weight: 300;
 $font-size: 15px;
 
 $grid-columns: 48;
@@ -38,6 +39,7 @@ $border: #e0e0e0;
 html {
     color: $dark-grey;
     font-family: $font-family;
+    font-weight: $font-weight;
     font-size: $font-size;
 }
 
@@ -97,14 +99,14 @@ section {
 @import "taiga/_responsive";
 @import "taiga/_print";
 
-/* GRUNN.IO OVERRIDES */
+/* =========== GRUNN.IO OVERRIDES */
 
 html {
-    background: #f4f3f4 url('html-bg.png') repeat left top;
+    background: #ececec url('subtlenet2.png') repeat left top;
 }
 
 body {
-    background: url('vieze-header-veegjes.png') no-repeat center top;
+    // background: url('.....') no-repeat center top;
 }
 
 header h1 {
@@ -124,23 +126,26 @@ a.button:active, a.button:focus, a.btn:active, a.btn:focus, input[type="submit"]
     color: #FFF; /*m*/
 }
 
-ul.tabs {
-  margin: 3em 0 3em 0; /*m*/
-}
+nav { /*p*/
+  ul {
+    color: #333;
+    display: block;
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.2em;
+    margin: 40px 0 0 145px}
+  ul a:hover {
+    color: #000 }
+  li {
+    float: left;
+    margin: 0 1.5em 0 0; }
 
-ul.tabs a {
-  border: 1px solid transparent;
-  color: #666;
-  display: block;
-  padding: 0.75em 1em;
-  text-decoration: none;
-  font-family: 'Lato', sans-serif; /*m*/
-  font-weight: bold; /*m*/
-  font-size: 1.1em;
-}
+//  li a:hover {
+//    background-color: #eee;
+//    line-height: 1.6em;
+//    border: 0.1em solid #ddd;
+//    padding: 0 0.5em; }
 
-ul.tabs a:hover { /*m*/
-  color: #333;
 }
 
 /* Grunn.io Overrides */
@@ -149,19 +154,18 @@ h1 {
 }
 
 h2 {
-  font-weight: normal;
-  font-size: 2.4em;
+  font-size: 2.2em;
   color: $medium-grey;
 }
 
 h3 {
-  font-family: 'Lato', Arial, sans-serif; /*m*/
-  font-weight: normal;
   font-size: 1.3em;
   color: $blue;
 }
 
-section.bedrijven, section.personen {
+section.whole {
+  margin-top: 50px;
+  padding-bottom: 10px;
   background: #fff;
   border-radius: 3px;
   box-shadow:
@@ -172,85 +176,89 @@ section.bedrijven, section.personen {
     6px 7px 2px 1px #ccc;
 }
 
+.logo-frontpage {
+  margin-top: 20px;
+  margin-right: 65px;
+  float: left;
+}
+
 .introduction p {
   font-size: 2em; /*m*/
-  text-align: center; /*m*/
   line-height: 1.2em; /*m*/
   color:#919191; /*m*/
-  margin:0 2.5em 0 2.5em; /*m*/
+  margin: 135px 2.5em 0 4em; /*m*/
 }
 
-.bedrijven .third h2, .personen .third h2 {
-  // color: #888888;
-  font-size: 3em; margin-bottom:0;
+.third h2 {
+  font-size: 3em;
+  margin-bottom:0;
   display: inline-block;
   text-align: left;
+  color: $medium-grey;
+  position: relative;
+  @include inset($medium-grey, 0);
 }
 
-.bedrijven .third h3, .personen .third h3 {
-  // margin: 1.4em 0 0.6em 0;
+.third h3 {
+  padding-bottom: 5px;
 }
 
-.bedrijven .third p, .personen .third p {
+.third p {
   font-size:1.1em;
   line-height: 1.6em;
   margin-bottom:0.5em;
 }
 
-.bedrijven .third li, .personen .third li {
+.third li {
   font-size: 1.1em;
 }
 
-.bedrijven .third li span, .personen .third li span {
+.third li span {
   color: #999;
   display: inline;
   font-size: 0.9em;
   margin-bottom: 0.5em;
 }
 
-.bedrijven .third button {
+.third .btn {
   margin-bottom:1em;
 }
 
-.blue {
-  color: $blue;
+i.sweets-large {
+  font-size: 60px;
+  margin-left: -10px;
+  padding: 0;
+  color: $medium-grey;
+  @include letterpress($medium-grey);
 }
 
 .sweets-lab.sweets-large {
- // margin-left: -30px;
- // margin-right: -20px;
- // margin-top: -20px;
+ font-size: 80px;
+ margin-left: -25px;
+ padding: 0;
 }
 
-.bigtitle h2 {
-  color: $medium-grey;
-  margin-left: -20px;
-  padding: 13px 0 0 0;
-  position: relative;
-  @include inset($medium-grey, 13px 0 0 0);
-  }
+.third .title.one {
+  margin: -10px 0 0 0;
+}
 
-i.sweets-lab {
-  font-size: 80px;
-  color: $medium-grey;
-  @include letterpress($medium-grey);
-  margin-left: -25px;
-  padding: 0;
+.third .title.two, .third .title.three {
+  margin-top: 15px;
 }
 
 .blue-icon  {
   font-size: 2em;
-  // color: $blue;
   display: inline;
   padding: 5px 5px 0 0;
+  color: $blue;
 }
 
-.superduper {
-  font-size: 8em;
+.bedrijven .third h2 {
+  margin: 13px 0 0 0;
 }
 
+.bedrijven .third .title.one {
+    margin: -25px 0 0 0;
+  }
 
-.title {
-  margin-top: 25px;
-}
 
