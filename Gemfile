@@ -4,10 +4,6 @@ gem 'rails', '3.2.8'
 gem 'capistrano', '~> 2.13.3'
 gem 'pg', '~> 0.14.1'
 gem 'rails-i18n', '~> 0.6.1'
-
-# IMHO Foreign keys should be set in the database ;)
-gem 'foreigner', '~> 1.2.1'
-gem 'immigrant', '~> 0.1.2'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 gem 'geocoder', '~> 1.1.3'
 gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
@@ -48,6 +44,10 @@ end
 group :development, :test do
   gem 'database_cleaner', '~> 0.8.0'
   gem 'letter_opener', '~> 0.0.2'
+
+  gem 'annotate'
+  gem 'foreigner', '~> 1.2.1'
+  # gem 'immigrant', '~> 0.1.2'
 
   gem 'guard'
   gem 'guard-minitest'
