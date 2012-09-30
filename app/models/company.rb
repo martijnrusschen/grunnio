@@ -23,7 +23,6 @@ class Company < ActiveRecord::Base
   has_one :location, as: :locatable
   has_many :products, as: :productable
   has_many :images, as: :imageable
-  # has_one :image, as: :imageable, through: :company_logo
   belongs_to :category
 
   has_many :jobs
