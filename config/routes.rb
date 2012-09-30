@@ -1,7 +1,6 @@
 SiliconGroningen::Application.routes.draw do
-  resources :categories
-
   root to: 'home#show'
+
   devise_for :accounts
 
   resources :companies
