@@ -12,7 +12,7 @@ class Company < ActiveRecord::Base
   :card_attributes,
   :location_attributes,
   :products_attributes,
-  :categories,
+  :specialities,
   :logo,
   :logo_cache
 
@@ -24,6 +24,7 @@ class Company < ActiveRecord::Base
   has_many :products, as: :productable
   has_many :images, as: :imageable
   # has_one :image, as: :imageable, through: :company_logo
+  belongs_to :category
 
   has_many :jobs
   has_and_belongs_to_many :people
@@ -34,7 +35,7 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :location, update_only: true
   accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-  attr_taggable :categories
+  attr_taggable :specialities
 
   validates :name, length: { maximum: 255 }, presence: true
   validates :founded_in, numericality: { only_integer: true }, length: { is: 4 }, allow_blank: true
