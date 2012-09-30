@@ -6,49 +6,59 @@
 -content_for :main do
   %section.whole.bedrijven
     .third
-      .bigtitle
+      .title.one
         %i.sweets-lab.sweets-large
         %h2{title: 'Bedrijven'} Bedrijven
       %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg bedrijfsgegevens toe.
       = link_to "toevoegen", new_company_path, class: 'btn'
     .third
-      .title.blue
+      .title.two
         %i.icon-share-alt.blue-icon.left
         %h3 Recent toegevoegd
+        %ul
+          -@companies.first(3).each do |c|
+            %li
+              = link_to(c.name, c)
+              %span.specialities= c.specialities.join(',')
     .third
-      .title.blue
+      .title.three
         %i.icon-random.blue-icon.left
         %h3 Willekeurige bedrijven
+        %ul
+          -@companies.sample(3).each do |c|
+            %li
+              = link_to(c.name, c)
+              %span.specialities= c.specialities.join(',')
 
   %section.whole.personen
     .third
-      .bigtitle
-        %i.sweets-lab.sweets-large
+      .title.one
+        %i.sweets-people.sweets-large
         %h2{title: 'Personen'} Personen
-      %p Personen, wie kent ze niet?.
+      %p Maak kennis met de motor achter de Groninger tech-scene: de locals. Het zijn de mensen die het doen.
       = link_to "toevoegen", new_person_path, class: 'btn'
     .third
-      .title.blue
+      .title.two
         %i.icon-share-alt.blue-icon.left
         %h3 Recent toegevoegd
     .third
-      .title.blue
+      .title.three
         %i.icon-random.blue-icon.left
         %h3 Willekeurige personen
 
   %section.whole.initiatieven
     .third
-      .bigtitle
-        %i.sweets-lab.sweets-large
+      .title.one
+        %i.sweets-heart.sweets-large
         %h2{title: 'Initiatieven'} Initiatieven
       %p Dag en nacht, altijd wat te doen.
       = link_to "toevoegen", new_initiative_path, class: 'btn'
     .third
-      .title.blue
+      .title.two
         %i.icon-share-alt.blue-icon.left
         %h3 Recent toegevoegd
     .third
-      .title.blue
+      .title.three
         %i.icon-random.blue-icon.left
         %h3 Willekeurige initiatieven
 
