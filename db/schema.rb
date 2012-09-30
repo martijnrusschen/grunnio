@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915122849) do
+ActiveRecord::Schema.define(:version => 20120929145804) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20120915122849) do
 
   add_index "cards", ["cardable_id", "cardable_type"], :name => "index_cards_on_cardable_id_and_cardable_type"
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -72,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20120915122849) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.hstore   "websites"
+    t.string   "logo"
+    t.integer  "category_id"
   end
 
   add_index "companies", ["websites"], :name => "companies_gin_websites"
@@ -82,6 +91,18 @@ ActiveRecord::Schema.define(:version => 20120915122849) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "images", :force => true do |t|
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "image"
+    t.text     "description"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+  end
+
+  add_index "images", ["description"], :name => "index_images_on_description"
+  add_index "images", ["imageable_type", "imageable_id"], :name => "index_images_on_imageable_type_and_imageable_id"
 
   create_table "initiatives", :force => true do |t|
     t.string   "name"
@@ -130,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20120915122849) do
     t.text     "biography"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "account_id"
   end
 
   create_table "products", :force => true do |t|
@@ -173,6 +195,8 @@ ActiveRecord::Schema.define(:version => 20120915122849) do
     t.string "name"
   end
 
+  add_foreign_key "companies", "categories", :name => "companies_category_id_fk"
+
   add_foreign_key "companies_people", "companies", :name => "companies_people_company_id_fk"
   add_foreign_key "companies_people", "people", :name => "companies_people_person_id_fk"
 
@@ -180,5 +204,7 @@ ActiveRecord::Schema.define(:version => 20120915122849) do
   add_foreign_key "initiatives_people", "people", :name => "initiatives_people_person_id_fk"
 
   add_foreign_key "jobs", "companies", :name => "jobs_company_id_fk"
+
+  add_foreign_key "people", "accounts", :name => "people_account_id_fk"
 
 end
