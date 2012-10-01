@@ -1,6 +1,5 @@
-class Admin::CompaniesController < Admin::ResourceController
+class CompaniesController < ResourceController
   authorize_actions_for Company
-  add_breadcrumb "bedrijven", :admin_companies_path
 
   def new
     add_breadcrumb "nieuw", new_admin_company_path

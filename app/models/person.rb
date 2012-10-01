@@ -1,4 +1,7 @@
 class Person < ActiveRecord::Base
+  include Authority::Abilities
+  resourcify
+
   attr_accessible :biography,
                   :birthdate,
                   :headline,
@@ -37,6 +40,11 @@ class Person < ActiveRecord::Base
     return omniauth.info.description if omniauth.provider == 'linkedin'
     return omniauth.extra.raw_info.bio if omniauth.provider == 'github'
   end
+
+  # hstore_accessor :websites, :personal, :blog, :portfolio
+
+  # oneindig adressen, met keuzelijst label corporate / blog
+
 
 end
 

@@ -11,10 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20120917100342) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "email",                                :default => "",    :null => false
+    t.string   "email",                                :default => "", :null => false
     t.string   "encrypted_password",                   :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -28,15 +29,14 @@ ActiveRecord::Schema.define(:version => 20120917100342) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
     t.string   "invitation_token",       :limit => 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.boolean  "admin",                                :default => false
   end
 
   add_index "accounts", ["confirmation_token"], :name => "index_accounts_on_confirmation_token", :unique => true
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20120917100342) do
   end
 
   add_index "authentications", ["account_id"], :name => "index_authentications_on_account_id"
+
+  create_table "accounts_roles", :id => false, :force => true do |t|
+    t.integer "account_id"
+    t.integer "role_id"
+  end
+
+  add_index "accounts_roles", ["account_id", "role_id"], :name => "index_accounts_roles_on_account_id_and_role_id"
 
   create_table "cards", :force => true do |t|
     t.string   "phone"
@@ -76,7 +83,10 @@ ActiveRecord::Schema.define(:version => 20120917100342) do
     t.string   "kvk_number"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.hstore   "websites"
   end
+
+  add_index "companies", ["websites"], :name => "companies_gin_websites"
 
   create_table "companies_people", :id => false, :force => true do |t|
     t.integer  "company_id"
@@ -146,6 +156,17 @@ ActiveRecord::Schema.define(:version => 20120917100342) do
   end
 
   add_index "products", ["productable_id", "productable_type"], :name => "index_products_on_productable_id_and_productable_type"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
+  add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

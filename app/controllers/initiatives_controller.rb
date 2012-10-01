@@ -1,4 +1,4 @@
-class Admin::InitiativesController < Admin::ResourceController
+class InitiativesController < ResourceController
   authorize_actions_for Initiative
 
   def new

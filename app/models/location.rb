@@ -1,4 +1,6 @@
 class Location < ActiveRecord::Base
+  include Authority::Abilities
+
   attr_accessible :street_address,
   :extended_address,
   :postal_code,

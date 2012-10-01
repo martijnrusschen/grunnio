@@ -1,18 +1,21 @@
 class Account < ActiveRecord::Base
+  rolify
+  include Authority::UserAbilities
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :invitable
-
+  
   # Attributes
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+
   # attr_accessible :title, :body
   
   # Associations
   has_many :authentications
-  
-  
   
   # Scopes
   default_scope order: 'id ASC'
@@ -47,10 +50,6 @@ class Account < ActiveRecord::Base
     super
   end
   
-  
-  private
-  
-  # def self.
-  #   
-  # end
 end
+
+#TODO Sebastiaan :admin protected maken + bijlezen attr_accessible :)

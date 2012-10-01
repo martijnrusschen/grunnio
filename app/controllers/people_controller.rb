@@ -1,4 +1,4 @@
-class Admin::PeopleController < Admin::ResourceController
+class PeopleController < ResourceController
   authorize_actions_for Person
 
   def new

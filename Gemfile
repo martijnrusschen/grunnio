@@ -1,56 +1,55 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
-gem 'capistrano'
-gem 'pg'
-gem 'therubyracer'
-gem 'rails-i18n'
+gem 'rails', '3.2.8'
+gem 'capistrano', '~> 2.13.3'
+gem 'pg', '~> 0.14.1'
+gem 'rails-i18n', '~> 0.6.1'
 
 # IMHO Foreign keys should be set in the database ;)
-gem 'foreigner'
-gem 'immigrant'
-gem 'geocoder'
+gem 'foreigner', '~> 1.2.1'
+gem 'immigrant', '~> 0.1.2'
+gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
+gem 'geocoder', '~> 1.1.3'
+gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
 
-gem 'jbuilder'
-gem 'jquery-rails'
-gem 'simple_form'
-gem 'cocoon'
-# gem 'nested_form'
-gem 'country_select'
-gem 'breadcrumbs_on_rails'
+gem 'jbuilder', git: 'git://github.com/rolftimmermans/jbuilder.git', branch: 'basicobject' # wait until 0.5.0 gets fixed
+# gem 'blankslate', '~> 3.1.2'
+gem 'jquery-rails', '~> 2.1.2'
+gem 'simple_form', '~> 2.0.2'
+gem 'cocoon', '~> 1.0.22'
+gem 'country_select', '~> 1.0.1'
+gem 'breadcrumbs_on_rails', '~> 2.2.0'
 
-gem 'rocket_tag'
-gem 'haml-rails'
+gem 'rocket_tag', '~> 0.5.6'
+gem 'haml-rails', '~> 0.3.4'
 
-gem 'inherited_resources'
-
-gem 'exception_notification'
-
+gem 'inherited_resources', '~> 1.3.1'
+gem 'devise', '~> 2.1.2'
+gem 'devise_invitable', '~> 1.1.0'
+gem 'authority', '~> 2.1.0'
+gem 'rolify', '~> 3.2.0'
 
 # Authentication
-gem 'devise'
-gem 'devise_invitable'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
-
-gem 'airbrake'
+gem 'airbrake', '~> 3.1.3'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', '~> 2.1.3'
   gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
-  gem 'database_cleaner'
-  gem 'letter_opener'
+  gem 'database_cleaner', '~> 0.8.0'
+  gem 'letter_opener', '~> 0.0.2'
 
   gem 'guard'
   gem 'guard-minitest'
@@ -59,13 +58,13 @@ group :development, :test do
   gem 'terminal-notifier' # Notifier for Mountain Lion
   gem 'rb-fsevent', '~> 0.9.1'
 
-  gem 'minitest'
-  gem 'minitest-rails'
-  gem 'minitest-rails-capybara' # Minispec and Capybara
-  gem 'minitest-capybara' # Rspec style Capybara helpers
+  gem 'minitest', '~> 3.4.0'
+  gem 'minitest-rails', '~> 0.1.3'
+  gem 'minitest-rails-capybara', '~> 0.1'
+  gem 'minitest-capybara', '~> 0.1.0'
   gem 'turn' # Beautify Minitest output
 
-  gem 'miniskirt' # Factories
+  gem 'miniskirt', '~> 1.2'
   # gem 'mocha', git: 'git://github.com/freerange/mocha.git'
 
   # Replace irb with Pry

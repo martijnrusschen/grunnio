@@ -1,4 +1,7 @@
 class Initiative < ActiveRecord::Base
+  include Authority::Abilities
+  resourcify
+
   attr_accessible :name,
   :card_attributes,
   :products_attributes,

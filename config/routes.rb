@@ -4,6 +4,9 @@ SiliconGroningen::Application.routes.draw do
   #                       controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   devise_for :accounts, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
+  resources :companies
+  resources :people
+  resources :initiatives
 
   namespace :admin do
     root to: 'dashboard#show'

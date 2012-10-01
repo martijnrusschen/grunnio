@@ -1,4 +1,9 @@
 class Company < ActiveRecord::Base
+  include Authority::Abilities
+  resourcify
+
+  serialize :websites, ActiveRecord::Coders::Hstore
+
   attr_accessible :description,
   :founded_in,
   :kvk_number,
@@ -8,6 +13,9 @@ class Company < ActiveRecord::Base
   :location_attributes,
   :products_attributes,
   :categories
+
+  hstore_accessor :websites, :corporate, :blog
+  # oneindig adressen, met keuzelijst label corporate / blog
 
   has_one :card, as: :cardable
   has_one :location, as: :locatable
