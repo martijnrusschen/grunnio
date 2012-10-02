@@ -44,6 +44,7 @@ end
 group :development, :test do
   gem 'database_cleaner', '~> 0.8.0'
   gem 'letter_opener', '~> 0.0.2'
+  gem 'faker'
 
   gem 'annotate'
   gem 'foreigner', '~> 1.2.1'
