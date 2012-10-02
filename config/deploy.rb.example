@@ -1,0 +1,61 @@
+require "bundler/capistrano"
+#require "delayed/recipes"
+
+set :user, 'deploy'
+set :use_sudo, false
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "my_deploy_key")]
+
+set :application, "grunnio"
+set :rails_env, 'production'
+
+server "my.server.com", :app, :web, :db, :primary => true
+set :deploy_to,   "/home/deploy/apps/#{application}"
+
+set :scm, :git
+set :scm_verbose, false
+set :git_enable_submodules, 0
+
+set :deploy_via, :remote_cache
+
+set :repository,  "git@github.com:Grunnio/grunnio.git"
+set :branch, "master"
+
+ssh_options[:forward_agent] = false
+
+# set :default_environment, {
+#   'RBENV_ROOT' => '/home/deploy/.rbenv',
+#   'PATH' => "/home/deploy/.rbenv/shims:/home/deploy/.rbenv/bin:$PATH"
+# }
+
+# If you are using Passenger mod_rails uncomment this:
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+
+  # desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+  end
+
+  #  desc "reload the database with seed data"
+  #  task :seed_sample do
+  #    run "cd #{current_path}; rake db:seed_sample RAILS_ENV=#{rails_env}"
+  #  end
+end
+
+# Delayed Job
+#after "deploy:stop",    "delayed_job:stop"
+#after "deploy:start",   "delayed_job:start"
+#after "deploy:restart", "delayed_job:restart"
+#after 'deploy:update_code' do
+#  run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+#end
+
+
+# task :pipeline_precompile do
+#    run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+# end
