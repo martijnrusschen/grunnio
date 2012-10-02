@@ -61,3 +61,4 @@ iTunesArtwork
 config/database.yml
 config/deploy.rb
 config/initializers/errbit.rb
+config/initializers/secret_token.rb
