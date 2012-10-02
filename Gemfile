@@ -11,7 +11,7 @@ gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in sque
 gem 'jbuilder', git: 'git://github.com/rolftimmermans/jbuilder.git', branch: 'basicobject' # wait until 0.5.0 gets fixed
 # gem 'blankslate', '~> 3.1.2'
 gem 'jquery-rails', '~> 2.1.2'
-gem 'simple_form', '~> 2.0.2'
+gem 'simple_form', '~> 2.0.3'
 gem 'cocoon', '~> 1.0.22'
 gem 'country_select', '~> 1.0.1'
 gem 'breadcrumbs_on_rails', '~> 2.2.0'
