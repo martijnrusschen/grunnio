@@ -60,3 +60,4 @@ iTunesArtwork
 .rails_generators~
 config/database.yml
 config/deploy.rb
+config/initializers/errbit.rb
