@@ -14,7 +14,8 @@ class Company < ActiveRecord::Base
   :products_attributes,
   :specialities,
   :logo,
-  :logo_cache
+  :logo_cache,
+  :blog
 
   hstore_accessor :websites, :corporate, :blog
   # oneindig adressen, met keuzelijst label corporate / blog
