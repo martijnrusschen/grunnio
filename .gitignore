@@ -59,3 +59,4 @@ iTunesArtwork
 .Trashes
 .rails_generators~
 config/database.yml
+config/deploy.rb
