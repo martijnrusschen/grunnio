@@ -58,3 +58,4 @@ iTunesArtwork
 .Spotlight-V100
 .Trashes
 .rails_generators~
+config/database.yml
