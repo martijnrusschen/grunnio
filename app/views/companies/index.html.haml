@@ -1,0 +1,15 @@
+-content_for :main do
+  %section.whole.paperpile.bedrijven
+    .third
+      .title.one
+        %i.sweets-lab.sweets-large
+        %h2{title: 'Bedrijven'} Bedrijven
+      %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg bedrijfsgegevens toe.
+      = link_to "toevoegen", new_company_path, class: 'btn'
+    .two-thirds
+      .title.two
+        %i.icon-share-alt.grey-icon.left
+        %h3 Alle bedrijven
+      %ul.list
+        - @companies.each do |company|
+          %li.list-item= link_to(company.name, company)

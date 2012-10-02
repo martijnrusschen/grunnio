@@ -17,14 +17,16 @@ $color-brand: #0f5b95;
 $color-error: #d24226;
 $color-success: #5DA423;
 
-$black: #345d7b;
-// $black: #050505;
+// $black: #345d7b;
+$black: #050505;
 $white: #fff;
 
 // grunn.io colors
 $dark-green: #4f4f4f;
 $dark-grey: #454545;
 $medium-grey: #aaaaaa;
+$light-grey: #ccc;
+
 $blue: #0f5b95;
 $background: #a1a1a1;
 $border: #e0e0e0;
@@ -74,7 +76,9 @@ section {
 .whole { @include grid(48, 1);  }
 .half { @include grid(24, 1); }
 .third { @include grid(16, 1); }
+.two-thirds { @include grid(32, 1); }
 .fourth { @include grid(12, 1); }
+.three-fourths { @include grid(36, 1); }
 
 
 /* ========================= Includes =================================== */
@@ -140,7 +144,10 @@ nav { /*p*/
     text-decoration: none;
     list-style: none;
     font-size: 1.2em;
-    margin: 40px 0 0 145px;
+    margin: 25px 0 0 0;
+    // padding-top: 1.50em;
+    @include grid(41, 7);
+    // margin: 40px 0 0 145px;
       a {
         color: $color-nav;
       }
@@ -170,9 +177,12 @@ h3 {
   color: $blue;
 }
 
-section.whole {
+section {
   margin-top: 50px;
   padding-bottom: 10px;
+}
+
+.paperpile {
   background: #fff;
   border-radius: 3px;
   box-shadow:
@@ -184,19 +194,22 @@ section.whole {
 }
 
 .logo-frontpage {
-  margin-top: 20px;
-  margin-right: 65px;
-  float: left;
+  @include grid(6, 0);
+}
+
+.introduction {
+  @include grid(41, 1);
+  padding: 115px 0px 0px 0px;
 }
 
 .introduction p {
-  font-size: 2em; /*m*/
-  line-height: 1.2em; /*m*/
-  color:#919191; /*m*/
-  margin: 135px 2.5em 0 4em; /*m*/
+  font-size: 2em;
+  line-height: 1.2em;
+  color:#919191;
+  margin: 0;
 }
 
-.third h2 {
+.title.one h2 {
   font-size: 3em;
   margin-bottom:0;
   display: inline-block;
@@ -260,12 +273,119 @@ i.sweets-large {
   color: $blue;
 }
 
+.grey-icon  {
+  font-size: 2em;
+  display: inline;
+  padding: 5px 5px 0 0;
+  color: $dark-grey;
+}
+
+
 .bedrijven .third h2 {
   margin: 13px 0 0 0;
 }
 
 .bedrijven .third .title.one {
     margin: -25px 0 0 0;
+}
+
+.two-thirds .title.two{
+  padding-top: 25px;
+  font-size: 1.2em;
+}
+
+ul.list > li {
+  padding: 5px;
+}
+
+// INDEX
+.list-item > a {
+  text-decoration: underline;
+  color: $dark-grey;
+  font-size: 1.2em;
+}
+
+.sidebar {
+  padding: 20px;
+  & > p {
+    font-size: 1.2em;
+    margin: 25px 0px 0px 0px;
+    }
   }
 
+.imgs {
+  @include grid(13, 0);
+  margin-top: 60px;
+}
 
+img.logo, img.map {
+  display: block;
+  padding: 10px;
+}
+
+.factsheet {
+  @include grid(34, 0);
+  & .title.one h2 {
+    width: 101%;
+    // padding: 0px 2px 0px 2px;
+    @include inset($medium-grey, 0);
+  }
+}
+
+dl dd {
+  margin: 0;
+}
+
+dl.multiple-table {
+  padding-top: 10px;
+  border-top: 1px solid $light-grey;
+  & dt {
+    @include grid(12, 0);
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 2px;
+    font-weight: $font-weight;
+    font-size: 0.9em;
+    }
+  & dd {
+    padding: 2px;
+    @include grid(36, 0);
+    }
+  }
+
+.grey-bg {
+  background-color: $light-grey;
+}
+
+// FORMS
+
+fieldset {
+  padding: 5px 0 10px 0;
+  float: left;
+  @include clearfix;
+}
+
+form .links, form .form-actions {
+  @include grid(12, 16);
+}
+
+input.whole {
+  @include grid(48, 0);
+}
+
+input.half {
+  @include grid(24, 0);
+}
+
+input.third {
+  @include grid(16, 0);
+}
+
+input.fourth {
+  @include grid(12, 0);
+}
+
+input.eighth {
+  @include grid(6, 0);
+}

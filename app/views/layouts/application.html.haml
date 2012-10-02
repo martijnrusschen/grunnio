@@ -19,6 +19,7 @@
       .account.whole.text-right
         - if account_signed_in?
           = link_to("#{current_account.email}", edit_person_path(current_account.person))
+          |
           = link_to("log uit", destroy_account_session_path, :method => :delete)
           / = link_to("Mijn profiel", account_path(current_account))
         - else

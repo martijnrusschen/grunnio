@@ -58,6 +58,20 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :taiga, :tag => 'ul', class: 'taiga-fields', :error_class => 'errors' do |b|
+    b.use :html5
+    # b.use :placeholder
+    b.wrapper :li, tag: 'li', class: 'taiga-field-item' do |bb|
+      bb.use :label, :wrap_with => {tag: nil, :class=>"taiga-label"}
+      bb.wrapper :tag => 'div' do |ba|
+        ba.use :input, :wrap_with => {tag: nil, :class=>"taiga-input"}
+        ba.use :error, :wrap_with => { :tag => 'ul', :class => 'errors' }
+        ba.use :hint,  :wrap_with => { :tag => 'small', :class => 'hint' }
+      end
+  end
+  end
+
+
   config.wrappers :prepend, :tag => 'div', :class => "control-group", :error_class => 'error' do |b|
     b.use :html5
     b.use :placeholder

@@ -6,7 +6,7 @@
     = f.input :name,  placeholder: 'bedrijfsnaam...'
     = f.input :description, input_html: {rows: 10}, placeholder: 'Omschrijf het bedrijf in een paar zinnen'
 
-    = f.input :categories, input_html: {value: @company.categories.join(","), data:{ categories: Company.popular_tags_list } , type: "hidden" }
+    = f.input :specialities, input_html: {value: @company.specialities.join(","), data:{ specialities: Company.popular_tags_list } , type: "hidden" }
 
     / = f.input :category
 
