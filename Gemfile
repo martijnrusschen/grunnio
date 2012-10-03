@@ -8,7 +8,7 @@ gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-po
 gem 'geocoder', '~> 1.1.3'
 gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
 
-gem 'jbuilder', git: 'git://github.com/rolftimmermans/jbuilder.git', branch: 'basicobject' # wait until 0.5.0 gets fixed
+gem 'jbuilder', '~> 0.8.0'
 # gem 'blankslate', '~> 3.1.2'
 gem 'jquery-rails', '~> 2.1.2'
 gem 'simple_form', '~> 2.0.3'
@@ -73,8 +73,8 @@ group :development, :test do
   gem 'miniskirt', '~> 1.2'
   # gem 'mocha', git: 'git://github.com/freerange/mocha.git'
 
-  # Replace irb with Pry
-  gem 'pry-rails' #vervang IRB met pry (http://pry.github.com/); http://lucapette.com/pry/pry-everywhere/
+  # Replace irb with Pry | http://lucapette.com/pry/pry-everywhere/
+  gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-remote'
 end
