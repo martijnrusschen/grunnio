@@ -58,6 +58,8 @@ iTunesArtwork
 .Spotlight-V100
 .Trashes
 .rails_generators~
+zeus.json
+public/uploads/*
 config/database.yml
 config/deploy.rb
 config/initializers/errbit.rb

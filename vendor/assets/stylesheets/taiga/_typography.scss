@@ -2,14 +2,15 @@
 
 .left { float: left; }
 .right { float: right; }
+.center {margin: 0 auto;}
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 .text-center { text-align: center; }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: bold; 
-    line-height: 1.5em; 
-    margin-bottom: 0.25em; 
+    font-weight: bold;
+    line-height: 1.5em;
+    margin-bottom: 0.25em;
     &.soft {
         font-weight: 300;
         color: lighten($black, 50%);
@@ -25,17 +26,17 @@ h6 { font-size: 1em; }
 
 
 
-p { 
-    margin-bottom: $margin-bottom; 
-    &.lead { 
-        font-size: 1.2em; 
-        line-height: 1.5em; 
+p {
+    margin-bottom: $margin-bottom;
+    &.lead {
+        font-size: 1.2em;
+        line-height: 1.5em;
     }
 }
 
-a { 
-    color: $color-brand; 
-    text-decoration: none; 
+a {
+    color: $color-brand;
+    text-decoration: none;
     &:hover { color: darken($color-brand, 50%); }
 }
 
@@ -53,25 +54,25 @@ del { text-decoration: line-through; }
 
 mark { background-color: lighten(yellow, 35%); }
 
-hr { 
-    background-color: transparent; 
+hr {
+    background-color: transparent;
     border: solid darken($white, 25%);
-    border-width: 1px 0 0; 
-    clear: both; 
-    margin: 2em $margin-bottom; 
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 2em $margin-bottom;
 }
 
-blockquote { 
-    color: lighten($black, 50%); 
+blockquote {
+    color: lighten($black, 50%);
     font-family: Georgia, serif;
-    font-size: 1.2em; 
-    font-style: italic; 
-    line-height: 1.5em; 
-    margin-bottom: $margin-bottom; 
+    font-size: 1.2em;
+    font-style: italic;
+    line-height: 1.5em;
+    margin-bottom: $margin-bottom;
     padding: 0 0 0 2em;
     position: relative;
-    &:before { 
-        color: lighten($black, 75%); 
+    &:before {
+        color: lighten($black, 75%);
         content: "\201C";
         display: block;
         font-size: 5em;
@@ -90,7 +91,7 @@ blockquote {
 figure {
     display: inline-block;
     max-width: 100%;
-    img { 
+    img {
         display: block;
         width: 100%;
     }

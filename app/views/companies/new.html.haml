@@ -1,0 +1,7 @@
+-content_for :page_header do
+  %h1= t('actions.add', model: Company.model_name.human)
+
+-content_for :main do
+  %section.whole
+    %h3 Voeg je bedrijf toe
+    =render 'form'

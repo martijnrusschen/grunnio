@@ -1,8 +1,8 @@
 class CompaniesController < ResourceController
-  authorize_actions_for Company
+  authorize_actions_for Company, :except => [:show, :index]
 
   def new
-    add_breadcrumb "nieuw", new_admin_company_path
+    add_breadcrumb "nieuw", new_company_path
     @company = Company.new
     @card = @company.build_card
     @location = @company.build_location
@@ -13,6 +13,7 @@ class CompaniesController < ResourceController
     @company = Company.new(params[:company])
     @card = @company.card
     @location = @company.location
+    @current_account.add_role :owner, @company
     create!
   end
 

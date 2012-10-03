@@ -1,0 +1,11 @@
+-if notice
+  %ul.messages.success.fade.in
+    %li.success
+      = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
+      = notice
+
+-if alert
+  %ul.messages.alert.fade.in
+    %li.alert
+      = link_to('x', '#', data: {dismiss: "alert"}, class: 'close')
+      = alert

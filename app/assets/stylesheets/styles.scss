@@ -1,24 +1,37 @@
-﻿//  Taiga Boilerplate 1.0
+//  Taiga Boilerplate 1.0
 //  Copyright 2012 by Studio Wolf
 //  Licensed under the MIT license
-
-//  Run the following SASS command: 'sass --watch stylesheets --style compressed'
-//  Make sure you set the variables below (find the grid documentation in lib/_grid.scss)
+//  Modified 2012 by Mark Vletter, Sebastiaan Pouyet & Patrick Loonstra
 
 /* ========================= Variables ================================== */
 
-$font-family: 'Helvetica Neue', Arial, sans-serif;
+$font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-weight: 300;
 $font-size: 15px;
 
 $grid-columns: 48;
 $max-width: 960px;
-$margin-bottom: 1.25em;
+$margin-bottom: 4em;
 
-$color-brand: #0e8a41;
+$color-brand: #0f5b95;
 $color-error: #d24226;
 $color-success: #5DA423;
+
+// $black: #345d7b;
 $black: #050505;
 $white: #fff;
+
+// grunn.io colors
+$dark-green: #4f4f4f;
+$dark-grey: #454545;
+$medium-grey: #aaaaaa;
+$light-grey: #ccc;
+
+$blue: #0f5b95;
+$background: #a1a1a1;
+$border: #e0e0e0;
+$color-button: #0f5b95;
+$color-nav: #4F4F4F;
 
 /* ========================= Basic includes ============================= */
 
@@ -29,8 +42,9 @@ $white: #fff;
 /* ========================= General tags =============================== */
 
 html {
-    color: lighten($black, 25%);
+    color: $dark-grey;
     font-family: $font-family;
+    font-weight: $font-weight;
     font-size: $font-size;
 }
 
@@ -42,7 +56,7 @@ div.container {
     @include clearfix;
     max-width: $max-width;
     margin: auto;
-    padding: 2.5em; /* TEMP */
+    // padding: 2.5em; /* TEMP */
 }
 
 /* Example for types.html */
@@ -59,10 +73,19 @@ section {
 
 }
 
+.whole { @include grid(48, 1);  }
+.half { @include grid(24, 1); }
+.third { @include grid(16, 1); }
+.two-thirds { @include grid(32, 1); }
+.fourth { @include grid(12, 1); }
+.three-fourths { @include grid(36, 1); }
+
+
 /* ========================= Includes =================================== */
 
 /* =========== Types */
 
+@import "_iconSweets";
 @import "taiga/_typography";
 @import "taiga/_forms";
 @import "taiga/_tables";
@@ -82,3 +105,287 @@ section {
 
 @import "taiga/_responsive";
 @import "taiga/_print";
+
+/* =========== GRUNN.IO OVERRIDES */
+
+html {
+    background: #ececec url('subtlenet2.png') repeat left top;
+}
+
+body {
+    // background: url('.....') no-repeat center top;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: $font-weight;
+}
+
+header h1 {
+  font-size:4em;
+  font-weight: normal;
+  margin: 2em 0 1em 0;
+}
+
+a.button, a.btn, input[type="submit"], button {
+    // font-family: 'Lato', sans-serif; /*m*/
+    height: 1.8em; /*m*/
+    padding: 0em 1em 1em 1em; /*m*/
+    font-weight: 300;
+}
+
+a.button:active, a.button:focus, a.btn:active, a.btn:focus, input[type="submit"]:active, input[type="submit"]:focus, button:active, button:focus {
+    color: #FFF; /*m*/
+}
+
+nav { /*p*/
+  ul {
+    color: #333;
+    display: block;
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.2em;
+    margin: 25px 0 0 0;
+    // padding-top: 1.50em;
+    @include grid(41, 7);
+    // margin: 40px 0 0 145px;
+      a {
+        color: $color-nav;
+      }
+      a:hover {
+        color: $blue;
+        text-decoration: underline;
+        }
+      li {
+        float: left;
+        margin: 0 1.5em 0 0;
+        }
+      }
+    }
+
+/* Grunn.io Overrides */
+h1 {
+  color: $dark-green;
+}
+
+h2 {
+  font-size: 2.2em;
+  color: $medium-grey;
+}
+
+h3 {
+  font-size: 1.3em;
+  color: $blue;
+}
+
+section {
+  margin-top: 50px;
+  padding-bottom: 10px;
+}
+
+.paperpile {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow:
+    1px 1px 1px 0px #ccc,
+    2px 3px 0px 1px white,
+    4px 4px 1px 0px #ccc,
+    5px 6px 0px 1px white,
+    6px 7px 2px 1px #ccc;
+}
+
+.logo-frontpage {
+  @include grid(6, 0);
+}
+
+.introduction {
+  @include grid(41, 1);
+  padding: 115px 0px 0px 0px;
+}
+
+.introduction p {
+  font-size: 2em;
+  line-height: 1.2em;
+  color:#919191;
+  margin: 0;
+}
+
+.title.one h2 {
+  font-size: 3em;
+  margin-bottom:0;
+  display: inline-block;
+  text-align: left;
+  color: $medium-grey;
+  position: relative;
+  @include inset($medium-grey, 0);
+}
+
+.third h3 {
+  padding-bottom: 5px;
+}
+
+.third p {
+  font-size:1.1em;
+  line-height: 1.6em;
+  margin-bottom:0.5em;
+}
+
+.third li {
+  font-size: 1.1em;
+}
+
+.third li span {
+  color: #999;
+  display: inline;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.third .btn {
+  margin-bottom:1em;
+}
+
+i.sweets-large {
+  font-size: 60px;
+  margin-left: -10px;
+  padding: 0;
+  color: $medium-grey;
+  @include letterpress($medium-grey);
+}
+
+.sweets-lab.sweets-large {
+ font-size: 80px;
+ margin-left: -25px;
+ padding: 0;
+}
+
+.third .title.one {
+  margin: -10px 0 0 0;
+}
+
+.third .title.two, .third .title.three {
+  margin-top: 15px;
+}
+
+.blue-icon  {
+  font-size: 2em;
+  display: inline;
+  padding: 5px 5px 0 0;
+  color: $blue;
+}
+
+.grey-icon  {
+  font-size: 2em;
+  display: inline;
+  padding: 5px 5px 0 0;
+  color: $dark-grey;
+}
+
+
+.bedrijven .third h2 {
+  margin: 13px 0 0 0;
+}
+
+.bedrijven .third .title.one {
+    margin: -25px 0 0 0;
+}
+
+.two-thirds .title.two{
+  padding-top: 25px;
+  font-size: 1.2em;
+}
+
+ul.list > li {
+  padding: 5px;
+}
+
+// INDEX
+.list-item > a {
+  text-decoration: underline;
+  color: $dark-grey;
+  font-size: 1.2em;
+}
+
+.sidebar {
+  padding: 20px;
+  & > p {
+    font-size: 1.2em;
+    margin: 25px 0px 0px 0px;
+    }
+  }
+
+.imgs {
+  @include grid(13, 0);
+  margin-top: 60px;
+}
+
+img.logo, img.map {
+  display: block;
+  padding: 10px;
+}
+
+.factsheet {
+  @include grid(34, 0);
+  & .title.one h2 {
+    width: 101%;
+    // padding: 0px 2px 0px 2px;
+    @include inset($medium-grey, 0);
+  }
+}
+
+dl dd {
+  margin: 0;
+}
+
+dl.multiple-table {
+  padding-top: 10px;
+  border-top: 1px solid $light-grey;
+  & dt {
+    @include grid(12, 0);
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 2px;
+    font-weight: $font-weight;
+    font-size: 0.9em;
+    }
+  & dd {
+    padding: 2px;
+    @include grid(36, 0);
+    }
+  }
+
+.grey-bg {
+  background-color: $light-grey;
+}
+
+// FORMS
+
+fieldset {
+  padding: 5px 0 10px 0;
+  float: left;
+  @include clearfix;
+}
+
+form .links, form .form-actions {
+  @include grid(12, 16);
+}
+
+input.whole {
+  @include grid(48, 0);
+}
+
+input.half {
+  @include grid(24, 0);
+}
+
+input.third {
+  @include grid(16, 0);
+}
+
+input.fourth {
+  @include grid(12, 0);
+}
+
+input.eighth {
+  @include grid(6, 0);
+}

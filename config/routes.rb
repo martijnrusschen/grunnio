@@ -7,26 +7,22 @@ SiliconGroningen::Application.routes.draw do
   resources :companies
   resources :people
   resources :initiatives
+  # resources :accounts
 
   namespace :admin do
     root to: 'dashboard#show'
-
     resources :accounts
-
     resources :jobs
-
     resources :people do
       # resource :card
       resources :companies
       resources :initiatives
     end
-
     resources :initiatives do
       # resource :card
       # resource :location
       resources :people
     end
-
     resources :companies do
       # resource :card
       # resource :location

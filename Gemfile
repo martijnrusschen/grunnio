@@ -4,10 +4,6 @@ gem 'rails', '3.2.8'
 gem 'capistrano', '~> 2.13.3'
 gem 'pg', '~> 0.14.1'
 gem 'rails-i18n', '~> 0.6.1'
-
-# IMHO Foreign keys should be set in the database ;)
-gem 'foreigner', '~> 1.2.1'
-gem 'immigrant', '~> 0.1.2'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 gem 'geocoder', '~> 1.1.3'
 gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
@@ -15,13 +11,17 @@ gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in sque
 gem 'jbuilder', git: 'git://github.com/rolftimmermans/jbuilder.git', branch: 'basicobject' # wait until 0.5.0 gets fixed
 # gem 'blankslate', '~> 3.1.2'
 gem 'jquery-rails', '~> 2.1.2'
-gem 'simple_form', '~> 2.0.2'
+gem 'simple_form', '~> 2.0.3'
 gem 'cocoon', '~> 1.0.22'
 gem 'country_select', '~> 1.0.1'
 gem 'breadcrumbs_on_rails', '~> 2.2.0'
 
 gem 'rocket_tag', '~> 0.5.6'
 gem 'haml-rails', '~> 0.3.4'
+gem 'carrierwave'
+gem 'mini_magick'
+# gem 'jquery-fileupload-rails'
+# gem 'rmagick'
 
 gem 'inherited_resources', '~> 1.3.1'
 gem 'devise', '~> 2.1.2'
@@ -45,11 +45,17 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'twitter-bootstrap-rails', '~> 2.1.3'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-rails'
 end
 
 group :development, :test do
   gem 'database_cleaner', '~> 0.8.0'
   gem 'letter_opener', '~> 0.0.2'
+  gem 'faker'
+
+  gem 'annotate'
+  gem 'foreigner', '~> 1.2.1'
+  # gem 'immigrant', '~> 0.1.2'
 
   gem 'guard'
   gem 'guard-minitest'

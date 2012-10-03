@@ -13,6 +13,4 @@ class Card < ActiveRecord::Base
   validates :phone, numericality: { only_integer: true }, allow_blank: true
   validates :twitter_username, length: { maximum: 15 }, allow_nil: true
   # validates :website_url
-
-
 end

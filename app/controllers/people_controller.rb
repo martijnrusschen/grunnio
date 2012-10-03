@@ -1,5 +1,5 @@
 class PeopleController < ResourceController
-  authorize_actions_for Person
+  authorize_actions_for Person, :except => [:show, :index]
 
   def new
     @person = Person.new

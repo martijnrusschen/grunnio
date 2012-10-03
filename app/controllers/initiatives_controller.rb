@@ -1,5 +1,5 @@
 class InitiativesController < ResourceController
-  authorize_actions_for Initiative
+  authorize_actions_for Initiative, :except => [:show, :index]
 
   def new
    @initiative = Initiative.new

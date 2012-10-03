@@ -1,24 +1,32 @@
 class Account < ActiveRecord::Base
   rolify
   include Authority::UserAbilities
+  after_create { |account| account.create_person }
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :invitable
-  
-  # Attributes
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  # attr_accessible :title, :body
-  
-  # Associations
+  attr_accessible :email,
+                  :password,
+                  :password_confirmation,
+                  :remember_me
+
+  attr_accessible :email,
+                  :password,
+                  :password_confirmation,
+                  :remember_me,
+                  :role_ids,
+                  as: :admin
+
+  has_one :person
   has_many :authentications
   
   # Scopes
   default_scope order: 'id ASC'
+
   
   
   def self.from_omniauth(omniauth)
@@ -51,5 +59,3 @@ class Account < ActiveRecord::Base
   end
   
 end
-
-#TODO Sebastiaan :admin protected maken + bijlezen attr_accessible :)

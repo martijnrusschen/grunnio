@@ -1,0 +1,20 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      - attributes.each do |attr|
+        %th= resource_class.human_attribute_name(attr)
+      %th &nbsp;
+  %tbody
+    - collection.each do |resource|
+      %tr[resource]
+        - attributes.each do |attr|
+          %td= resource.public_send(attr).to_s.truncate(20)
+        %td.btn-group
+          = link_to resource_path(resource), class: 'btn btn-mini' do
+            %i.icon-zoom-in
+          = link_to edit_resource_path(resource), class: 'btn btn-mini' do
+            %i.icon-edit
+          = link_to resource_path(resource), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' do
+            %i.icon-trash
+
+-#=link_to t('actions.add', model: Company.model_name.human), new_admin_company_path, class: 'btn btn-large'
