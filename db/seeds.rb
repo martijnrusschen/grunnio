@@ -13,7 +13,7 @@
 # RocketTag::Tag.create(name: "products")
 # RocketTag::Tag.create(name: "consultancy")
 
-DatabaseCleaner.clean
+DatabaseCleaner.clean unless Rails.env == 'production'
 
 admin = Account.create!(email: 'admin@admin.nl', password: 'silgrongrunnio')
 admin.add_role :admin
