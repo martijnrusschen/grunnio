@@ -38,9 +38,9 @@ gem 'omniauth-twitter'
 
 gem 'airbrake', '~> 3.1.3'
 
+gem 'database_cleaner', '~> 0.8.0'
 gem 'foreigner', '~> 1.2.1'
 gem 'faker'
-gem 'database_cleaner', '~> 0.8.0'
 
 
 # Gems used only for assets and not required
