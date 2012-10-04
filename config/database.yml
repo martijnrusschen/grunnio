@@ -35,11 +35,11 @@ test:
   username: grunnio
   password: grunnio
 
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: grunnio_production
-#   pool: 5
-#   host: 127.0.0.1
-#   username: grunnio
-#   password: grunnio
+ production:
+   adapter: postgresql
+   encoding: unicode
+   database: grunnio_production
+   pool: 5
+   host: 127.0.0.1
+   username: grunnio
+   password: grunnio
