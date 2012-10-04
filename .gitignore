@@ -62,6 +62,6 @@ zeus.json
 public/uploads/*
 # config/database.yml
 config/deploy.rb
-config/initializers/errbit.rb
-config/initializers/secret_token.rb
 config/settings.yaml
+
+config/settings.yml
