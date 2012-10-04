@@ -38,6 +38,9 @@ gem 'omniauth-twitter'
 
 gem 'airbrake', '~> 3.1.3'
 
+gem 'foreigner', '~> 1.2.1'
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -54,7 +57,6 @@ group :development, :test do
   gem 'faker'
 
   gem 'annotate'
-  gem 'foreigner', '~> 1.2.1'
   # gem 'immigrant', '~> 0.1.2'
 
   gem 'guard'
