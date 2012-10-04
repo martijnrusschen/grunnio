@@ -5,8 +5,7 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 
-# Generate your own secret token with irb(main):007:0> "#{ActiveSupport::SecureRandom.hex(64)}"
 
-SETTINGS = YAML.load(IO.read(Rails.root.join("config", "settings.yml")))
+settings = YAML.load_file('config/settings.yml')['rails'] || {}
 
-SiliconGroningen::Application.config.secret_token = SETTINGS["rails"]["secret_token"]
+SiliconGroningen::Application.config.secret_token = settings["secret_token"]

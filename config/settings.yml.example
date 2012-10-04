@@ -1,1 +1,8 @@
-secret_token: '921b00fcfabe0368d70627020f3b4c969cfd9bdc2474f4040c1ae976f687014694beb5d36dfc0c41bac8ebde96a14fceaee228d6e34d8183c5d7cc99d310d4f9'
+# Settings file for Grunn.io
+# Generate your own rails secret token with irb(main):007:0> "#{ActiveSupport::SecureRandom.hex(64)}"
+
+rails:
+  secret_token: '921b00fcfabe0368d70627020f3b4c969cfd9bdc2474f4040c1ae976f687014694beb5d36dfc0c41bac8ebde96a14fceaee228d6e34d8183c5d7cc99d310d4f9'
+erbbit:
+  token: '889e470f76b6750fa581efa204bd4fed'
+  server: 'errbit.serepo.com'
