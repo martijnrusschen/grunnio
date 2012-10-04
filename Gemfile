@@ -40,6 +40,7 @@ gem 'airbrake', '~> 3.1.3'
 
 gem 'foreigner', '~> 1.2.1'
 gem 'faker'
+gem 'database_cleaner', '~> 0.8.0'
 
 
 # Gems used only for assets and not required
@@ -53,7 +54,6 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'database_cleaner', '~> 0.8.0'
   gem 'letter_opener', '~> 0.0.2'
   gem 'annotate'
   # gem 'immigrant', '~> 0.1.2'
