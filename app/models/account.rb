@@ -1,7 +1,6 @@
 class Account < ActiveRecord::Base
   rolify
   include Authority::UserAbilities
-  after_create { |account| account.create_person }
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -23,12 +22,12 @@ class Account < ActiveRecord::Base
 
   has_one :person
   has_many :authentications
-  
+
   # Scopes
   default_scope order: 'id ASC'
 
-  
-  
+
+
   def self.from_omniauth(omniauth)
     password = (0...8).map{65.+(rand(25)).chr}.join # Random password
     authentication = Authentication.where(omniauth.slice(:provider, :uid)).first_or_create do |authentication|
@@ -42,7 +41,7 @@ class Account < ActiveRecord::Base
     end
     return authentication.account
   end
-  
+
   def self.new_with_session(params, session)
     if session['devise.account_attributes']
       new(session['devise.account_attributes'], without_protection: true) do |account|
@@ -53,9 +52,9 @@ class Account < ActiveRecord::Base
       super
     end
   end
-  
+
   def password_required?
     super
   end
-  
+
 end
