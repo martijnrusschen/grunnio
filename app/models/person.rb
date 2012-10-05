@@ -19,6 +19,10 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :card, update_only: true
   
   
+  def email_name
+    name.blank? ? 'Grunn.io-er' : name
+  end
+  
   def self.create_from_omniauth(omniauth)
     # raise omniauth.to_yaml
     
