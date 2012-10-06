@@ -42,6 +42,9 @@ gem 'database_cleaner', '~> 0.8.0'
 gem 'foreigner', '~> 1.2.1'
 gem 'faker'
 
+# Mailer helpers
+gem 'roadie'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
