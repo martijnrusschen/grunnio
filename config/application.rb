@@ -1,3 +1,4 @@
+require 'yaml'
 APP_SETTINGS = YAML.load(File.read(File.expand_path('../settings.yml', __FILE__)))
 require File.expand_path('../boot', __FILE__)
 # require 'yaml'
