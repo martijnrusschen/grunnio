@@ -10,9 +10,6 @@
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag "application", :media => "all"
-    %script{:type => "text/javascript"}
-      if (window.location.hash == '#_=_')window.location.hash = '';
-
     / %link(href="images/favicon.ico" rel="shortcut icon")
 
   %body
@@ -22,7 +19,7 @@
         - if account_signed_in? && current_account.is_admin?
           %li= link_to('admin', admin_root_path)
           %li= link_to('sign out', destroy_account_session_path, :method => :delete)
-        -elsif account_signed_in?
+        -elsif account_signed_in?          
           %li= link_to("#{current_account.email}", edit_person_path(current_account.person))
           %li= link_to("log uit", destroy_account_session_path, :method => :delete)
           // = link_to("Mijn profiel", account_path(current_account))
