@@ -1,4 +1,6 @@
+APP_SETTINGS = YAML.load(File.read(File.expand_path('../settings.yml', __FILE__)))
 require File.expand_path('../boot', __FILE__)
+# require 'yaml'
 
 # Pick the frameworks you want:
 require "active_record/railtie"
