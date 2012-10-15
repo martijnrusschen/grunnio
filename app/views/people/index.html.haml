@@ -1,0 +1,15 @@
+-content_for :main do
+  %section.whole.paperpile.personen
+    .third
+      .title.one
+        %i.sweets-people.sweets-large
+        %h2{title: 'Personen'} Personen
+      %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg persoonsgegevens toe.
+      = link_to "toevoegen", new_person_path, class: 'btn'
+    .two-thirds
+      .title.two
+        %i.icon-share-alt.grey-icon.left
+        %h3 Alle personen
+      %ul.list
+        - @people.each do |person|
+          %li.list-item= link_to(person.name, person)

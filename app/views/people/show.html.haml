@@ -1,0 +1,20 @@
+-content_for :main do
+  / %section.whole.breadcumbs
+  %section.three-fourths.paperpile
+    .imgs
+      %img.logo(src="http://placehold.it/160x160&text=Foto")
+      / %img.map(src="http://placehold.it/160x160&text=Google Maps")
+
+    .factsheet
+      .title.one
+        %h2{title: @person.name}= @person.name
+      %dl.multiple-table
+        %dt Headline:
+        %dd= @person.headline
+        %dt Leeftijd:
+        %dd= @person.age
+        %dt Biografie:
+        %dd= @person.biography
+
+  %section.sidebar.fourth.paperpile
+    %p= "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met mensen als #{Person.all.sample.name} en de personen achter #{Person.all.sample.name}, voeg zelf gegevens toe of lees het laatste nieuws."

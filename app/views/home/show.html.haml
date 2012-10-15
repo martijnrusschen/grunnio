@@ -16,10 +16,10 @@
         %i.icon-share-alt.blue-icon.left
         %h3 Recent toegevoegd
         %ul
-          -@companies.first(3).each do |c|
+          -@companies.last(3).each do |c|
             %li
               = link_to(c.name, c)
-              %span.specialities= c.specialities.join(',')
+              %span.specialities= c.specialities.try(:join, ',')
     .third
       .title.three
         %i.icon-random.blue-icon.left
@@ -28,7 +28,7 @@
           -@companies.sample(3).each do |c|
             %li
               = link_to(c.name, c)
-              %span.specialities= c.specialities.join(',')
+              %span.specialities= c.specialities.try(:join, ',')
 
   %section.whole.paperpile.personen
     .third
@@ -41,10 +41,21 @@
       .title.two
         %i.icon-share-alt.blue-icon.left
         %h3 Recent toegevoegd
+        %ul
+          -@people.last(3).each do |p|
+            %li
+              = link_to(p.name, p)
+              %span.specialities= p.specialities.try(:join, ',')
     .third
       .title.three
         %i.icon-random.blue-icon.left
         %h3 Willekeurige personen
+        %ul
+          -@people.sample(3).each do |p|
+            %li
+              = link_to(p.name, p)
+              %span.specialities= p.specialities.try(:join, ',')
+
 
   %section.whole.paperpile.initiatieven
     .third
