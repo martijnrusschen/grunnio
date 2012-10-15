@@ -1,0 +1,15 @@
+-content_for :main do
+  %section.whole.paperpile.initiatieven
+    .third
+      .title.one
+        %i.sweets-heart.sweets-large
+        %h2{title: 'Initiatieven'} Initiatieven
+      %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg nieuwe initiatieven toe.
+      = link_to "toevoegen", new_initiative_path, class: 'btn'
+    .two-thirds
+      .title.two
+        %i.icon-share-alt.grey-icon.left
+        %h3 Alle initiatieven
+      %ul.list
+        - @initiatives.each do |initiative|
+          %li.list-item= link_to(initiative.name, initiative)
