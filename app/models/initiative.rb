@@ -22,14 +22,19 @@ class Initiative < ActiveRecord::Base
 
   attr_accessible :name,
   :description,
+  :logo,
+  :logo_cache,
   :card_attributes,
   :products_attributes,
-  :location_attributes
+  :location_attributes,
+  :person_ids
 
   has_one :card, as: :cardable
   has_one :location, as: :locatable
   has_many :products, as: :productable
   has_and_belongs_to_many :people
+
+  mount_uploader :logo, ImageUploader
 
   accepts_nested_attributes_for :card, update_only: true
   accepts_nested_attributes_for :location, update_only: true

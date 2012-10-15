@@ -298,7 +298,8 @@ CREATE TABLE initiatives (
     name character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    description text
+    description text,
+    logo character varying(255)
 );
 
 
@@ -1026,3 +1027,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120928142142');
 INSERT INTO schema_migrations (version) VALUES ('20120929145804');
 
 INSERT INTO schema_migrations (version) VALUES ('20121015223055');
+
+INSERT INTO schema_migrations (version) VALUES ('20121015230036');
