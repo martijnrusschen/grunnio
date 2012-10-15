@@ -297,7 +297,8 @@ CREATE TABLE initiatives (
     id integer NOT NULL,
     name character varying(255),
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    description text
 );
 
 
@@ -1023,3 +1024,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120928140112');
 INSERT INTO schema_migrations (version) VALUES ('20120928142142');
 
 INSERT INTO schema_migrations (version) VALUES ('20120929145804');
+
+INSERT INTO schema_migrations (version) VALUES ('20121015223055');
