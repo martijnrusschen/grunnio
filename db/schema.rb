@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(:version => 20120929145804) do
   add_index "accounts", ["email"], :name => "index_accounts_on_email", :unique => true
   add_index "accounts", ["reset_password_token"], :name => "index_accounts_on_reset_password_token", :unique => true
 
+  create_table "accounts_roles", :id => false, :force => true do |t|
+    t.integer "account_id"
+    t.integer "role_id"
+  end
+
+  add_index "accounts_roles", ["account_id", "role_id"], :name => "index_accounts_roles_on_account_id_and_role_id"
+
   create_table "authentications", :force => true do |t|
     t.integer  "account_id"
     t.string   "provider"
@@ -52,13 +59,6 @@ ActiveRecord::Schema.define(:version => 20120929145804) do
   end
 
   add_index "authentications", ["account_id"], :name => "index_authentications_on_account_id"
-
-  create_table "accounts_roles", :id => false, :force => true do |t|
-    t.integer "account_id"
-    t.integer "role_id"
-  end
-
-  add_index "accounts_roles", ["account_id", "role_id"], :name => "index_accounts_roles_on_account_id_and_role_id"
 
   create_table "cards", :force => true do |t|
     t.string   "phone"
