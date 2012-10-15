@@ -68,9 +68,19 @@
       .title.two
         %i.icon-share-alt.blue-icon.left
         %h3 Recent toegevoegd
+        %ul
+          -@initiatives.last(3).each do |i|
+            %li
+              = link_to(i.name, i)
+              // %span.specialities= p.specialities.try(:join, ',')
     .third
       .title.three
         %i.icon-random.blue-icon.left
         %h3 Willekeurige initiatieven
+        %ul
+          -@initiatives.sample(3).each do |i|
+            %li
+              = link_to(i.name, i)
+
 
 
