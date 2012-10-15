@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: cards
+#
+#  id                    :integer          not null, primary key
+#  phone                 :string(255)
+#  general_email_address :string(255)
+#  website_url           :string(255)
+#  twitter_username      :string(255)
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  cardable_id           :integer
+#  cardable_type         :string(255)
+#
+
 class Card < ActiveRecord::Base
   include Authority::Abilities
   resourcify

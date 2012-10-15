@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: authentications
+#
+#  id         :integer          not null, primary key
+#  account_id :integer
+#  provider   :string(255)
+#  uid        :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  omniauth   :text
+#
+
 class Authentication < ActiveRecord::Base
   
   # Accessibility (whitelist)

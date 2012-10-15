@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: companies
+#
+#  id                  :integer          not null, primary key
+#  name                :string(255)
+#  description         :text
+#  category            :string(255)
+#  founded_in          :integer
+#  number_of_employees :integer
+#  kvk_number          :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  websites            :hstore
+#  logo                :string(255)
+#  category_id         :integer
+#
+
 class Company < ActiveRecord::Base
   include Authority::Abilities
   resourcify

@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  headline     :string(255)
+#  specialities :string(255)
+#  birthdate    :date
+#  biography    :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  account_id   :integer
+#
+
 class Person < ActiveRecord::Base
   include Authority::Abilities
   resourcify
