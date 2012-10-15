@@ -4,12 +4,18 @@ namespace :db do
     task :load => :environment do |t|
 
       DatabaseCleaner.clean
-
+      create_admin
       create_companies
       create_people
       create_initiatives
     end
   end
+end
+
+def create_admin
+  admin = Account.create!(email: 'admin@admin.nl', password: 'silgrongrunnio')
+  admin.add_role :admin
+  admin.confirm!
 end
 
 def create_companies
