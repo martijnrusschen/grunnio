@@ -38,6 +38,7 @@ end
 
 def create_initiatives
   100.times do
-    Initiative.create!(name: Faker::Company.name)
+    Initiative.create!(name: Faker::Company.name,
+                       description: Faker::Lorem.paragraph)
   end
 end
