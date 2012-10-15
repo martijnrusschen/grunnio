@@ -21,6 +21,7 @@ class Initiative < ActiveRecord::Base
   # personen
 
   attr_accessible :name,
+  :description,
   :card_attributes,
   :products_attributes,
   :location_attributes
