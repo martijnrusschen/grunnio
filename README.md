@@ -1,20 +1,44 @@
 # Grunn.io
+Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen.
 
-We're using git-flow as branching model. http://nvie.com/posts/a-successful-git-branching-model/
+## Meebouwen aan Grunn.io?
+Dat kan! Check de [issues](https://github.com/Grunnio/grunnio/issues?milestone=1&sort=updated&state=open) voor dingen-te-doen, of bedenk je eigen feature.
+Fork deze repository, maak je wijzigingen (op develop) en dien een pull request in.
 
-Install using brew: brew install git-flow
+Meer weten? Neem contact op met [@serepo](https://github.com/serepo).
 
-- development branch for development
-- master branch as a stable version which is always ready for deployment
+### Git flow
+De Grunn.io repository is ingedeeld volgens van het [Git flow](http://nvie.com/posts/a-successful-git-branching-model/) model.
 
-To release the development branch to master:
+Installeer de git flow utility op OS X met brew: `$ brew install git-flow`
+
+- development: develop branch
+- productie (stable): master branch
+
+Start een nieuwe feature:
+```bash
+$ git flow feature start my-kickass-feature
+```
+
+Verhoog de versie en commit:
+
+```bash
+$ git flow feature finish my-kickass-feature
+```
+
+
+Release development naar master:
 
 ```bash
 $ git flow release start 0.0.x
 ```
 
-Bump the version number and commit
+Verhoog de versie en commit:
 
 ```bash
 $ git flow release finish 0.0.x
 ```
+
+### Vereisten
+- Ruby 1.9.3
+- Postgres 9.1.3 (momenteel ook nog voor dev)
