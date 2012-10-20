@@ -7,6 +7,24 @@ Fork deze repository, maak je wijzigingen (op develop) en dien een pull request 
 
 Meer weten? Neem contact op met [@serepo](https://github.com/serepo).
 
+### Vereisten
+- Ruby 1.9.3
+- Postgres 9.1.3 (momenteel ook nog voor dev)
+
+### Development
+`$ git clone git@github.com:Grunnio/grunnio.git`
+
+`$ cd grunnio`
+
+`$ bundle install`
+
+`$ rake db:create`
+
+`$ rake db:migrate`
+
+`$ rails server`
+
+
 ### Git flow
 De Grunn.io repository is ingedeeld volgens van het [Git flow](http://nvie.com/posts/a-successful-git-branching-model/) model.
 
