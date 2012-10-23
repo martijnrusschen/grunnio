@@ -40,7 +40,6 @@ class Person < ActiveRecord::Base
 
   def self.create_from_omniauth(omniauth)
     # raise omniauth.to_yaml
-
     person            = self.new
     person.name       = omniauth.info.name
     person.headline   = headline_from_omniauth omniauth
@@ -48,6 +47,7 @@ class Person < ActiveRecord::Base
     person.card       = person.build_card
     person.card.general_email_address = omniauth.info.email
     person.save
+    return person
   end
 
   def age
@@ -73,7 +73,4 @@ class Person < ActiveRecord::Base
   # hstore_accessor :websites, :personal, :blog, :portfolio
   # oneindig adressen, met keuzelijst label corporate / blog
 
-
 end
-
-# TODO: Personen alleen via bedrijf en/of initiatief toevoegen
