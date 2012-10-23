@@ -31,6 +31,12 @@ class Account < ActiveRecord::Base
   rolify
   include Authority::UserAbilities
 
+  # Callbacks
+  after_create do |account|
+      account.create_person
+  end
+
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -54,8 +60,6 @@ class Account < ActiveRecord::Base
 
   # Scopes
   default_scope order: 'id ASC'
-
-
 
   def self.from_omniauth(omniauth)
     password = (0...8).map{65.+(rand(25)).chr}.join # Random password
