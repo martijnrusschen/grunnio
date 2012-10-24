@@ -1,0 +1,7 @@
+-content_for :page_header do
+  %h1= t('actions.add', model: Person.model_name.human)
+
+-content_for :main do
+  %section.whole
+    %h3 Werk je profiel bij
+    =render 'form'
