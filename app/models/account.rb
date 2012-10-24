@@ -31,9 +31,10 @@ class Account < ActiveRecord::Base
   rolify
   include Authority::UserAbilities
 
-  # Callbacks
+  Callbacks
   after_create do |account|
       account.create_person
+      account.add_role :owner, account.person
   end
 
 
