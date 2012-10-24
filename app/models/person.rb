@@ -22,7 +22,9 @@ class Person < ActiveRecord::Base
                   :headline,
                   :name,
                   :specialities,
-                  :card_attributes
+                  :card_attributes,
+                  :company_ids,
+                  :initiative_ids
 
   has_one :card, as: :cardable
 
