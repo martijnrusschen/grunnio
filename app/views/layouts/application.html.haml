@@ -16,18 +16,43 @@
     = render 'shared/taiga-alerts'
     .container
       .account.whole.text-right
-        - if account_signed_in? && current_account.is_admin?
-          %li= link_to('admin', admin_root_path)
-          %li= link_to('sign out', destroy_account_session_path, :method => :delete)
-        -elsif account_signed_in?          
-          %li= link_to("#{current_account.email}", edit_person_path(current_account.person))
-          %li= link_to("log uit", destroy_account_session_path, :method => :delete)
-          // = link_to("Mijn profiel", account_path(current_account))
-        - else
-          %li= link_to('Sign in with Facebook', account_omniauth_authorize_path(:facebook))
-          %li= link_to('Sign in with Github', account_omniauth_authorize_path(:github))
-          %li= link_to('Sign in with Linkedin', account_omniauth_authorize_path(:linkedin))
-          %li= link_to('login', new_account_session_path)
+        %ul.steps
+          - if account_signed_in? && current_account.is_admin?
+            %li
+              = link_to(admin_root_path) do
+                %i.icon-admin
+                admin
+            %li
+              = link_to(destroy_account_session_path, :method => :delete) do
+                %i.icon-signout
+                sign out
+          -elsif account_signed_in?
+            %li
+              = link_to(edit_person_path(current_account.person)) do
+                %i.icon-user
+                ="#{current_account.email}"
+            %li
+              = link_to(destroy_account_session_path, :method => :delete) do
+                %i.icon-signout
+                sign out
+          - else
+            Sign in with:
+            %li
+              = link_to(account_omniauth_authorize_path(:facebook)) do
+                %i.icon-facebook
+                Facebook
+            %li
+              = link_to(account_omniauth_authorize_path(:github)) do
+                %i.icon-github
+                Github
+            %li
+              = link_to(account_omniauth_authorize_path(:linkedin))do
+                %i.icon-linkedin
+                Linkedin
+            %li
+              = link_to(new_account_session_path) do
+                Grunn.io
+
 
       %header.whole
         .logo-frontpage
