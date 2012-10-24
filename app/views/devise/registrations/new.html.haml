@@ -1,14 +1,16 @@
 -content_for :main do
-  %h2 Sign up
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    = f.error_notification
-    .form-inputs
-      = f.input :email, :required => true, :autofocus => true
-      
-      - if f.object.password_required?
-        = f.input :password, :required => true
-        = f.input :password_confirmation, :required => true
-    
-    .form-actions
-      = f.button :submit, "Sign up"
-  = render "devise/shared/links"
+  %section.whole
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: :taiga) do |f|
+      = f.error_notification
+
+      %fieldset
+        %legend Maak een Grunn.io account aan
+        = f.input :email, required: true, autofocus: true, input_html: { class: 'half' }
+
+        - if f.object.password_required?
+          = f.input :password, required: true, input_html: { class: 'half' }, label: 'wachtwoord'
+          = f.input :password_confirmation, required: true, input_html: { class: 'half' }, label: 'bevestig wachtwoord'
+
+      .form-actions
+        = f.submit 'Aanmelden', class: 'btn'
+    = render "devise/shared/links"

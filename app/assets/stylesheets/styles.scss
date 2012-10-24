@@ -366,6 +366,12 @@ fieldset {
   @include clearfix;
 }
 
+input[type="checkbox"] {
+    margin-top: 3px;
+    height: 30px;
+    width: 30px;
+}
+
 form .links, form .form-actions {
   @include grid(12, 16);
 }
@@ -388,4 +394,9 @@ input.fourth {
 
 input.eighth {
   @include grid(6, 0);
+}
+
+// DEVISE
+.devise-links {
+  margin-top: 25px;
 }
