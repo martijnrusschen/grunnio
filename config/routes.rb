@@ -2,7 +2,8 @@ SiliconGroningen::Application.routes.draw do
   root to: 'home#show'
   # devise_for :accounts, skip: :registrations,
   #                       controllers: { omniauth_callbacks: 'omniauth_callbacks' }
-  devise_for :accounts, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :accounts, controllers: { omniauth_callbacks: 'omniauth_callbacks', :registrations => "registrations" }
+  match '/account/profile/new' => 'people#new', :as => 'account_new_profile'
 
   resources :companies
   resources :people
@@ -29,7 +30,6 @@ SiliconGroningen::Application.routes.draw do
       resources :jobs
       resources :people
     end
-
   end
 
 
