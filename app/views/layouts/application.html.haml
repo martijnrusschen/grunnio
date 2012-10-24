@@ -25,7 +25,7 @@
             %li
               = link_to(destroy_account_session_path, :method => :delete) do
                 %i.icon-signout
-                sign out
+                afmelden
           -elsif account_signed_in?
             %li
               = link_to(edit_person_path(current_account.person)) do
@@ -34,9 +34,9 @@
             %li
               = link_to(destroy_account_session_path, :method => :delete) do
                 %i.icon-signout
-                sign out
+                afmelden
           - else
-            Sign in with:
+            Aanmelden met:
             %li
               = link_to(account_omniauth_authorize_path(:facebook)) do
                 %i.icon-facebook
@@ -51,7 +51,8 @@
                 Linkedin
             %li
               = link_to(new_account_session_path) do
-                Grunn.io
+                %i.icon-envelope
+                Grunnn.io
 
 
       %header.whole
