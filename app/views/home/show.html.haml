@@ -36,7 +36,10 @@
         %i.sweets-people.sweets-large
         %h2{title: 'Personen'} Personen
       %p Maak kennis met de motor achter de Groninger tech-scene: de locals. Het zijn de mensen die het doen.
-      = link_to "toevoegen", new_person_path, class: 'btn'
+      - if account_signed_in?
+        = link_to "werk je profiel bij", edit_person_path(current_account.person), class: 'btn'
+      - else
+        =link_to "voeg jezelf toe", new_account_registration_path, class: 'btn'
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
