@@ -153,11 +153,15 @@ nav { /*p*/
       }
       a:hover {
         color: $blue;
-        text-decoration: underline;
+        text-decoration: none;
+        border-bottom: 1px solid $blue;
         }
       li {
         float: left;
         margin: 0 1.5em 0 0;
+      }
+      li.current a {
+        color: $blue;
         }
       }
     }
@@ -193,7 +197,7 @@ section {
     6px 7px 2px 1px #ccc;
 }
 
-.logo-frontpage {
+.logo {
   @include grid(6, 0);
 }
 
@@ -400,3 +404,40 @@ input.eighth {
 .devise-links {
   margin-top: 25px;
 }
+
+// LOGINBAR
+.login-bar.whole {
+  height: 50px;
+  ul {
+  border: none;
+  }
+}
+
+ul.steps {
+  li {
+    color: $dark-grey;
+    a {
+    color: $dark-grey;
+    padding: 0.5em 0.1em;
+    i {
+      font-size: 1.2em;
+    }
+    }
+    a:hover {
+      color: $blue;
+    }
+  }
+}
+
+.logo.compact {
+  margin-top: -135px;
+}
+
+header.whole.compact {
+  margin-bottom: 40px;
+  nav ul {
+    @include grid(41, 1);
+  }
+}
+
+
