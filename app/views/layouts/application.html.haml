@@ -15,57 +15,20 @@
   %body
     = render 'shared/taiga-alerts'
     .container
-      .account.whole.text-right
-        %ul.steps
-          - if account_signed_in? && current_account.is_admin?
-            %li
-              = link_to(admin_root_path) do
-                %i.icon-admin
-                admin
-            %li
-              = link_to(destroy_account_session_path, :method => :delete) do
-                %i.icon-signout
-                afmelden
-          -elsif account_signed_in?
-            %li
-              = link_to(edit_person_path(current_account.person)) do
-                %i.icon-user
-                ="#{current_account.email}"
-            %li
-              = link_to(destroy_account_session_path, :method => :delete) do
-                %i.icon-signout
-                afmelden
-          - else
-            Aanmelden met:
-            %li
-              = link_to(account_omniauth_authorize_path(:facebook)) do
-                %i.icon-facebook
-                Facebook
-            %li
-              = link_to(account_omniauth_authorize_path(:github)) do
-                %i.icon-github
-                Github
-            %li
-              = link_to(account_omniauth_authorize_path(:linkedin))do
-                %i.icon-linkedin
-                Linkedin
-            %li
-              = link_to(new_account_session_path) do
-                %i.icon-envelope
-                Grunn.io
+      - if content_for? :topbar
+        = yield :topbar
+      - else
+        = render 'shared/login_bar'
 
+      - if content_for? :header
+        = yield :header
+      - else
+        = render 'shared/header_compact'
 
-      %header.whole
-        .logo-frontpage
-          =link_to(root_path) do
-            =image_tag('logo.png')
-        .introduction
-          %p Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen.
-        %nav
-          %ul
-            %li= link_to "bedrijven", companies_path
-            %li= link_to "personen", people_path
-            %li= link_to "initiatieven", initiatives_path
+      / - if content_for? :navbar
+      /   = yield :navbar
+      / - else
+      /   = render 'shared/navbar'
 
       = yield :main
 

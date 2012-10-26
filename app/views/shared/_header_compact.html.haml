@@ -1,0 +1,9 @@
+%header.whole.compact
+  .logo.compact
+    =link_to(root_path) do
+      =image_tag('logo.png')
+  %nav
+    %ul
+      =nav_to "bedrijven", companies_path
+      =nav_to "personen", people_path
+      =nav_to "initiatieven", initiatives_path

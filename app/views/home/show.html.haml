@@ -1,7 +1,14 @@
 %p#notice= notice
 
--content_for :page_header do
-  %h1 Welcome to grunn.io!
+-content_for :topbar do
+  = render 'shared/login_bar'
+
+-content_for :header do
+  = render 'shared/header'
+
+/ -content_for :navbar do
+/   = render 'shared/navbar'
+
 
 -content_for :main do
   %section.whole.paperpile.bedrijven

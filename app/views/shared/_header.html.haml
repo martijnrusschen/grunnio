@@ -1,0 +1,12 @@
+%header.whole
+  .logo.frontpage
+    =link_to(root_path) do
+      =image_tag('logo.png')
+  .introduction
+    %p Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen.
+  %nav
+    %ul
+      %li= link_to "bedrijven", companies_path
+      %li= link_to "personen", people_path
+      %li= link_to "initiatieven", initiatives_path
+

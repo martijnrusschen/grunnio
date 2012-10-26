@@ -1,0 +1,38 @@
+.login-bar.whole.text-right
+  %ul.steps
+    - if account_signed_in? && current_account.is_admin?
+      %li
+        = link_to(admin_root_path) do
+          %i.icon-admin
+          %span.text admin
+      %li
+        = link_to(destroy_account_session_path, :method => :delete) do
+          %i.icon-signout
+          %span.text afmelden
+    -elsif account_signed_in?
+      %li
+        = link_to(edit_person_path(current_account.person)) do
+          %i.icon-user
+          %span.text="#{current_account.email}"
+      %li
+        = link_to(destroy_account_session_path, :method => :delete) do
+          %i.icon-signout
+          %span.text afmelden
+    - else
+      Aanmelden met:
+      %li
+        = link_to(account_omniauth_authorize_path(:facebook)) do
+          %i.icon-facebook
+          / %span.text Facebook
+      %li
+        = link_to(account_omniauth_authorize_path(:github)) do
+          %i.icon-github
+          / %span.text Github
+      %li
+        = link_to(account_omniauth_authorize_path(:linkedin))do
+          %i.icon-linkedin
+          / %span.text Linkedin
+      %li
+        = link_to(new_account_session_path) do
+          / %i.icon-envelope
+          %span.text Grunn.io
