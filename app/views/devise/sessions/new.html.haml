@@ -1,13 +1,15 @@
 -content_for :main do
   %section.whole
+    .title.text-center
+      %h1 Meld je aan bij Grunn.io
     = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), wrapper: :taiga) do |f|
       = f.error_notification
 
-      %fieldset
-        %legend Aanmelden
+      %fieldset.whole
         = f.input :email, :autofocus => true, input_html: { class: 'half' }, required: true
         = f.input :password, input_html: { class: 'half' }, label: 'wachtwoord', required: true
         = f.input :remember_me, label: 'onthouden', :as => :boolean if devise_mapping.rememberable?
       .form-actions
         = f.submit 'Aanmelden', class: 'btn'
+  %footer.whole.text-center
     = render "devise/shared/links"
