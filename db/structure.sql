@@ -909,6 +909,14 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
+-- Name: authentications_account_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY authentications
+    ADD CONSTRAINT authentications_account_id_fk FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE;
+
+
+--
 -- Name: companies_category_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -961,7 +969,7 @@ ALTER TABLE ONLY jobs
 --
 
 ALTER TABLE ONLY people
-    ADD CONSTRAINT people_account_id_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    ADD CONSTRAINT people_account_id_fk FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE;
 
 
 --
@@ -1029,3 +1037,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120929145804');
 INSERT INTO schema_migrations (version) VALUES ('20121015223055');
 
 INSERT INTO schema_migrations (version) VALUES ('20121015230036');
+
+INSERT INTO schema_migrations (version) VALUES ('20121028191355');
