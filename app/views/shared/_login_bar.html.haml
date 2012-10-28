@@ -21,18 +21,18 @@
     - else
       Aanmelden met:
       %li
-        = link_to(account_omniauth_authorize_path(:facebook)) do
+        = link_to(account_omniauth_authorize_path(:facebook), title: "Facebook") do
           %i.icon-facebook
           / %span.text Facebook
       %li
-        = link_to(account_omniauth_authorize_path(:github)) do
+        = link_to(account_omniauth_authorize_path(:github), title: "Github") do
           %i.icon-github
           / %span.text Github
       %li
-        = link_to(account_omniauth_authorize_path(:linkedin))do
+        = link_to(account_omniauth_authorize_path(:linkedin), title: "Linkedin")do
           %i.icon-linkedin
           / %span.text Linkedin
       %li
-        = link_to(new_account_session_path) do
+        = link_to(new_account_session_path, title: "Grunn.io account") do
           / %i.icon-envelope
           %span.text Grunn.io
