@@ -59,6 +59,7 @@ end
 group :development, :test do
   gem 'letter_opener', '~> 0.0.2'
   gem 'annotate'
+  gem 'quiet_assets'
   # gem 'immigrant', '~> 0.1.2'
 
   gem 'guard'

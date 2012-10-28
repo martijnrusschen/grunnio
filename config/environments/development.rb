@@ -52,4 +52,7 @@ SiliconGroningen::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # quiet_assets gem; silences assets request logging
+  config.quiet_assets = true
 end
