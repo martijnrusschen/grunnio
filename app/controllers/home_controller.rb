@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def show
-    @companies = Company.all
-    @people = Person.all
-    @initiatives = Initiative.all
+    @companies = Company.published
+    @people = Person.published
+    @initiatives = Initiative.published
   end
 end

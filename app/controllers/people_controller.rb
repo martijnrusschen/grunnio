@@ -1,6 +1,11 @@
 class PeopleController < ResourceController
   authorize_actions_for Person, :except => [:show, :index]
 
+  def index
+    @people = Person.published
+    index!
+  end
+
   def new
     @person = Person.new
     @card = @person.build_card

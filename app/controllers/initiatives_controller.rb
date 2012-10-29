@@ -1,6 +1,11 @@
 class InitiativesController < ResourceController
   authorize_actions_for Initiative, :except => [:show, :index]
 
+  def index
+    @initiatives = Initiative.published
+    index!
+  end
+
   def new
    @initiative = Initiative.new
    @card = @initiative.build_card
