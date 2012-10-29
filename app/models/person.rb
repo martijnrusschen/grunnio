@@ -16,6 +16,7 @@
 class Person < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  scope :published, where(published: true)
 
   attr_accessible :biography,
                   :birthdate,
@@ -25,16 +26,15 @@ class Person < ActiveRecord::Base
                   :card_attributes,
                   :company_ids,
                   :initiative_ids
+                  :initiative_ids,
+                  :published
 
   has_one :card, as: :cardable
-
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :initiatives
-
   belongs_to :account
 
   accepts_nested_attributes_for :card, update_only: true
-
 
   def email_name
     name.blank? ? 'Grunn.io-er' : name
