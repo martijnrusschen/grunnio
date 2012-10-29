@@ -56,8 +56,8 @@ class Account < ActiveRecord::Base
                   :role_ids,
                   as: :admin
 
-  has_one :person
-  has_many :authentications
+  has_one :person, dependent: :destroy
+  has_many :authentications, dependent: :destroy
 
   # Scopes
   default_scope order: 'id ASC'
