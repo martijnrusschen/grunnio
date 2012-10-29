@@ -39,6 +39,16 @@ class Person < ActiveRecord::Base
     name.blank? ? 'Grunn.io-er' : name
   end
 
+  def update_from_omniauth(omniauth)
+    # raise omniauth.to_yaml
+    self.name       = omniauth.info.name
+    self.headline   = Person.headline_from_omniauth omniauth
+    self.biography  = Person.biography_from_omniauth omniauth
+    self.card       = build_card
+    self.card.general_email_address = omniauth.info.email
+    self.save
+  end
+
   def self.create_from_omniauth(omniauth)
     # raise omniauth.to_yaml
     person            = self.new
@@ -63,12 +73,11 @@ class Person < ActiveRecord::Base
   private
 
   def self.headline_from_omniauth(omniauth)
-    return omniauth.info.headline if omniauth.provider == 'linkedin'
+    omniauth.info.headline if omniauth.provider == 'linkedin'
   end
 
   def self.biography_from_omniauth(omniauth)
-    return omniauth.info.description if omniauth.provider == 'linkedin'
-    return omniauth.extra.raw_info.bio if omniauth.provider == 'github'
+    omniauth.provider == 'github' ? omniauth.extra.raw_info.bio : omniauth.info.description
   end
 
   # hstore_accessor :websites, :personal, :blog, :portfolio
