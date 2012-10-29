@@ -25,7 +25,6 @@ class Person < ActiveRecord::Base
                   :specialities,
                   :card_attributes,
                   :company_ids,
-                  :initiative_ids
                   :initiative_ids,
                   :published
 
