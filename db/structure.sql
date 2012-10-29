@@ -220,7 +220,8 @@ CREATE TABLE companies (
     updated_at timestamp without time zone NOT NULL,
     websites hstore,
     logo character varying(255),
-    category_id integer
+    category_id integer,
+    published boolean DEFAULT true
 );
 
 
@@ -250,8 +251,8 @@ ALTER SEQUENCE companies_id_seq OWNED BY companies.id;
 CREATE TABLE companies_people (
     company_id integer,
     person_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -299,7 +300,8 @@ CREATE TABLE initiatives (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     description text,
-    logo character varying(255)
+    logo character varying(255),
+    published boolean DEFAULT true
 );
 
 
@@ -329,8 +331,8 @@ ALTER SEQUENCE initiatives_id_seq OWNED BY initiatives.id;
 CREATE TABLE initiatives_people (
     initiative_id integer,
     person_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -421,7 +423,8 @@ CREATE TABLE people (
     biography text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    account_id integer
+    account_id integer,
+    published boolean DEFAULT false
 );
 
 
@@ -1039,3 +1042,15 @@ INSERT INTO schema_migrations (version) VALUES ('20121015223055');
 INSERT INTO schema_migrations (version) VALUES ('20121015230036');
 
 INSERT INTO schema_migrations (version) VALUES ('20121028191355');
+
+INSERT INTO schema_migrations (version) VALUES ('20121028195831');
+
+INSERT INTO schema_migrations (version) VALUES ('20121028195908');
+
+INSERT INTO schema_migrations (version) VALUES ('20121028195941');
+
+INSERT INTO schema_migrations (version) VALUES ('20121028200701');
+
+INSERT INTO schema_migrations (version) VALUES ('20121029074158');
+
+INSERT INTO schema_migrations (version) VALUES ('20121029074635');
