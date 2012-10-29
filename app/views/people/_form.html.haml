@@ -9,7 +9,7 @@
     //= f.input :logo, as: :file
     //= f.input :logo_cache, as: :hidden
     //= f.input :specialities, input_html: {value: @person.specialities.join(","), data:{ specialities: Person.popular_tags_list } , type: "hidden" }
-    = f.input :birthdate, as: :date, start_year: Date.today.year - 70, end_year: Date.today.year - 12, order: [:day, :month, :year]
+    = f.input :birthdate, as: :date_picker
     = f.association :companies, collection: Company.published, label: 'Bedrijven'
     = f.association :initiatives, collection: Company.published, label: 'Initiatieven'
 
