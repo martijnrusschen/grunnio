@@ -12,6 +12,7 @@
 class Initiative < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  scope :published, where(published: true)
 
   # naam
   # categorie
@@ -27,7 +28,8 @@ class Initiative < ActiveRecord::Base
   :card_attributes,
   :products_attributes,
   :location_attributes,
-  :person_ids
+  :person_ids,
+  :published
 
   has_one :card, as: :cardable
   has_one :location, as: :locatable

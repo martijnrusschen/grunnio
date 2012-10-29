@@ -19,6 +19,7 @@
 class Company < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  scope :published, where(published: true)
 
   serialize :websites, ActiveRecord::Coders::Hstore
 
@@ -33,7 +34,8 @@ class Company < ActiveRecord::Base
   :specialities,
   :logo,
   :logo_cache,
-  :blog
+  :blog,
+  :published
 
   hstore_accessor :websites, :corporate, :blog
   # oneindig adressen, met keuzelijst label corporate / blog
@@ -43,7 +45,6 @@ class Company < ActiveRecord::Base
   has_many :products, as: :productable
   has_many :images, as: :imageable
   belongs_to :category
-
   has_many :jobs
   has_and_belongs_to_many :people
 
