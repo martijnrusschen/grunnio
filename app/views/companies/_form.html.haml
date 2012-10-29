@@ -4,18 +4,18 @@
   %fieldset
     %legend gegevens
     = f.input :name
-    = f.input :description, input_html: {rows: 10}
+    = f.input :kvk_number, as: :integer, input_html: {class: 'fourth'}, hint: '8-cijferig KvK nummer', required: true
+    = f.input :description, input_html: {rows: 10}, required: true
     = f.input :logo, as: :file
     = f.input :logo_cache, as: :hidden
     = f.input :specialities, input_html: {value: @company.specialities.join(","), data:{ specialities: Company.popular_tags_list } , type: "hidden" }
     = f.input :founded_in, input_html: {class: 'fourth'}
     = f.input :number_of_employees, as: :integer, input_html: {class: 'fourth'}
-    = f.input :kvk_number, as: :integer, input_html: {class: 'fourth'}, hint: '8-cijferig KvK nummer'
 
-  = f.simple_fields_for :products do |product|
-    = render 'product_fields', f: product
-  .links
-    = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
+  / = f.simple_fields_for :products do |product|
+  /   = render 'product_fields', f: product
+  / .links
+  /   = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
 
   = f.simple_fields_for :card do |c|
     %fieldset
