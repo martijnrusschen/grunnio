@@ -10,8 +10,8 @@
     //= f.input :logo_cache, as: :hidden
     //= f.input :specialities, input_html: {value: @person.specialities.join(","), data:{ specialities: Person.popular_tags_list } , type: "hidden" }
     = f.input :birthdate, as: :date, start_year: Date.today.year - 70, end_year: Date.today.year - 12, order: [:day, :month, :year]
-    = f.association :companies
-    = f.association :initiatives
+    = f.association :companies, collection: Company.published, label: 'Bedrijven'
+    = f.association :initiatives, collection: Company.published, label: 'Initiatieven'
 
   = f.simple_fields_for :card do |c|
     %fieldset
@@ -20,6 +20,7 @@
       = c.input :phone, as: :tel
       = c.input :twitter_username
       = c.input :website_url
+    = f.input :published, label: 'profiel publiceren op Grunn.io?'
 
   .form-actions
-    = f.submit class: 'btn'
+    = f.submit "Profiel bijwerken", class: 'btn'
