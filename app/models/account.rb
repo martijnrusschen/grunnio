@@ -69,6 +69,7 @@ class Account < ActiveRecord::Base
         account.password              = password
         account.password_confirmation = password
         account.confirm!
+        account.person.update_from_omniauth(omniauth)
       end
       authentication.omniauth = omniauth
       authentication.account  = account
