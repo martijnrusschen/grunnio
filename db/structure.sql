@@ -940,7 +940,7 @@ ALTER TABLE ONLY companies_people
 --
 
 ALTER TABLE ONLY companies_people
-    ADD CONSTRAINT companies_people_person_id_fk FOREIGN KEY (person_id) REFERENCES people(id);
+    ADD CONSTRAINT companies_people_person_id_fk FOREIGN KEY (person_id) REFERENCES people(id) ON DELETE CASCADE;
 
 
 --
@@ -956,7 +956,7 @@ ALTER TABLE ONLY initiatives_people
 --
 
 ALTER TABLE ONLY initiatives_people
-    ADD CONSTRAINT initiatives_people_person_id_fk FOREIGN KEY (person_id) REFERENCES people(id);
+    ADD CONSTRAINT initiatives_people_person_id_fk FOREIGN KEY (person_id) REFERENCES people(id) ON DELETE CASCADE;
 
 
 --
@@ -1058,3 +1058,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121029074635');
 INSERT INTO schema_migrations (version) VALUES ('20121102103706');
 
 INSERT INTO schema_migrations (version) VALUES ('20121102103949');
+
+INSERT INTO schema_migrations (version) VALUES ('20121102104817');
