@@ -4,7 +4,6 @@
 #= require twitter/bootstrap
 #= require cocoon
 #= require select2.min
-#= datepicker_input
 #= require gmaps4rails/gmaps4rails.base
 #= require gmaps4rails/gmaps4rails.googlemaps
 
@@ -15,4 +14,10 @@ if window.location.hash is "#_=_"
   e.preventDefault() # no page reload
 
 # Datepicker for dates
-$("input.date_picker").datepicker();
+# $("input.date_picker").datepicker
+
+$("input.date_picker").each (i) ->
+  $(this).datepicker
+    altFormat: "yy- mm-dd"
+    dateFormat: "mm-dd-yy"
+    altField: $(this).next()
