@@ -340,7 +340,7 @@ ul.list > li {
 }
 
 .factsheet {
-  @include grid(34, 0);
+  @include grid(33, 1);
   & .title.one h2 {
     width: 101%;
     // padding: 0px 2px 0px 2px;
@@ -471,4 +471,10 @@ header.whole.compact {
 .factsheet .sweets-lab.sweets-large {
   float: right;
   margin-top: -118px;
+}
+
+.sidebar.fourth.paperpile .sweets-info.sweets-large {
+  float: left;
+  font-size: 40px;
+  margin: -40px 0 0 -20px;
 }
