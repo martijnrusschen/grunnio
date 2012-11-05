@@ -32,18 +32,11 @@
 
         %dt Adres:
         %dd
-          -@company.location.address.try(:split, ",").each do |a|
-            =a
-            %br
-      - if current_account.try(:can_update?, @company)
-        = link_to edit_company_path(@company), class: 'btn tiny', title: 'aanpassen' do
-          %i.sweets-edit
-          aanpassen
-      - if current_account.try(:can_delete?, @company)
-        = link_to @company, title: 'verwijderen', :confirm => 'weet je het zeker?', :method => :delete, class: 'btn tiny alert' do
-          %i.sweets-delete
-
-  %section.sidebar.fourth.paperpile
-    %i.sweets-info.sweets-large
-    %p= raw "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met bedrijven als #{c = Company.all.sample; link_to(c.name, company_path(c))} en de personen achter #{cc = Company.all.sample; link_to(cc.name, company_path(cc))}, voeg zelf gegevens toe of lees het laatste nieuws."
-
+          - if @company.location.address
+            -@company.location.address.try(:split, ",").each do |a|
+              =a
+              %br
+          - else
+            \-
+      = render 'shared/factsheet_actions'
+  =render 'shared/sidebar'

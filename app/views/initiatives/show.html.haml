@@ -2,15 +2,24 @@
   / %section.whole.breadcumbs
   %section.three-fourths.paperpile
     .imgs
-      %img.logo(src="#{@initiative.logo_url(:logo)}")
-      / %img.map(src="http://placehold.it/160x160&text=Google Maps")
+      = image_tag(resource.logo.medium.url, class: 'initiative-logo')
+      = gmaps(map_options: { detect_location: false, center_on_user: false, auto_zoom: false, zoom: 15, :disableDefaultUI => true, container_class:"map_wrapper", language: "nl" },markers: { data: @json })
 
     .factsheet
       .title.one
         %h2{title: @initiative.name}= @initiative.name
+        %i.sweets-heart.sweets-large
+
       %dl.multiple-table
         %dt Beschrijving:
-        %dd= @initiative.description
-
-  %section.sidebar.fourth.paperpile
-    %p= "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met initiatieven als #{Initiative.all.sample.name} en de personen achter #{Initiative.all.sample.name}, voeg zelf gegevens toe of lees het laatste nieuws."
+        %dd= dash(@initiative.description)
+        %dt Adres:
+        %dd
+          - if resource.location.address
+            -resource.location.address.try(:split, ",").each do |a|
+              =a
+              %br
+          - else
+            \-
+      = render 'shared/factsheet_actions'
+  =render 'shared/sidebar'
