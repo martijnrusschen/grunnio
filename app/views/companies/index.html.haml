@@ -5,7 +5,9 @@
         %i.sweets-lab.sweets-large
         %h2{title: 'Bedrijven'} Bedrijven
       %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg bedrijfsgegevens toe.
-      = link_to "toevoegen", new_company_path, class: 'btn'
+      = link_to new_company_path, class: 'btn large' do
+        %i.sweets-plus
+        toevoegen
     .two-thirds
       .title.two
         %i.icon-share-alt.grey-icon.left
