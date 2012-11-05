@@ -8,25 +8,33 @@
     .factsheet
       .title.one
         %h2{title: @company.name}= @company.name
+        %i.sweets-lab.sweets-large
 
       %dl.multiple-table
-        %dt Specialiteiten:
-        %dd= @company.specialities
-        %dt Opgericht in:
-        %dd= @company.founded_in
         %dt KvK-nummer:
-        %dd= @company.kvk_number
+        %dd= dash(@company.kvk_number)
+        %dt Beschrijving:
+        %dd= dash(@company.description)
+        %dt Specialiteiten:
+        %dd= dash(@company.specialities)
+        %dt Opgericht in:
+        %dd= dash(@company.founded_in)
         %dt # werknemers:
-        %dd= @company.number_of_employees
-        %dt Bio:
-        %dd= @company.description
-        %dt Adres:
-        %dd= @company.location.address
-        %dt Corporate site:
-        %dd= @company.corporate.nil? ? "-" : @company.corporate
-        %dt Blog:
-        %dd= @company.blog
+        %dd= dash(@company.number_of_employees)
+        %dt twitter:
+        %dd= dash(@company.card.twitter_username)
+        %dt website:
+        %dd= @company.card.website_url.blank? ? "-" : link_to(@company.card.website_url)
+        %dt blog:
+        %dd= @company.card.website_url.blank? ? "-" : link_to(@company.card.website_url)
+        %dt telefoon:
+        %dd= dash(@company.card.phone)
 
+        %dt Adres:
+        %dd
+          -@company.location.address.try(:split, ",").each do |a|
+            =a
+            %br
       - if current_account.try(:can_update?, @company)
         = link_to "aanpassen", edit_company_path(@company), class: 'btn'
       - if current_account.try(:can_delete?, @company)
