@@ -73,6 +73,9 @@ section {
 
 }
 
+.green { color: $color-success; }
+.red { color: $color-error;}
+
 .whole { @include grid(48, 1);  }
 .half { @include grid(24, 1); }
 .third { @include grid(16, 1); }
@@ -449,11 +452,24 @@ input.eighth {
 }
 
 ul.steps {
+  .btn.tiny {
+    color: $white;
+    margin: 0;
+    padding: 0 6px;
+  }
   li {
     color: $dark-grey;
     a {
-    color: $dark-grey;
-    padding: 0.5em 0.1em;
+      color: $dark-grey;
+      padding: 0.5em 0.1em;
+    &.green {
+      color: $color-success;
+      font-weight: 500;
+    }
+    &.red {
+      color: $color-error;
+      font-weight: 500;
+    }
     i {
       font-size: 1.2em;
     }

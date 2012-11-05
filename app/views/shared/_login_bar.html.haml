@@ -11,9 +11,17 @@
           %span.text afmelden
     -elsif account_signed_in?
       %li
-        = link_to(edit_person_path(current_account.person)) do
-          %i.icon-user
-          %span.text="#{current_account.email}"
+        %i.sweets-person
+        = "#{current_account.email}"
+      %li
+        -if current_account.person.published
+          = link_to(edit_person_path(current_account.person), class: 'green') do
+            %i.sweets-check-mark
+            profiel gepubliceerd
+        - else
+          = link_to(edit_person_path(current_account.person), class: 'red') do
+            %i.sweets-delete
+            profiel niet gepubliceerd
       %li
         = link_to(destroy_account_session_path, :method => :delete) do
           %i.icon-signout
