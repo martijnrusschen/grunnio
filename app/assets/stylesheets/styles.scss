@@ -198,6 +198,9 @@ section {
     4px 4px 1px 0px #ccc,
     5px 6px 0px 1px white,
     6px 7px 2px 1px #ccc;
+   ul {
+    list-style-image: url(image_path("bullet.png"));
+   }
 }
 
 .logo {
