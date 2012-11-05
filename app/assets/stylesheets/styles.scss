@@ -366,6 +366,7 @@ dl.multiple-table {
     }
   & dd {
     padding: 2px;
+    font-weight: 500;
     @include grid(36, 0);
     }
   }
@@ -467,4 +468,7 @@ header.whole.compact {
   padding: 10px;
 }
 
-
+.factsheet .sweets-lab.sweets-large {
+  float: right;
+  margin-top: -118px;
+}
