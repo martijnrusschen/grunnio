@@ -323,28 +323,63 @@ ul.list > li {
     }
   }
 
-.imgs {
-  @include grid(13, 0);
-  margin-top: 60px;
+section.three-fourths.paperpile {
+  .imgs {
+    @include grid(13, 0);
+    margin-top: 60px;
+    .company-logo, .person-logo, .initiative-logo {
+      display: block;
+      padding: 10px;
+    }
+  }
+  .factsheet {
+    @include grid(33, 1);
+    .title.one h2 {
+      width: 101%;
+      // padding: 0px 2px 0px 2px;
+      @include inset($medium-grey, 0);
+    }
+   dl.multiple-table {
+     padding-top: 10px;
+     border-top: 1px solid $light-grey;
+     dt {
+       @include grid(12, 0);
+       clear: left;
+       float: left;
+       margin: 0;
+       padding: 2px;
+       font-weight: $font-weight;
+       font-size: 0.9em;
+       }
+     dd {
+       padding: 2px;
+       font-weight: 500;
+       @include grid(36, 0);
+       }
+      }
+    .sweets-large {
+      float: right;
+    }
+    .sweets-lab.sweets-large {
+      margin-top: -118px;
+    }
+    .sweets-person.sweets-large, .sweets-heart.sweets-large {
+      margin-top: -100px;
+    }
+    .actions {
+      .btn {
+        margin: 120px 10px 0 0;
+        float: right;
+      }
+    }
+  }
 }
 
-.company-logo {
-  display: block;
-  padding: 10px;
-}
-
-.factsheet .btn {
-  // @include grid(2, 34);
-  margin: 120px 10px 0 0;
-  float: right;
-}
-
-.factsheet {
-  @include grid(33, 1);
-  & .title.one h2 {
-    width: 101%;
-    // padding: 0px 2px 0px 2px;
-    @include inset($medium-grey, 0);
+section.sidebar.fourth.paperpile {
+  .sweets-info.sweets-large {
+    float: left;
+    font-size: 40px;
+    margin: -40px 0 0 -20px;
   }
 }
 
@@ -352,24 +387,7 @@ dl dd {
   margin: 0;
 }
 
-dl.multiple-table {
-  padding-top: 10px;
-  border-top: 1px solid $light-grey;
-  & dt {
-    @include grid(12, 0);
-    clear: left;
-    float: left;
-    margin: 0;
-    padding: 2px;
-    font-weight: $font-weight;
-    font-size: 0.9em;
-    }
-  & dd {
-    padding: 2px;
-    font-weight: 500;
-    @include grid(36, 0);
-    }
-  }
+
 
 .grey-bg {
   background-color: $light-grey;
@@ -468,13 +486,29 @@ header.whole.compact {
   padding: 10px;
 }
 
-.factsheet .sweets-lab.sweets-large {
-  float: right;
-  margin-top: -118px;
-}
-
-.sidebar.fourth.paperpile .sweets-info.sweets-large {
-  float: left;
-  font-size: 40px;
-  margin: -40px 0 0 -20px;
+.ui-datepicker {
+  background: $white;
+  border: 1px solid $light-grey;
+  @include box-shadow("1px 1px 1px 0px #ccc");
+  .ui-datepicker-header {
+    background: $light-grey;
+    .ui-datepicker-prev {
+      float: left;
+      cursor: hand;
+      cursor: pointer;
+    }
+    .ui-datepicker-next {
+      float: right;
+      cursor: hand;
+      cursor: pointer;
+    }
+    .ui-datepicker-title {
+      float: left;
+      margin-left: 30px;
+      font-weight: 500;
+    }
+  }
+  table {
+    margin-bottom: 0;
+  }
 }
