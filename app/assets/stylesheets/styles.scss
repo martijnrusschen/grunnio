@@ -198,7 +198,7 @@ section {
 }
 
 .logo {
-  // @include grid(6, 0);
+   @include grid(6, 0);
 }
 
 .introduction {
@@ -328,9 +328,15 @@ ul.list > li {
   margin-top: 60px;
 }
 
-img.logo, img.map {
+.company-logo {
   display: block;
   padding: 10px;
+}
+
+.factsheet .btn {
+  // @include grid(2, 34);
+  margin: 120px 10px 0 0;
+  float: right;
 }
 
 .factsheet {
@@ -447,7 +453,18 @@ header.whole.compact {
   margin-bottom: 40px;
   nav ul {
     @include grid(41, 1);
+    margin-top: 25px;
   }
+}
+
+// Maps
+.gmaps4rails_map {
+  height: 160px;
+  width: 160px;
+}
+
+.map_wrapper {
+  padding: 10px;
 }
 
 

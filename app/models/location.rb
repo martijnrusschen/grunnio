@@ -21,20 +21,28 @@
 class Location < ActiveRecord::Base
   include Authority::Abilities
 
+  acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
+                    :address => "full_address", :normalized_address => "address", :language => "nl",
+                    :msg => "Sorry, not even Google could figure out where that is"
+
   attr_accessible :street_address,
   :extended_address,
   :postal_code,
   :city,
   :locality,
   :region,
-  :country
-
-  geocoded_by :address
-  after_validation :geocode
+  :country,
+  :address
 
   belongs_to :locatable, polymorphic: true
 
-  def address
+  def full_address
     [street_address, extended_address, locality, postal_code, city, region, country].compact.join(', ')
   end
+
+  def geocode?
+    (address.present? && (latitude.blank? || longitude.blank?)) || street_address_changed?
+  end
+
+  # alias_method :gmaps4rails_address, :address
 end

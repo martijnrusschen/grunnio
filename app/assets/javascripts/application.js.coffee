@@ -5,6 +5,8 @@
 #= require cocoon
 #= require select2.min
 #= datepicker_input
+#= require gmaps4rails/gmaps4rails.base
+#= require gmaps4rails/gmaps4rails.googlemaps
 
 # Remove Facebook #_=_ from auth redirect
 if window.location.hash is "#_=_"

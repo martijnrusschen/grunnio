@@ -387,7 +387,9 @@ CREATE TABLE locations (
     locatable_id integer,
     locatable_type character varying(255),
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    gmaps boolean,
+    address character varying(255)
 );
 
 
@@ -1060,3 +1062,7 @@ INSERT INTO schema_migrations (version) VALUES ('20121102103706');
 INSERT INTO schema_migrations (version) VALUES ('20121102103949');
 
 INSERT INTO schema_migrations (version) VALUES ('20121102104817');
+
+INSERT INTO schema_migrations (version) VALUES ('20121103115717');
+
+INSERT INTO schema_migrations (version) VALUES ('20121103120444');

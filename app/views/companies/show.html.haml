@@ -2,8 +2,8 @@
   / %section.whole.breadcumbs
   %section.three-fourths.paperpile
     .imgs
-      = image_tag(@company.logo.logo.url, class: 'logo')
-      %img.map(src="http://placehold.it/160x160&text=Google Maps")
+      = image_tag(@company.logo.medium.url, class: 'company-logo')
+      = gmaps(map_options: { detect_location: false, center_on_user: false, auto_zoom: false, zoom: 15, :disableDefaultUI => true, container_class:"map_wrapper", language: "nl" },markers: { data: @json })
 
     .factsheet
       .title.one
@@ -26,8 +26,12 @@
         %dd= @company.corporate.nil? ? "-" : @company.corporate
         %dt Blog:
         %dd= @company.blog
-    - if current_account.try(:can_update?, resource)
-      =link_to "aanpassen", edit_company_path(@company), class: 'btn'
+
+      - if current_account.try(:can_update?, @company)
+        = link_to "aanpassen", edit_company_path(@company), class: 'btn'
+      - if current_account.try(:can_delete?, @company)
+        = link_to "verwijderen", company_path(@company), :confirm => 'weet je het zeker?', :method => :delete, class: 'btn'
 
   %section.sidebar.fourth.paperpile
     %p= "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met bedrijven als #{Company.all.sample.name} en de personen achter #{Company.all.sample.name}, voeg zelf gegevens toe of lees het laatste nieuws."
+

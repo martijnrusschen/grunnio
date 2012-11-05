@@ -26,6 +26,7 @@ class CompaniesController < ResourceController
     @company = Company.find(params[:id])
     @card = @company.card
     @location = @company.location
+    @json = @company.location.to_gmaps4rails
     add_breadcrumb @company.name, admin_company_path(@company)
     show!
   end
