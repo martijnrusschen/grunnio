@@ -22,14 +22,14 @@ class InitiativesController < ResourceController
   end
 
   def show
-   @initiative = Initiative.find(params[:id])
+   @initiative = Initiative.find_using_slug(params[:id])
    @card = @initiative.card
    @location = @initiative.location
    show!
   end
 
   def edit
-   @initiative = Initiative.find(params[:id])
+   @initiative = Initiative.find_using_slug(params[:id])
    authorize_action_for(@initiative)
    @card = @initiative.card.nil? ? @initiative.build_card : @initiative.card
    @location = @initiative.location.nil? ? @initiative.build_location : @initiative.location
@@ -37,7 +37,7 @@ class InitiativesController < ResourceController
   end
 
   def destroy
-   @initiative = Initiative.find(params[:id])
+   @initiative = Initiative.find_using_slug(params[:id])
    authorize_action_for(@initiative)
    destroy!
   end

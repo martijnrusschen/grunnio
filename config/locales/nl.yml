@@ -198,6 +198,11 @@ nl:
     errors:
       <<: *errors
 
+  resources:
+    companies: 'bedrijven'
+    initiatives: 'initiatieven'
+    people: 'personen'
+
   headers:
     new: nieuw %{model}
   navigation:

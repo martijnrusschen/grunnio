@@ -9,6 +9,7 @@ gem 'geocoder', '~> 1.1.3'
 gem 'gmaps4rails'
 gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
 gem 'slugged'
+gem 'i18n_routing'
 
 gem 'jbuilder', '~> 0.8.0'
 # gem 'blankslate', '~> 3.1.2'
