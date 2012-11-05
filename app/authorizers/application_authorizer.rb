@@ -37,9 +37,9 @@ class ApplicationAuthorizer < Authority::Authorizer
     account
   end
 
-  # def self.deletable_by?(account)
-  #   account.has_role? :admin
-  # end
+  def self.deletable_by?(account)
+    account
+  end
 
 # Instances
   def default(able, account)
