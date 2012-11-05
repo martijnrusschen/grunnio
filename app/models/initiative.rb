@@ -12,6 +12,7 @@
 class Initiative < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  is_sluggable :name
   scope :published, where(published: true)
 
   # naam

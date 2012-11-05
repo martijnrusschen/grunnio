@@ -223,7 +223,8 @@ CREATE TABLE companies (
     websites hstore,
     logo character varying(255),
     category_id integer,
-    published boolean DEFAULT true
+    published boolean DEFAULT true,
+    cached_slug character varying(255)
 );
 
 
@@ -303,7 +304,8 @@ CREATE TABLE initiatives (
     updated_at timestamp without time zone NOT NULL,
     description text,
     logo character varying(255),
-    published boolean DEFAULT true
+    published boolean DEFAULT true,
+    cached_slug character varying(255)
 );
 
 
@@ -429,7 +431,8 @@ CREATE TABLE people (
     updated_at timestamp without time zone NOT NULL,
     account_id integer,
     published boolean DEFAULT false,
-    avatar character varying(255)
+    avatar character varying(255),
+    cached_slug character varying(255)
 );
 
 
@@ -528,6 +531,38 @@ ALTER SEQUENCE roles_id_seq OWNED BY roles.id;
 CREATE TABLE schema_migrations (
     version character varying(255) NOT NULL
 );
+
+
+--
+-- Name: slugs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE slugs (
+    id integer NOT NULL,
+    scope character varying(255),
+    slug character varying(255),
+    record_id integer,
+    created_at timestamp without time zone
+);
+
+
+--
+-- Name: slugs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE slugs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: slugs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE slugs_id_seq OWNED BY slugs.id;
 
 
 --
@@ -682,6 +717,13 @@ ALTER TABLE ONLY roles ALTER COLUMN id SET DEFAULT nextval('roles_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY slugs ALTER COLUMN id SET DEFAULT nextval('slugs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY taggings ALTER COLUMN id SET DEFAULT nextval('taggings_id_seq'::regclass);
 
 
@@ -789,6 +831,14 @@ ALTER TABLE ONLY roles
 
 
 --
+-- Name: slugs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY slugs
+    ADD CONSTRAINT slugs_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -854,6 +904,13 @@ CREATE INDEX index_cards_on_cardable_id_and_cardable_type ON cards USING btree (
 
 
 --
+-- Name: index_companies_on_cached_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_companies_on_cached_slug ON companies USING btree (cached_slug);
+
+
+--
 -- Name: index_images_on_description; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -868,10 +925,24 @@ CREATE INDEX index_images_on_imageable_type_and_imageable_id ON images USING btr
 
 
 --
+-- Name: index_initiatives_on_cached_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_initiatives_on_cached_slug ON initiatives USING btree (cached_slug);
+
+
+--
 -- Name: index_locations_on_locatable_id_and_locatable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_locations_on_locatable_id_and_locatable_type ON locations USING btree (locatable_id, locatable_type);
+
+
+--
+-- Name: index_people_on_cached_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_people_on_cached_slug ON people USING btree (cached_slug);
 
 
 --
@@ -893,6 +964,34 @@ CREATE INDEX index_roles_on_name ON roles USING btree (name);
 --
 
 CREATE INDEX index_roles_on_name_and_resource_type_and_resource_id ON roles USING btree (name, resource_type, resource_id);
+
+
+--
+-- Name: index_slugs_on_scope_and_record_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_slugs_on_scope_and_record_id ON slugs USING btree (scope, record_id);
+
+
+--
+-- Name: index_slugs_on_scope_and_record_id_and_created_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_slugs_on_scope_and_record_id_and_created_at ON slugs USING btree (scope, record_id, created_at);
+
+
+--
+-- Name: index_slugs_on_scope_and_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_slugs_on_scope_and_slug ON slugs USING btree (scope, slug);
+
+
+--
+-- Name: index_slugs_on_scope_and_slug_and_created_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_slugs_on_scope_and_slug_and_created_at ON slugs USING btree (scope, slug, created_at);
 
 
 --
@@ -1073,3 +1172,11 @@ INSERT INTO schema_migrations (version) VALUES ('20121103120444');
 INSERT INTO schema_migrations (version) VALUES ('20121105141724');
 
 INSERT INTO schema_migrations (version) VALUES ('20121105183038');
+
+INSERT INTO schema_migrations (version) VALUES ('20121105232737');
+
+INSERT INTO schema_migrations (version) VALUES ('20121105232758');
+
+INSERT INTO schema_migrations (version) VALUES ('20121105232815');
+
+INSERT INTO schema_migrations (version) VALUES ('20121105232834');
