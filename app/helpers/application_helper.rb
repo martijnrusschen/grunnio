@@ -9,4 +9,8 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+
+  def dash(field)
+    field.blank? ? "-" : field
+  end
 end
