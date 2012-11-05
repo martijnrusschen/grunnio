@@ -36,9 +36,12 @@
             =a
             %br
       - if current_account.try(:can_update?, @company)
-        = link_to "aanpassen", edit_company_path(@company), class: 'btn'
+        = link_to edit_company_path(@company), class: 'btn tiny', title: 'aanpassen' do
+          %i.sweets-edit
+          aanpassen
       - if current_account.try(:can_delete?, @company)
-        = link_to "verwijderen", company_path(@company), :confirm => 'weet je het zeker?', :method => :delete, class: 'btn'
+        = link_to @company, title: 'verwijderen', :confirm => 'weet je het zeker?', :method => :delete, class: 'btn tiny alert' do
+          %i.sweets-delete
 
   %section.sidebar.fourth.paperpile
     %i.sweets-info.sweets-large
