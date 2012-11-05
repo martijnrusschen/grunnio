@@ -149,7 +149,9 @@ CREATE TABLE cards (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     cardable_id integer,
-    cardable_type character varying(255)
+    cardable_type character varying(255),
+    blog_url character varying(255),
+    personal_url character varying(255)
 );
 
 
@@ -1066,3 +1068,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121102104817');
 INSERT INTO schema_migrations (version) VALUES ('20121103115717');
 
 INSERT INTO schema_migrations (version) VALUES ('20121103120444');
+
+INSERT INTO schema_migrations (version) VALUES ('20121105141724');

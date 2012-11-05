@@ -20,7 +20,9 @@ class Card < ActiveRecord::Base
   attr_accessible :general_email_address,
                   :phone,
                   :twitter_username,
-                  :website_url
+                  :website_url,
+                  :blog_url,
+                  :personal_url
 
   belongs_to :cardable, polymorphic: true
 
