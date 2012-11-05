@@ -19,15 +19,15 @@
         %dd= dash(@company.specialities)
         %dt Opgericht in:
         %dd= dash(@company.founded_in)
-        %dt # werknemers:
+        %dt # Werknemers:
         %dd= dash(@company.number_of_employees)
-        %dt twitter:
+        %dt Twitter:
         %dd= @company.card.twitter_username.blank? ? "-" : link_to("@#{@company.card.twitter_username}", "http://twitter.com/#{@company.card.twitter_username}")
-        %dt website:
+        %dt Website:
         %dd= @company.card.website_url.blank? ? "-" : link_to(@company.card.website_url)
-        %dt blog:
+        %dt Blog:
         %dd= @company.card.blog_url.blank? ? "-" : link_to(@company.card.blog_url)
-        %dt telefoon:
+        %dt Telefoon:
         %dd= dash(@company.card.phone)
 
         %dt Adres:
@@ -38,5 +38,11 @@
               %br
           - else
             \-
+        %dt Personen:
+        %dd
+          - resource.people.each do |p|
+            =link_to(p.name, p)
+
+
       = render 'shared/factsheet_actions'
   =render 'shared/sidebar'

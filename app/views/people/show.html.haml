@@ -16,14 +16,24 @@
         //%dd= @person.age
         %dt Biografie:
         %dd= dash(@person.biography)
-        %dt twitter:
+        %dt Twitter:
         %dd= @person.card.twitter_username.blank? ? "-" : link_to("@#{@person.card.twitter_username}", "http://twitter.com/#{@person.card.twitter_username}")
-        %dt website:
+        %dt Website:
         %dd= @person.card.website_url.blank? ? "-" : link_to(@person.card.website_url)
-        %dt blog:
+        %dt Blog:
         %dd= @person.card.blog_url.blank? ? "-" : link_to(@person.card.blog_url)
-        %dt telefoon:
+        %dt Telefoon:
         %dd= dash(@person.card.phone)
+        %dt Bedrijven:
+        %dd
+          - @person.companies.each do |c|
+            =link_to(c.name, c)
+        %dt Initiatieven:
+        %dd
+          - @person.initiatives.each do |i|
+            =link_to(i.name, i)
+
+
       = render 'shared/factsheet_actions'
   =render 'shared/sidebar'
 

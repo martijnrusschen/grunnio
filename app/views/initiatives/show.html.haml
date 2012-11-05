@@ -21,5 +21,10 @@
               %br
           - else
             \-
+        %dt Personen:
+        %dd
+          - resource.people.each do |p|
+            =link_to(p.name, p)
+
       = render 'shared/factsheet_actions'
   =render 'shared/sidebar'
