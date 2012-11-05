@@ -37,7 +37,7 @@ class Company < ActiveRecord::Base
   :blog,
   :published
 
-  hstore_accessor :websites, :corporate, :blog
+  # hstore_accessor :websites, :corporate, :blog
   # oneindig adressen, met keuzelijst label corporate / blog
 
   has_one :card, as: :cardable
