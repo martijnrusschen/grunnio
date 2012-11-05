@@ -428,7 +428,8 @@ CREATE TABLE people (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     account_id integer,
-    published boolean DEFAULT false
+    published boolean DEFAULT false,
+    avatar character varying(255)
 );
 
 
@@ -1070,3 +1071,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121103115717');
 INSERT INTO schema_migrations (version) VALUES ('20121103120444');
 
 INSERT INTO schema_migrations (version) VALUES ('20121105141724');
+
+INSERT INTO schema_migrations (version) VALUES ('20121105183038');

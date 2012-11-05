@@ -22,6 +22,8 @@ class Person < ActiveRecord::Base
                   :birthdate,
                   :headline,
                   :name,
+                  :avatar,
+                  :avatar_cache,
                   :specialities,
                   :card_attributes,
                   :company_ids,
@@ -32,6 +34,8 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :initiatives
   belongs_to :account
+
+  mount_uploader :avatar, ImageUploader
 
   accepts_nested_attributes_for :card, update_only: true
 
