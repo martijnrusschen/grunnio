@@ -21,3 +21,11 @@ $("input.date_picker").each (i) ->
     altFormat: "yy- mm-dd"
     dateFormat: "mm-dd-yy"
     altField: $(this).next()
+
+$("#person_company_ids").select2 placeholder: "Selecteer een bedrijf"
+$("#person_initiative_ids").select2 placeholder: "Selecteer een initiatief"
+$("#initiative_person_ids").select2 placeholder: "Selecteer een persoon"
+$("#company_person_ids").select2 placeholder: "Selecteer een persoon"
+
+
+

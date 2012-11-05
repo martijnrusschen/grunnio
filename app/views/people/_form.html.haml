@@ -11,7 +11,7 @@
     //= f.input :specialities, input_html: {value: @person.specialities.join(","), data:{ specialities: Person.popular_tags_list } , type: "hidden" }
     = f.input :birthdate, as: :date_picker
     = f.association :companies, collection: Company.published, label: 'Bedrijven'
-    = f.association :initiatives, collection: Company.published, label: 'Initiatieven'
+    = f.association :initiatives, collection: Initiative.published, label: 'Initiatieven'
 
   = f.simple_fields_for :card do |c|
     %fieldset
@@ -20,7 +20,7 @@
       = c.input :phone, as: :tel
       = c.input :twitter_username
       = c.input :website_url
-    = f.input :published, label: 'profiel publiceren op Grunn.io?'
+    = f.input :published, label: 'Publiceren op Grunn.io?'
 
   .form-actions
     = f.submit "Profiel bijwerken", class: 'btn success large'
