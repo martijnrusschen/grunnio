@@ -17,6 +17,8 @@ class Card < ActiveRecord::Base
   include Authority::Abilities
   resourcify
 
+  before_save :strip_twitter_username, if: :twitter_username_changed?
+
   attr_accessible :general_email_address,
                   :phone,
                   :twitter_username,
@@ -30,4 +32,8 @@ class Card < ActiveRecord::Base
   validates :phone, numericality: { only_integer: true }, allow_blank: true
   validates :twitter_username, length: { maximum: 15 }, allow_nil: true
   # validates :website_url
+
+  def strip_twitter_username
+    twitter_username.gsub!("@","")
+  end
 end
