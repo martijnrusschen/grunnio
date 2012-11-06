@@ -576,3 +576,13 @@ ul.select2-choices {
   outline: 0 none;
   padding: 5px;
 }
+
+.sign_in_btn {
+  // @include grid(32,0)
+}
+
+.sign_up_link {
+  @include grid(24, 4); ;
+  font-size: 1.1em;
+  font-weight: 200;
+}

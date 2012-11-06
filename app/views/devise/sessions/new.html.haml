@@ -9,7 +9,8 @@
         = f.input :email, :autofocus => true, input_html: { class: 'half' }, required: true
         = f.input :password, input_html: { class: 'half' }, label: 'wachtwoord', required: true
         = f.input :remember_me, label: 'onthouden', :as => :boolean if devise_mapping.rememberable?
-      .form-actions
-        = f.submit 'Aanmelden', class: 'btn'
+      .form-actions.whole
+        = f.submit 'Aanmelden', class: 'btn large sign_in_btn fourth left'
+        = link_to("Nog geen account? Schrijf je in voor Grunn.io", new_account_registration_path, class: 'sign_up_link')
   %footer.whole.text-center
     = render "devise/shared/links"
