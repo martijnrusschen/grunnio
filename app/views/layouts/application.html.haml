@@ -14,6 +14,9 @@
 
   %body
     = render 'shared/taiga-alerts'
+    // <a href=""><img style="position: absolute; top: 0; left: 0; border: 0;" src="forkus_ribbon.png" alt="Fork us on GitHub"></a>
+    =link_to("http://github.com/grunnio/grunnio") do
+      = image_tag(image_path("forkus_ribbon.png"), style: "position: absolute; top: 0; right: 0; border: 0;", alt: "Fork us on GitHub")
     .container
       - if content_for? :topbar
         = yield :topbar
