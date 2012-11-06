@@ -29,13 +29,15 @@ $("#company_person_ids").select2 placeholder: "Selecteer een persoon"
 $("#company_specialities").select2
   tags: $("#company_specialities").data('specialities')
   tokenSeparators: [",", " "]
+  maximumSelectionSize: 5
 $("#person_specialities").select2
   tags: $("#person_specialities").data('specialities')
   tokenSeparators: [",", " "]
+  maximumSelectionSize: 5
 $("#initiative_specialities").select2
   tags: $("#initiative_specialities").data('specialities')
   tokenSeparators: [",", " "]
-
+  maximumSelectionSize: 5
 
 uvOptions = {}
 (->
