@@ -37,6 +37,7 @@ class Person < ActiveRecord::Base
   belongs_to :account
 
   mount_uploader :avatar, ImageUploader
+  attr_taggable :specialities
 
   accepts_nested_attributes_for :card, update_only: true
 
@@ -73,6 +74,11 @@ class Person < ActiveRecord::Base
     else
       0
     end
+  end
+
+  def self.popular_tags_list
+    tags ||= Person.tags.collect(&:name).sort
+    tags
   end
 
   private

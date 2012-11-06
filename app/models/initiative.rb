@@ -43,13 +43,12 @@ class Initiative < ActiveRecord::Base
   accepts_nested_attributes_for :location, update_only: true
   accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-  attr_taggable :categories
-  # Design
-  # Development
-  # Consultancy
-  # Full service
-  # Product
-  # Overig
+  attr_taggable :specialities
+
+  def self.popular_tags_list
+    tags ||= Initiative.tags.collect(&:name).sort
+    tags
+  end
 
 end
 

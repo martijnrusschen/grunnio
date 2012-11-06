@@ -26,9 +26,16 @@ $("#person_company_ids").select2 placeholder: "Selecteer een bedrijf"
 $("#person_initiative_ids").select2 placeholder: "Selecteer een initiatief"
 $("#initiative_person_ids").select2 placeholder: "Selecteer een persoon"
 $("#company_person_ids").select2 placeholder: "Selecteer een persoon"
-# $("#company_specialities").select2
-  # tags: Company.tags.map{ |t| t.name }
-  # tokenSeparators: [",", " "]
+$("#company_specialities").select2
+  tags: $("#company_specialities").data('specialities')
+  tokenSeparators: [",", " "]
+$("#person_specialities").select2
+  tags: $("#person_specialities").data('specialities')
+  tokenSeparators: [",", " "]
+$("#initiative_specialities").select2
+  tags: $("#initiative_specialities").data('specialities')
+  tokenSeparators: [",", " "]
+
 
 uvOptions = {}
 (->

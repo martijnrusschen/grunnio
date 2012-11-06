@@ -5,9 +5,9 @@
     %legend gegevens
     = f.input :name, required: true
     = f.input :description, input_html: {rows: 10}, required: true
+    = f.input :specialities, input_html: {value: @initiative.specialities.join(","), data:{ specialities: Initiative.popular_tags_list } , type: "hidden" }, label: "specialiteiten", hint: "max. 5"
     = f.input :logo, as: :file
     = f.input :logo_cache, as: :hidden
-    //= f.input :specialities, input_html: {value: @person.specialities.join(","), data:{ specialities: Person.popular_tags_list } , type: "hidden" }
     = f.association :people, :collection => Person.published.all(:order => 'name'), label: "Personen"
 
   = f.simple_fields_for :card do |c|
