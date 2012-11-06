@@ -13,9 +13,9 @@ namespace :db do
 end
 
 def create_admin
-  admin = Account.create!(email: 'admin@admin.nl', password: 'silgrongrunnio')
-  admin.add_role :admin
-  admin.confirm!
+  @admin = Account.create!(email: 'admin@admin.test', password: 'silgrongrunnio')
+  @admin.add_role :admin
+  @admin.confirm!
 end
 
 def create_companies
@@ -30,21 +30,24 @@ def create_companies
                    location_attributes: {street_address: Faker::Address.street_address, postal_code: Faker::Address.zip, city: Faker::Address.city}
                    )
     c.products.create(name: Faker::Company.bs, description: Faker::Company.catch_phrase, website_url: Faker::Internet.domain_name)
+    @admin.add_role :owner, c
   end
 end
 
 def create_people
   100.times do
-    Person.create!( name: Faker::Name.name,
+    p = Person.create!( name: Faker::Name.name,
                     biography: Faker::Lorem.paragraph,
                     headline: Faker::Company.bs,
                     card_attributes: {general_email_address: Faker::Internet.email, phone: 0501234567, twitter_username: "@#{Faker::Internet.user_name}"[0,14], website_url: Faker::Internet.domain_name})
+    @admin.add_role :owner, p
   end
 end
 
 def create_initiatives
   100.times do
-    Initiative.create!(name: Faker::Company.name,
+    i = Initiative.create!(name: Faker::Company.name,
                        description: Faker::Lorem.paragraph)
+    @admin.add_role :owner, i
   end
 end
