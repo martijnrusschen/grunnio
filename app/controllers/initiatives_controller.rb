@@ -36,6 +36,11 @@ class InitiativesController < ResourceController
    edit!
   end
 
+  def update
+    @initiative = Initiative.find_using_slug(params[:id])
+    update!
+  end
+
   def destroy
    @initiative = Initiative.find_using_slug(params[:id])
    authorize_action_for(@initiative)

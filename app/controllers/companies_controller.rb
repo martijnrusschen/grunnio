@@ -40,6 +40,11 @@ class CompaniesController < ResourceController
     edit!
   end
 
+  def update
+    @company = Company.find_using_slug(params[:id])
+    update!
+  end
+
   def destroy
     @company = Company.find_using_slug(params[:id])
     authorize_action_for(@company)

@@ -31,6 +31,11 @@ class PeopleController < ResourceController
     edit!
   end
 
+  def update
+    @person = Person.find_using_slug(params[:id])
+    update!
+  end
+
   def destroy
     @person = Person.find_using_slug(params[:id])
     authorize_action_for(@person)
