@@ -26,6 +26,16 @@ $("#person_company_ids").select2 placeholder: "Selecteer een bedrijf"
 $("#person_initiative_ids").select2 placeholder: "Selecteer een initiatief"
 $("#initiative_person_ids").select2 placeholder: "Selecteer een persoon"
 $("#company_person_ids").select2 placeholder: "Selecteer een persoon"
+# $("#company_specialities").select2
+  # tags: Company.tags.map{ |t| t.name }
+  # tokenSeparators: [",", " "]
 
-
-
+uvOptions = {}
+(->
+  uv = document.createElement("script")
+  uv.type = "text/javascript"
+  uv.async = true
+  uv.src = ((if "https:" is document.location.protocol then "https://" else "http://")) + "widget.uservoice.com/X7kBX3ReRXUtuV5uv9w.js"
+  s = document.getElementsByTagName("script")[0]
+  s.parentNode.insertBefore uv, s
+)()
