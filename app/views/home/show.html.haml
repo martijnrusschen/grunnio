@@ -34,6 +34,7 @@
             %li
               = link_to(c.name, c)
               %span.specialities= c.specialities.try(:join, ',')
+      =link_to "Alle bedrijven...", companies_path, class: "right"
 
   %section.whole.paperpile.personen
     .third
@@ -58,6 +59,7 @@
             %li
               = link_to(p.name, p)
               %span.specialities= p.specialities.try(:join, ',')
+
     .third
       .title.three
         %i.icon-random.blue-icon.left
@@ -67,6 +69,7 @@
             %li
               = link_to(p.name, p)
               %span.specialities= p.specialities.try(:join, ',')
+      =link_to "Alle personen...", people_path, class: "right"
 
 
   %section.whole.paperpile.initiatieven
@@ -95,6 +98,7 @@
           -@initiatives.sample(3).each do |i|
             %li
               = link_to(i.name, i)
+      =link_to "Alle initiatieven...", companies_path, class: "right"
 
 
 
