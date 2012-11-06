@@ -17,6 +17,10 @@ def create_admin
   @admin = Account.create!(email: 'admin@admin.test', password: password)
   @admin.add_role :admin
   @admin.confirm!
+  @admin.person.name = "Ad Min"
+  @admin.person.headline = Faker::Company.catch_phrase
+  @admin.person.biography = Faker::Lorem.paragraph
+  @admin.person.save
 end
 
 def create_companies
