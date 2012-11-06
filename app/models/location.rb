@@ -22,7 +22,7 @@ class Location < ActiveRecord::Base
   include Authority::Abilities
 
   acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
-                    :address => "full_address", :normalized_address => "address", :language => "nl",
+                    :address => "full_address", :normalized_address => "address", :language => "nl", :validation => false,
                     :msg => "Sorry, not even Google could figure out where that is"
 
   attr_accessible :street_address,
