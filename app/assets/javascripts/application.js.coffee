@@ -6,6 +6,7 @@
 #= require select2.min
 #= require gmaps4rails/gmaps4rails.base
 #= require gmaps4rails/gmaps4rails.googlemaps
+#= require jquery.reveal
 
 # Remove Facebook #_=_ from auth redirect
 if window.location.hash is "#_=_"
