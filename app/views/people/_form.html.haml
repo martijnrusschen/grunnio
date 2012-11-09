@@ -16,10 +16,8 @@
   = f.simple_fields_for :card do |c|
     %fieldset
       %legend contact
-      = c.input :general_email_address, as: :email
-      = c.input :phone, as: :tel
-      = c.input :twitter_username
-      = c.input :website_url
+      = render 'shared/cards/fields', f: c
+
     = f.input :published, label: 'Publiceren op Grunn.io?'
 
   .form-actions
