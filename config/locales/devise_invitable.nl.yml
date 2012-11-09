@@ -6,7 +6,7 @@ nl:
       updated: 'Je wachtwoord is  gewijzigd. Je bent nu aangemeld.'
       no_invitations_remaining: "Geen uitnodigingen over"
       new:
-        header: "Uitnodigingen"
+        header: "Nodig een vriend uit voor Grunn.io"
         submit_button: "Versturen"
       edit:
         header: "Kies een wachtwoord"

@@ -1,3 +1,6 @@
+#inviteModal.reveal-modal
+  = render 'devise/invitations/modal', resource: Account.new
+
 = simple_form_for([@company], wrapper: :taiga, :html => {:multipart => true} ) do |f|
   = f.error_notification
 
@@ -12,7 +15,9 @@
     = f.input :founded_in, input_html: {class: 'fourth'}
     = f.input :number_of_employees, as: :integer, input_html: {class: 'fourth'}
     = f.association :people, :collection => Person.published.all(:order => 'name'), label: "Personen"
-
+    %ul
+      %li
+        %a.invite-link.right{ "data-reveal-id" => "inviteModal", :href => "#" }  Verstuur een uitnodiging
   / = f.simple_fields_for :products do |product|
   /   = render 'product_fields', f: product
   / .links

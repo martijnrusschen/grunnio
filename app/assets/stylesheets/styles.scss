@@ -403,6 +403,9 @@ dl dd {
 
 form.simple_form {
   margin-top: 25px;
+  .invite-link {
+    margin-top: -55px;
+  }
 }
 
 fieldset {
@@ -585,4 +588,16 @@ ul.select2-choices {
   @include grid(24, 4); ;
   font-size: 1.1em;
   font-weight: 200;
+}
+
+#inviteModal {
+  div {
+    width: 100%;
+  }
+  label {
+    width: 10%;
+  }
+  // input {
+  //   width: 90%;
+  // }
 }
