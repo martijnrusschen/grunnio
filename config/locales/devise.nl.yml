@@ -3,56 +3,56 @@
 nl:
   errors:
     messages:
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      already_confirmed: "was already confirmed, please try signing in"
-      not_locked: "was not locked"
+      expired: "is verlopen, vraag een nieuwe aan"
+      not_found: "niet gevonden"
+      already_confirmed: "is al bevestigd, probeer aan te melden"
+      not_locked: "is niet vergrendeld"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "Helaas, door een fout is %{resource} niet opgeslagen:"
+        other: "Helaas, door %{count} fouten is %{resource} niet opgeslagen:"
 
   devise:
     failure:
-      already_authenticated: 'You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
+      already_authenticated: 'Je bent al aangemeld.'
+      unauthenticated: 'Meld je aan om verder te gaan.'
+      unconfirmed: 'Je dient je emailadres te bevestigen alvorens verder te gaan.'
+      locked: 'Je account is vergrendeld.'
+      invalid: 'Ongeldig emailadres or wachtwoord.'
+      invalid_token: 'Ongeldig authenticatietoken.'
+      timeout: 'Je sessie is beeindigd, meld je opnieuw aan om verder te gaan.'
+      inactive: 'Jouw account is nog niet geactiveerd.'
     sessions:
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      signed_in: 'Succesvol aangemeld.'
+      signed_out: 'Succesvol afgemeld.'
     passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
-      updated_not_active: 'Your password was changed successfully.'
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: 'Over enkele minuten ontvang je de instructies voor het opnieuw instellen van je wachtwoord.'
+      updated: 'Je wachtwoord is gewijzigd. Je bent nu aangemeld.'
+      updated_not_active: 'Je wachtwoord is gewijzigd.'
+      send_paranoid_instructions: "Binnen enkele minuten ontvang je een mail waarmee je je wachtwoord opnieuw kan instellen, mits het opgegeven emailadres bij ons bekend is."
+      no_token: "Helaas, er is een fout opgetreden. Controleer of de resetlink uit mail volledig en juist is ingevuld in de adresbalk van je browser."
     confirmations:
-      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      send_paranoid_instructions: 'If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+      send_instructions: 'Over enkele minuten ontvang je een email met instructies voor het bevestigen van je account.'
+      send_paranoid_instructions: 'Binnen enkele minuten ontvang een mail met instructies voor het bevestigen van je account, mits jouw emailadres bij ons bekend is.'
+      confirmed: 'Bedankt voor het bevestigen van je account! Je bent nu aangemeld.'
     registrations:
-      signed_up: 'Welcome! You have signed up successfully.'
-      signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
-      signed_up_but_inactive: 'You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
-      signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
-      updated: 'You updated your account successfully.'
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      signed_up: 'Moi. Je bent aangemeld bij Grunn.io!'
+      signed_up_but_unconfirmed: 'We hebben een bericht met een bevestigingslink naar je emailadres verzonden. Klik op de link in de email om je account te activeren.'
+      signed_up_but_inactive: 'Je hebt nu een Grunn.io account! Helaas kon je niet automatisch aangemeld worden omdat het account nog niet geactiveerd is.'
+      signed_up_but_locked: 'Je hebt nu een Grunn.io account! Helaas kon je niet automatisch aangemeld worden omdat het account nog vergrendeld is.'
+      updated: 'Je gegevens zijn bijgewerkt.'
+      update_needs_confirmation: "Je gegevens zijn bijgewerkt. Volg de instructies in de zojuist verzonden bevestigingsmail om je nieuwe emailadres te activeren."
+      destroyed: 'Je account is verwijderd. Hopelijk tot ziens op Grunn.io!'
     unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account has been unlocked successfully. Please sign in to continue.'
-      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+      send_instructions: 'Je ontvangt de mail met ontgrendelinstructies binnen enkele minuten.'
+      unlocked: 'Je account is ontgrendeld. Meld je aan om verder te gaan.'
+      send_paranoid_instructions: 'Indien je emailadres bij ons bekend is ontvange je over enkele minuten een mail met ontgrendelinstructies.'
     omniauth_callbacks:
-      success: 'Successfully authenticated from %{kind} account.'
-      failure: 'Could not authenticate you from %{kind} because "%{reason}".'
+      success: 'Aangemeld via %{kind} account.'
+      failure: 'Aanmelden via %{kind} is mislukt (reden: "%{reason}").'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Bevestig je Grunn.io-account'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'Wachtwoord Grunn.io opnieuw instellen'
       unlock_instructions:
-        subject: 'Unlock Instructions'
+        subject: 'Ontgrendel grunn.io account'
