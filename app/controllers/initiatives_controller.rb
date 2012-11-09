@@ -19,6 +19,9 @@ class InitiativesController < ResourceController
    @location = @initiative.location
    @current_account.add_role :owner, @initiative
    create!
+   create! do |format|
+      format.js
+    end
   end
 
   def show
