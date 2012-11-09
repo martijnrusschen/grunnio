@@ -18,7 +18,7 @@
         %dd= dash(@initiative.description)
         %dt Adres:
         %dd
-          - if resource.location.address
+          - if resource.location && resource.location.address
             -resource.location.address.try(:split, ",").each do |a|
               =a
               %br
