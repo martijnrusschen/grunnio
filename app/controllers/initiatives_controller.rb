@@ -18,7 +18,6 @@ class InitiativesController < ResourceController
    @card = @initiative.card
    @location = @initiative.location
    @current_account.add_role :owner, @initiative
-   create!
    create! do |format|
       format.js
     end
