@@ -22,3 +22,8 @@
 
   .form-actions
     = f.submit "Profiel bijwerken", class: 'btn success large'
+
+#companyModal.reveal-modal
+  = render 'companies/modal_form', :@company => Company.new.tap{ |c| c.build_card ; c.build_location }
+#initiativeModal.reveal-modal
+  = render 'initiatives/modal_form', initiative: Initiative.new.tap{ |i| i.build_card ; i.build_location }
