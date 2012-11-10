@@ -1,6 +1,3 @@
-#inviteModal.reveal-modal
-  = render 'devise/invitations/modal', resource: Account.new
-
 = simple_form_for([@company], wrapper: :taiga, :html => {:multipart => true} ) do |f|
   = f.error_notification
 
@@ -36,3 +33,6 @@
     = f.input :published, label: 'Publiceren op Grunn.io?'
   .form-actions
     = f.submit class: 'btn success large'
+
+#inviteModal.reveal-modal
+  = render 'devise/invitations/modal', resource: Account.new
