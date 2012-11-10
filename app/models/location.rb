@@ -16,6 +16,8 @@
 #  locatable_type   :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  gmaps            :boolean
+#  address          :string(255)
 #
 
 class Location < ActiveRecord::Base

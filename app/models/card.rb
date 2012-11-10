@@ -11,6 +11,8 @@
 #  updated_at            :datetime         not null
 #  cardable_id           :integer
 #  cardable_type         :string(255)
+#  blog_url              :string(255)
+#  personal_url          :string(255)
 #
 
 class Card < ActiveRecord::Base

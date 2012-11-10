@@ -11,6 +11,9 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  account_id   :integer
+#  published    :boolean          default(FALSE)
+#  avatar       :string(255)
+#  cached_slug  :string(255)
 #
 
 class Person < ActiveRecord::Base

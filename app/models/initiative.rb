@@ -7,6 +7,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
+#  logo        :string(255)
+#  published   :boolean          default(TRUE)
+#  cached_slug :string(255)
 #
 
 class Initiative < ActiveRecord::Base

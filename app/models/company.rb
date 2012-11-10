@@ -14,6 +14,8 @@
 #  websites            :hstore
 #  logo                :string(255)
 #  category_id         :integer
+#  published           :boolean          default(TRUE)
+#  cached_slug         :string(255)
 #
 
 class Company < ActiveRecord::Base
