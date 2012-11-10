@@ -1,4 +1,7 @@
 class InitiativesController < ResourceController
+  respond_to :html
+  respond_to :js, only: :create
+
   authorize_actions_for Initiative, :except => [:show, :index]
 
   def index
@@ -18,9 +21,7 @@ class InitiativesController < ResourceController
    @card = @initiative.card
    @location = @initiative.location
    @current_account.add_role :owner, @initiative
-   create! do |format|
-      format.js
-    end
+   create!
   end
 
   def show

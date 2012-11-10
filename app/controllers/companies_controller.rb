@@ -1,4 +1,7 @@
 class CompaniesController < ResourceController
+  respond_to :html
+  respond_to :js, only: :create
+
   authorize_actions_for Company, :except => [:show, :index]
 
   def index
