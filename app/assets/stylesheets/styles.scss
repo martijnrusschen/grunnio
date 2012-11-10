@@ -406,6 +406,17 @@ form.simple_form {
   .invite-link {
     margin-top: -55px;
   }
+  .company-link {
+    margin-top: -47px;
+    padding-left: 10px;
+    i {
+      margin: 3px 0px 0px 0px;
+    }
+  }
+  .initiatives-link {
+    margin-top: -57px;
+    padding-left: 10px;
+  }
 }
 
 fieldset {
@@ -590,6 +601,18 @@ ul.select2-choices {
   font-weight: 200;
 }
 
+li.select2-search-choice {
+  div {
+    width: auto;
+    margin: 0;
+    padding: 2px;
+  }
+  .select2-search-choice-close {
+    top: 7px;
+  }
+}
+
+
 #inviteModal {
   div {
     width: 100%;
@@ -597,7 +620,4 @@ ul.select2-choices {
   label {
     width: 10%;
   }
-  // input {
-  //   width: 90%;
-  // }
 }

@@ -11,7 +11,13 @@
     = f.input :avatar_cache, as: :hidden
     = f.input :birthdate, as: :date_picker
     = f.association :companies, collection: Company.published, label: 'Bedrijven'
+    %a.company-link.btn.tiny.right{ "data-reveal-id" => "companyModal", :href => "#" }
+      %i.sweets-plus
+      bedrijf
     = f.association :initiatives, collection: Initiative.published, label: 'Initiatieven'
+    %a.initiatives-link.btn.tiny.right{ "data-reveal-id" => "initiativeModal", :href => "#" }
+      %i.sweets-plus
+      initiatief
 
   = f.simple_fields_for :card do |c|
     %fieldset
@@ -23,7 +29,7 @@
   .form-actions
     = f.submit "Profiel bijwerken", class: 'btn success large'
 
-#companyModal.reveal-modal
-  = render 'companies/modal_form', :@company => Company.new.tap{ |c| c.build_card ; c.build_location }
-#initiativeModal.reveal-modal
+#companyModal.reveal-modal.xlarge
+  = render 'companies/modal_form', :company => Company.new.tap{ |c| c.build_card ; c.build_location }
+#initiativeModal.reveal-modal.xlarge
   = render 'initiatives/modal_form', initiative: Initiative.new.tap{ |i| i.build_card ; i.build_location }
