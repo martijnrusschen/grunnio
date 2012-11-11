@@ -108,8 +108,8 @@
   text-shadow: 0 -1px 0 darken($color, 15%), 0 1px 0 lighten($color, 15%)
 }
 
-@mixin inset($color, $padding) {
-      color: $medium-grey;
+@mixin inset($padding, $color: $medium-grey) {
+      color: $color;
       padding: $padding;
       position: relative;
       &:after, &:before {
