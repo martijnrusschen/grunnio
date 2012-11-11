@@ -18,12 +18,7 @@
         %dd= dash(@initiative.description)
         %dt Adres:
         %dd
-          - if resource.location && resource.location.address
-            -resource.location.address.try(:split, ",").each do |a|
-              =a
-              %br
-          - else
-            \-
+          = formatted_addres(resource.location)
         %dt Personen:
         %dd
           = name_link_list(resource.people)
