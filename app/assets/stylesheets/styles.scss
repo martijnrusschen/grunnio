@@ -435,6 +435,10 @@ form .links, form .form-actions {
   @include grid(12, 16);
 }
 
+#person_birthdate_1i { width: 10%; }
+#person_birthdate_2i { width: 20%; }
+#person_birthdate_3i { width: 15%; }
+
 input.whole {
   @include grid(48, 0);
 }
