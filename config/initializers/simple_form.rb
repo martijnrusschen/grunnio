@@ -60,15 +60,15 @@ SimpleForm.setup do |config|
 
   config.wrappers :taiga, :tag => 'ul', class: 'taiga-fields', :error_class => 'errors' do |b|
     b.use :html5
-    # b.use :placeholder
-    b.wrapper :li, tag: 'li', class: 'taiga-field-item' do |bb|
-      bb.use :label, :wrap_with => {tag: nil, :class=>"taiga-label"}
-      bb.wrapper :tag => 'div' do |ba|
-        ba.use :input, :wrap_with => {tag: nil, :class=>"taiga-input"}
-        ba.use :error, :wrap_with => { :tag => 'ul', :class => 'errors' }
-        ba.use :hint,  :wrap_with => { :tag => 'small', :class => 'hint' }
+    b.optional :placeholder
+    b.use :error, tag: 'li', class: 'error-message'
+    b.wrapper :li, tag: 'li', class: 'taiga-field-item' do |field|
+      field.use :label, :wrap_with => {tag: nil, :class=>"taiga-label"}
+      field.wrapper :tag => 'div' do |input|
+        input.use :input, :wrap_with => {tag: nil, :class=>"taiga-input"}
+        input.optional :hint,  :wrap_with => { :tag => 'small', :class => 'hint' }
       end
-  end
+    end
   end
 
 
@@ -167,7 +167,7 @@ SimpleForm.setup do |config|
   config.browser_validations = true
 
   # Collection of methods to detect if a file type was given.
-  # config.file_methods = [ :mounted_as, :file?, :public_filename ]
+  config.file_methods = [ :mounted_as, :file?, :public_filename ]
 
   # Custom mappings for input types. This should be a hash containing a regexp
   # to match as key, and the input type that will be used when the field name
@@ -187,8 +187,8 @@ SimpleForm.setup do |config|
   config.translate_labels = true
 
   # Automatically discover new inputs in Rails' autoload path.
-  # config.inputs_discovery = true
+  config.inputs_discovery = true
 
   # Cache SimpleForm inputs discovery
-  # config.cache_discovery = !Rails.env.development?
+  config.cache_discovery = !Rails.env.development?
 end
