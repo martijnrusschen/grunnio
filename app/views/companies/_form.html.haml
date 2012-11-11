@@ -15,10 +15,10 @@
     %ul
       %li
         %a.invite-link.right{ "data-reveal-id" => "inviteModal", :href => "#" }  Verstuur een uitnodiging
-  / = f.simple_fields_for :products do |product|
-  /   = render 'product_fields', f: product
-  / .links
-  /   = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
+  // = f.simple_fields_for :products do |product|
+  //   = render 'product_fields', f: product
+  // .links
+  //   = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
 
   = f.simple_fields_for :card do |c|
     %fieldset

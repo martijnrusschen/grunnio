@@ -7,6 +7,10 @@ Fork deze repository, maak je wijzigingen (op develop) en dien een pull request 
 
 Meer weten? Neem contact op met [@serepo](https://github.com/serepo).
 
+### Releases
+#### 0.0.9
+Beta versie.
+
 ### Vereisten
 - Ruby 1.9.3
 - Postgres 9.1.3 (momenteel ook nog voor dev)
@@ -56,7 +60,3 @@ Verhoog de versie en commit:
 ```bash
 $ git flow release finish 0.0.x
 ```
-
-### Vereisten
-- Ruby 1.9.3
-- Postgres 9.1.3 (momenteel ook nog voor dev)
