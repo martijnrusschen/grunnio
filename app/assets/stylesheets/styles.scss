@@ -612,6 +612,7 @@ li.select2-search-choice {
   }
 }
 
+@include placeholder($medium-grey);
 
 #inviteModal {
   div {
