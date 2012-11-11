@@ -24,7 +24,7 @@ class Location < ActiveRecord::Base
   include Authority::Abilities
 
   acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
-                    :address => "full_address", :normalized_address => "address", :language => "nl", :validation => false,
+                    :address => "address", :normalized_address => "address", :language => "nl", :validation => false,
                     :msg => "Sorry, not even Google could figure out where that is"
 
   attr_accessible :street_address,
@@ -43,7 +43,7 @@ class Location < ActiveRecord::Base
   end
 
   def geocode?
-    (address.present? && (latitude.blank? || longitude.blank?)) || street_address_changed?
+    (address.present? && (latitude.blank? || longitude.blank?)) || address_changed?
   end
 
   # alias_method :gmaps4rails_address, :address
