@@ -1,7 +1,6 @@
 #= require jquery
 #= require jquery-ui
 #= require jquery_ujs
-#= require twitter/bootstrap
 #= require cocoon
 #= require select2.min
 #= require gmaps4rails/gmaps4rails.base
@@ -42,6 +41,7 @@ $("#initiative_specialities").select2
   tokenSeparators: [",", " "]
   maximumSelectionSize: 5
 
+# User voice widget
 uvOptions = {}
 (->
   uv = document.createElement("script")
