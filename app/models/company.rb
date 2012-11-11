@@ -61,6 +61,7 @@ class Company < ActiveRecord::Base
   attr_taggable :specialities
 
   validates :name, length: { maximum: 255 }, presence: true, uniqueness: true
+  validates :description, presence: true
   validates :founded_in, numericality: { only_integer: true }, length: { is: 4 }, allow_blank: true
   validates :kvk_number, length: { is: 8 }, numericality: { only_integer: true }, allow_blank: true, uniqueness: true
   validates :number_of_employees, numericality: { only_integer: true }, allow_blank: true
