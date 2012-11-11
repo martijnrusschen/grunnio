@@ -69,4 +69,18 @@ li[class^="sweets-"].icon-superduper:before, li[class*="sweets-"].icon-superdupe
 .sweets-people:before { content: "b"; }
 .sweets-three-people:before { content: "c"; }
 .sweets-heart:before { content: "h"; }
+.sweets-info:before { content: "?"; }
+.sweets-delete:before{ content: "X" };
+.sweets-edit:before{ content: "C" };
+.sweets-plus:before{ content: "+" };
+.sweets-check-mark:before{ content: "=" };
+.sweets-star-black:before{ content: "*" };
+.sweets-star-white:before{ content: "W" };
+.sweets-envelope:before{ content: "@" };
+.sweets-talk-cloud:before{ content: "#" };
+.sweets-cogs:before{ content: "j" };
+.sweets-lock-locked:before{ content: "y" };
+.sweets-lock-unlocked:before{ content: "z" };
+.sweets-marker:before{ content: "`" };
+
 

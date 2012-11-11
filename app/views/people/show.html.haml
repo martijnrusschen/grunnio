@@ -1,20 +1,40 @@
+-content_for :title do
+  ="#{resource.name} op Grunn.io"
+
 -content_for :main do
   / %section.whole.breadcumbs
   %section.three-fourths.paperpile
     .imgs
-      %img.logo(src="http://placehold.it/160x160&text=Foto")
-      / %img.map(src="http://placehold.it/160x160&text=Google Maps")
+      = image_tag(@person.avatar.medium.url, class: 'person-logo')
 
     .factsheet
       .title.one
         %h2{title: @person.name}= @person.name
+        %i.sweets-person.sweets-large
+
       %dl.multiple-table
         %dt Headline:
-        %dd= @person.headline
-        %dt Leeftijd:
-        %dd= @person.age
+        %dd= dash(@person.headline)
+        //%dt Leeftijd:
+        //%dd= @person.age
         %dt Biografie:
-        %dd= @person.biography
+        %dd= dash(@person.biography)
+        %dt Twitter:
+        %dd= @person.card.twitter_username.blank? ? "-" : link_to("@#{@person.card.twitter_username}", "http://twitter.com/#{@person.card.twitter_username}")
+        %dt Website:
+        %dd= @person.card.website_url.blank? ? "-" : link_to("#{@person.card.website_url}", @person.card.website_url)
+        %dt Blog:
+        %dd= @person.card.blog_url.blank? ? "-" : link_to("#{@person.card.blog_url}", @person.card.blog_url)
+        %dt Telefoon:
+        %dd= dash(@person.card.phone)
+        %dt Bedrijven:
+        %dd
+          = name_link_list(@person.companies)
+        %dt Initiatieven:
+        %dd
+          = name_link_list(@person.initiatives)
 
-  %section.sidebar.fourth.paperpile
-    %p= "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met mensen als #{Person.all.sample.name} en de personen achter #{Person.all.sample.name}, voeg zelf gegevens toe of lees het laatste nieuws."
+
+      = render 'shared/factsheet_actions'
+  =render 'shared/sidebar'
+

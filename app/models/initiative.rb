@@ -7,11 +7,15 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
+#  logo        :string(255)
+#  published   :boolean          default(TRUE)
+#  cached_slug :string(255)
 #
 
 class Initiative < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  is_sluggable :name
   scope :published, where(published: true)
 
   # naam
@@ -29,7 +33,8 @@ class Initiative < ActiveRecord::Base
   :products_attributes,
   :location_attributes,
   :person_ids,
-  :published
+  :published,
+  :specialities
 
   has_one :card, as: :cardable
   has_one :location, as: :locatable
@@ -38,17 +43,18 @@ class Initiative < ActiveRecord::Base
 
   mount_uploader :logo, ImageUploader
 
-  accepts_nested_attributes_for :card, update_only: true
-  accepts_nested_attributes_for :location, update_only: true
+  accepts_nested_attributes_for :card, reject_if: :all_blank
+  accepts_nested_attributes_for :location, reject_if: :all_blank, update_only: true
   accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-  attr_taggable :categories
-  # Design
-  # Development
-  # Consultancy
-  # Full service
-  # Product
-  # Overig
+  attr_taggable :specialities
+
+  validates :name, uniqueness: true
+
+  def self.popular_tags_list
+    tags ||= Initiative.tags.collect(&:name).sort
+    tags
+  end
 
 end
 

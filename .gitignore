@@ -65,3 +65,7 @@ config/deploy.rb
 config/settings.yml
 
 config/initializers/errbit.rb
+
+.tags
+
+.tags_sorted_by_file

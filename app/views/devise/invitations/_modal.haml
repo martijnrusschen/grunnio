@@ -1,0 +1,6 @@
+%h3= t "devise.invitations.new.header"
+= simple_form_for Account.new, html: {class: "whole"}, wrapper: :taiga, :url => invitation_path('account'), remote: true do |f|
+  = devise_error_messages!
+  = f.input :email, label: 'email', as: 'email', input_html: { class: "whole" }, :placeholder => "jan@jan.jan"
+  = f.association :roles, :collection => Role.global, as: :check_boxes if current_account.has_role?(:admin)
+  = f.submit t("devise.invitations.new.submit_button"), data: { :'disable-with' => "Verzenden..." }

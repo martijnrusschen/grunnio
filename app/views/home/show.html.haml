@@ -6,10 +6,6 @@
 -content_for :header do
   = render 'shared/header'
 
-/ -content_for :navbar do
-/   = render 'shared/navbar'
-
-
 -content_for :main do
   %section.whole.paperpile.bedrijven
     .third
@@ -17,7 +13,9 @@
         %i.sweets-lab.sweets-large
         %h2{title: 'Bedrijven'} Bedrijven
       %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg bedrijfsgegevens toe.
-      = link_to "toevoegen", new_company_path, class: 'btn'
+      = link_to new_company_path, class: 'btn large' do
+        %i.sweets-plus
+        toevoegen
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
@@ -36,6 +34,7 @@
             %li
               = link_to(c.name, c)
               %span.specialities= c.specialities.try(:join, ',')
+      =link_to "Alle bedrijven...", companies_path, class: "right"
 
   %section.whole.paperpile.personen
     .third
@@ -44,9 +43,13 @@
         %h2{title: 'Personen'} Personen
       %p Maak kennis met de motor achter de Groninger tech-scene: de locals. Het zijn de mensen die het doen.
       - if account_signed_in?
-        = link_to "werk je profiel bij", edit_person_path(current_account.person), class: 'btn'
+        = link_to edit_person_path(current_account.person), class: 'btn large' do
+          %i.sweets-edit
+          werk je profiel bij
       - else
-        =link_to "voeg jezelf toe", new_account_registration_path, class: 'btn'
+        =link_to new_account_registration_path, class: 'btn large' do
+          %i.sweets-plus
+          voeg jezelf toe
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
@@ -56,6 +59,7 @@
             %li
               = link_to(p.name, p)
               %span.specialities= p.specialities.try(:join, ',')
+
     .third
       .title.three
         %i.icon-random.blue-icon.left
@@ -65,6 +69,7 @@
             %li
               = link_to(p.name, p)
               %span.specialities= p.specialities.try(:join, ',')
+      =link_to "Alle personen...", people_path, class: "right"
 
 
   %section.whole.paperpile.initiatieven
@@ -73,7 +78,9 @@
         %i.sweets-heart.sweets-large
         %h2{title: 'Initiatieven'} Initiatieven
       %p Dag en nacht, altijd wat te doen.
-      = link_to "toevoegen", new_initiative_path, class: 'btn'
+      = link_to new_initiative_path, class: 'btn large' do
+        %i.sweets-plus
+        toevoegen
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
@@ -91,6 +98,7 @@
           -@initiatives.sample(3).each do |i|
             %li
               = link_to(i.name, i)
+      =link_to "Alle initiatieven...", companies_path, class: "right"
 
 
 

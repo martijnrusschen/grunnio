@@ -1,26 +1,35 @@
-= simple_form_for([@person], wrapper: :taiga, html: {multipart: true} ) do |f|
+= simple_form_for([@person], wrapper: :taiga, validate: true, html: {multipart: true} ) do |f|
   = f.error_notification
 
   %fieldset
     %legend gegevens
-    = f.input :name
+    = f.input :name, required: true
     = f.input :headline
-    = f.input :biography, input_html: {rows: 10}
-    //= f.input :logo, as: :file
-    //= f.input :logo_cache, as: :hidden
-    //= f.input :specialities, input_html: {value: @person.specialities.join(","), data:{ specialities: Person.popular_tags_list } , type: "hidden" }
-    = f.input :birthdate, as: :date_picker
+    = f.input :biography, input_html: {rows: 10}, required: true
+    = f.input :specialities, input_html: {value: @person.specialities.join(","), data:{ specialities: Person.popular_tags_list } , type: "hidden" }, label: "specialiteiten", hint: "max. 5"
+    = f.input :avatar, as: :file, label: "foto"
+    = f.input :avatar_cache, as: :hidden
+    = f.input :birthdate, as: :date
     = f.association :companies, collection: Company.published, label: 'Bedrijven'
-    = f.association :initiatives, collection: Company.published, label: 'Initiatieven'
+    %a.company-link.btn.tiny.right{ "data-reveal-id" => "companyModal", :href => "#" }
+      %i.sweets-plus
+      bedrijf
+    = f.association :initiatives, collection: Initiative.published, label: 'Initiatieven'
+    %a.initiatives-link.btn.tiny.right{ "data-reveal-id" => "initiativeModal", :href => "#" }
+      %i.sweets-plus
+      initiatief
 
   = f.simple_fields_for :card do |c|
     %fieldset
       %legend contact
-      = c.input :general_email_address, as: :email
-      = c.input :phone, as: :tel
-      = c.input :twitter_username
-      = c.input :website_url
-    = f.input :published, label: 'profiel publiceren op Grunn.io?'
+      = render 'shared/cards/fields', f: c
+
+    = f.input :published, label: 'Tonen in de Grunn.io index?'
 
   .form-actions
-    = f.submit "Profiel bijwerken", class: 'btn'
+    = f.submit "Profiel bijwerken", class: 'btn large'
+
+#companyModal.reveal-modal.xlarge
+  = render 'companies/modal_form', :company => Company.new.tap{ |c| c.build_card ; c.build_location }
+#initiativeModal.reveal-modal.xlarge
+  = render 'initiatives/modal_form', initiative: Initiative.new.tap{ |i| i.build_card ; i.build_location }

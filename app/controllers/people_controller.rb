@@ -19,19 +19,25 @@ class PeopleController < ResourceController
   end
 
   def show
-    @person = Person.find(params[:id])
+    @person = Person.find_using_slug(params[:id])
     @card = @person.card
     show!
   end
 
   def edit
-    @person = Person.find(params[:id])
+    @person = Person.find_using_slug(params[:id])
     authorize_action_for(@person)
     @card = @person.card.nil? ? @person.build_card : @person.card
     edit!
   end
 
+  def update
+    @person = Person.find_using_slug(params[:id])
+    update!
+  end
+
   def destroy
+    @person = Person.find_using_slug(params[:id])
     authorize_action_for(@person)
     destroy!
   end

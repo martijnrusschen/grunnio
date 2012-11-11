@@ -1,4 +1,7 @@
 class InitiativesController < ResourceController
+  respond_to :html
+  respond_to :js, only: :create
+
   authorize_actions_for Initiative, :except => [:show, :index]
 
   def index
@@ -17,26 +20,32 @@ class InitiativesController < ResourceController
    @initiative = Initiative.new(params[:initiative])
    @card = @initiative.card
    @location = @initiative.location
+   @current_account.add_role :owner, @initiative
    create!
   end
 
   def show
-   @initiative = Initiative.find(params[:id])
+   @initiative = Initiative.find_using_slug(params[:id])
    @card = @initiative.card
    @location = @initiative.location
    show!
   end
 
   def edit
-   @initiative = Initiative.find(params[:id])
+   @initiative = Initiative.find_using_slug(params[:id])
    authorize_action_for(@initiative)
    @card = @initiative.card.nil? ? @initiative.build_card : @initiative.card
    @location = @initiative.location.nil? ? @initiative.build_location : @initiative.location
    edit!
   end
 
+  def update
+    @initiative = Initiative.find_using_slug(params[:id])
+    update!
+  end
+
   def destroy
-   @initiative = Initiative.find(params[:id])
+   @initiative = Initiative.find_using_slug(params[:id])
    authorize_action_for(@initiative)
    destroy!
   end

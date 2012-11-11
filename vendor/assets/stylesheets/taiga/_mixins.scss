@@ -108,8 +108,8 @@
   text-shadow: 0 -1px 0 darken($color, 15%), 0 1px 0 lighten($color, 15%)
 }
 
-@mixin inset($color, $padding) {
-      color: $medium-grey;
+@mixin inset($padding, $color: $medium-grey) {
+      color: $color;
       padding: $padding;
       position: relative;
       &:after, &:before {
@@ -128,3 +128,14 @@
       }
     }
 
+@mixin placeholder($color) {
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: $color;
+  }
+  input:-moz-placeholder, textarea:-moz-placeholder {
+    color: $color;
+  }
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: $color;
+  }
+}

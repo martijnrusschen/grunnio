@@ -11,16 +11,22 @@
 #  updated_at            :datetime         not null
 #  cardable_id           :integer
 #  cardable_type         :string(255)
+#  blog_url              :string(255)
+#  personal_url          :string(255)
 #
 
 class Card < ActiveRecord::Base
   include Authority::Abilities
   resourcify
 
+  before_save :strip_twitter_username, if: :twitter_username_changed?
+
   attr_accessible :general_email_address,
                   :phone,
                   :twitter_username,
-                  :website_url
+                  :website_url,
+                  :blog_url,
+                  :personal_url
 
   belongs_to :cardable, polymorphic: true
 
@@ -28,4 +34,8 @@ class Card < ActiveRecord::Base
   validates :phone, numericality: { only_integer: true }, allow_blank: true
   validates :twitter_username, length: { maximum: 15 }, allow_nil: true
   # validates :website_url
+
+  def strip_twitter_username
+    twitter_username.gsub!("@","")
+  end
 end

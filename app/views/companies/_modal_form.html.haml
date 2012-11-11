@@ -1,0 +1,32 @@
+// = render 'companies/modal_form', company: Company.new.tap{ |i| i.build_card ; i.build_location }
+
+%h3 Voeg je bedrijf toe
+= simple_form_for([company], remote: true,  validate: true, wrapper: :taiga, :html => {:multipart => true} ) do |f|
+  = f.error_notification
+
+  %fieldset
+    %legend gegevens
+    = f.input :name
+    = f.input :kvk_number, as: :integer, input_html: {class: 'fourth'}, hint: '8-cijferig KvK nummer', required: true
+    = f.input :description, input_html: {rows: 10}, required: true
+    = f.input :specialities, input_html: {value: company.specialities.join(","), data:{ specialities: Company.popular_tags_list } , type: "hidden" }, label: "specialiteiten", hint: "max. 5"
+    = f.input :logo, as: :file, label: "logo"
+    = f.input :logo_cache, as: :hidden
+    = f.input :founded_in, input_html: {class: 'fourth'}
+    = f.input :number_of_employees, as: :integer, input_html: {class: 'fourth'}
+    // = f.association :people, :collection => Person.published.all(:order => 'name'), label: "Personen"
+    // = f.simple_fields_for :products do |product|
+    //   = render 'product_fields', f: product
+    // .links
+    //   = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
+
+  = f.simple_fields_for :card do |c|
+    %fieldset
+      %legend contact
+      = render 'shared/cards/fields', f: c
+
+    = f.simple_fields_for :location do |l|
+      = render 'shared/locations/fields', f: l
+
+  .form-actions
+  = f.submit class: 'btn large', data: { :'disable-with' => "Opslaan..." }

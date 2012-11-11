@@ -6,7 +6,10 @@ gem 'pg', '~> 0.14.1'
 gem 'rails-i18n', '~> 0.6.1'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
 gem 'geocoder', '~> 1.1.3'
+gem 'gmaps4rails'
 gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
+gem 'slugged'
+gem 'i18n_routing'
 
 gem 'jbuilder', '~> 0.8.0'
 # gem 'blankslate', '~> 3.1.2'
@@ -14,6 +17,9 @@ gem 'jquery-rails', '~> 2.1.2'
 gem 'simple_form', '~> 2.0.3'
 gem 'cocoon', '~> 1.0.22'
 gem 'country_select', '~> 1.0.1'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form', github: 'dockyard/client_side_validations-simple_form'
+
 gem 'breadcrumbs_on_rails', '~> 2.2.0'
 
 gem 'rocket_tag', '~> 0.5.6'
@@ -44,14 +50,15 @@ gem 'faker'
 
 # Mailer helpers
 gem 'roadie'
-
+gem "less-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'coffee-rails', '~> 3.2.1'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'twitter-bootstrap-rails', '~> 2.1.3'
+  gem 'twitter-bootstrap-rails', '~> 2.1.6'
   gem 'uglifier', '>= 1.0.3'
   gem 'font-awesome-rails'
 end

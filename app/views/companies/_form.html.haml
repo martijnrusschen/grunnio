@@ -1,4 +1,4 @@
-= simple_form_for([@company], wrapper: :taiga, :html => {:multipart => true} ) do |f|
+= simple_form_for([@company], wrapper: :taiga, validate: true, :html => {:multipart => true} ) do |f|
   = f.error_notification
 
   %fieldset
@@ -6,32 +6,30 @@
     = f.input :name
     = f.input :kvk_number, as: :integer, input_html: {class: 'fourth'}, hint: '8-cijferig KvK nummer', required: true
     = f.input :description, input_html: {rows: 10}, required: true
-    = f.input :logo, as: :file
+    = f.input :specialities, input_html: {value: @company.specialities.join(","), data:{ specialities: Company.popular_tags_list } , type: "hidden" }, label: "specialiteiten", hint: "max. 5"
+    = f.input :logo, as: :file, label: "logo"
     = f.input :logo_cache, as: :hidden
-    = f.input :specialities, input_html: {value: @company.specialities.join(","), data:{ specialities: Company.popular_tags_list } , type: "hidden" }
     = f.input :founded_in, input_html: {class: 'fourth'}
     = f.input :number_of_employees, as: :integer, input_html: {class: 'fourth'}
-
-  / = f.simple_fields_for :products do |product|
-  /   = render 'product_fields', f: product
-  / .links
-  /   = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
+    = f.association :people, :collection => Person.published.all(:order => 'name'), label: "Personen"
+    %ul
+      %li
+        %a.invite-link.right{ "data-reveal-id" => "inviteModal", :href => "#" }  Verstuur een uitnodiging
+  // = f.simple_fields_for :products do |product|
+  //   = render 'product_fields', f: product
+  // .links
+  //   = link_to_add_association "Product toevoegen", f, :products, class: 'btn'
 
   = f.simple_fields_for :card do |c|
     %fieldset
       %legend contact
-      = c.input :general_email_address, as: :email
-      = c.input :phone, as: :tel
-      = c.input :twitter_username
-      = c.input :website_url
+      = render 'shared/cards/fields', f: c
+    = f.simple_fields_for :location do |l|
+      = render 'shared/locations/fields', f: l
 
-  = f.simple_fields_for :location do |l|
-    %fieldset
-      %legend bezoekadres
-      = l.input :street_address
-      = l.input :postal_code
-      = l.input :city
-      = l.input :country, priority: ['Netherlands']
-
+    = f.input :published, label: 'Tonen in de Grunn.io index?'
   .form-actions
-    = f.submit class: 'btn'
+    = f.submit class: 'btn large'
+
+#inviteModal.reveal-modal
+  = render 'devise/invitations/modal', resource: Account.new

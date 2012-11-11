@@ -14,6 +14,8 @@
 
   %body
     = render 'shared/taiga-alerts'
+    =link_to("http://github.com/grunnio/grunnio") do
+      = image_tag(image_path("forkus_ribbon.png"), style: "position: absolute; top: 0; right: 0; border: 0;", alt: "Fork us on GitHub")
     .container
       - if content_for? :topbar
         = yield :topbar
@@ -25,15 +27,8 @@
       - else
         = render 'shared/header_compact'
 
-      / - if content_for? :navbar
-      /   = yield :navbar
-      / - else
-      /   = render 'shared/navbar'
-
       = yield :main
-
-
-
 
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
+    = yield :scripts

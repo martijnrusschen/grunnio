@@ -5,10 +5,16 @@ SiliconGroningen::Application.routes.draw do
   devise_for :accounts, controllers: { omniauth_callbacks: 'omniauth_callbacks', :registrations => "registrations" }
   match '/account/profile/new' => 'people#new', :as => 'account_new_profile'
 
-  resources :companies
-  resources :people
-  resources :initiatives
-  # resources :accounts
+  localized do
+    resources :companies
+    resources :people
+    resources :initiatives
+  end
+  # scope(:path_names => { :new => "nieuw", :edit => "aanpassen" }) do
+  #   resources :companies, :path => "bedrijven"
+  #   resources :mensen
+  #   resources :initiatieven
+  # end
 
   namespace :admin do
     root to: 'dashboard#show'

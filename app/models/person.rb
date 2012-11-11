@@ -11,17 +11,23 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  account_id   :integer
+#  published    :boolean          default(FALSE)
+#  avatar       :string(255)
+#  cached_slug  :string(255)
 #
 
 class Person < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  is_sluggable :name
   scope :published, where(published: true)
 
   attr_accessible :biography,
                   :birthdate,
                   :headline,
                   :name,
+                  :avatar,
+                  :avatar_cache,
                   :specialities,
                   :card_attributes,
                   :company_ids,
@@ -32,6 +38,9 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :initiatives
   belongs_to :account
+
+  mount_uploader :avatar, ImageUploader
+  attr_taggable :specialities
 
   accepts_nested_attributes_for :card, update_only: true
 
@@ -68,6 +77,11 @@ class Person < ActiveRecord::Base
     else
       0
     end
+  end
+
+  def self.popular_tags_list
+    tags ||= Person.tags.collect(&:name).sort
+    tags
   end
 
   private

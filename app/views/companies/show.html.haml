@@ -1,31 +1,45 @@
+-content_for :title do
+  ="#{resource.name} op Grunn.io"
+
 -content_for :main do
   / %section.whole.breadcumbs
   %section.three-fourths.paperpile
     .imgs
-      %img.logo(src="http://placehold.it/160x160&text=Bedrijfslogo")
-      %img.map(src="http://placehold.it/160x160&text=Google Maps")
+      = image_tag(@company.logo.medium.url, class: 'company-logo')
+      = gmaps(map_options: { detect_location: false, center_on_user: false, auto_zoom: false, zoom: 15, :disableDefaultUI => true, container_class:"map_wrapper", language: "nl" },markers: { data: @json })
 
     .factsheet
       .title.one
         %h2{title: @company.name}= @company.name
+        %i.sweets-lab.sweets-large
+
       %dl.multiple-table
-        %dt Specialiteiten:
-        %dd= @company.specialities
-        %dt Opgericht in:
-        %dd= @company.founded_in
         %dt KvK-nummer:
-        %dd= @company.kvk_number
-        %dt # werknemers:
-        %dd= @company.number_of_employees
-        %dt Bio:
-        %dd= @company.description
-        %dt Adres:
-        %dd= @company.location.address
-        %dt Corporate site:
-        %dd= @company.corporate.nil? ? "-" : @company.corporate
+        %dd= dash(@company.kvk_number)
+        %dt Beschrijving:
+        %dd= dash(@company.description)
+        %dt Specialiteiten:
+        %dd= dash(@company.specialities)
+        %dt Opgericht in:
+        %dd= dash(@company.founded_in)
+        %dt # Werknemers:
+        %dd= dash(@company.number_of_employees)
+        %dt Twitter:
+        %dd= @company.card.twitter_username.blank? ? "-" : link_to("@#{@company.card.twitter_username}", "http://twitter.com/#{@company.card.twitter_username}")
+        %dt Website:
+        %dd= @company.card.website_url.blank? ? "-" : link_to("#{@company.card.website_url}", @company.card.website_url)
         %dt Blog:
-        %dd= @company.blog
+        %dd= @company.card.blog_url.blank? ? "-" : link_to("#{@company.card.blog_url}", @company.card.blog_url)
+        %dt Telefoon:
+        %dd= dash(@company.card.phone)
+
+        %dt Adres:
+        %dd
+          = formatted_addres(resource.location)
+        %dt Personen:
+        %dd
+          = name_link_list(resource.people)
 
 
-  %section.sidebar.fourth.paperpile
-    %p= "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met bedrijven als #{Company.all.sample.name} en de personen achter #{Company.all.sample.name}, voeg zelf gegevens toe of lees het laatste nieuws."
+      = render 'shared/factsheet_actions'
+  =render 'shared/sidebar'

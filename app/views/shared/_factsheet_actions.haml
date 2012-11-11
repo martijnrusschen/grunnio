@@ -1,0 +1,8 @@
+.actions
+  - if current_account.try(:can_update?, resource)
+    = link_to edit_resource_path(resource), class: 'btn tiny', title: 'aanpassen' do
+      %i.sweets-edit
+      aanpassen
+  - if (current_account.try(:can_delete?, resource) && resource.class != Person)
+    = link_to resource, title: 'verwijderen', :confirm => 'weet je het zeker?', :method => :delete, class: 'btn tiny alert' do
+      %i.sweets-delete

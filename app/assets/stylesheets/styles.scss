@@ -73,6 +73,9 @@ section {
 
 }
 
+.green { color: $color-success; }
+.red { color: $color-error;}
+
 .whole { @include grid(48, 1);  }
 .half { @include grid(24, 1); }
 .third { @include grid(16, 1); }
@@ -144,7 +147,7 @@ nav { /*p*/
     text-decoration: none;
     list-style: none;
     font-size: 1.2em;
-    margin: 25px 0 0 0;
+    margin: 8px 0 0 0;
     // padding-top: 1.50em;
     @include grid(41, 7);
     // margin: 40px 0 0 145px;
@@ -195,15 +198,24 @@ section {
     4px 4px 1px 0px #ccc,
     5px 6px 0px 1px white,
     6px 7px 2px 1px #ccc;
+   ul {
+    list-style-image: url(image_path("bullet.png"));
+   }
 }
 
 .logo {
-  @include grid(6, 0);
+   @include grid(6, 0);
 }
 
 .introduction {
   @include grid(41, 1);
   padding: 115px 0px 0px 0px;
+  margin-bottom: 8px;
+}
+
+hr {
+  margin: 0;
+  color: $dark-grey;
 }
 
 .introduction p {
@@ -317,22 +329,63 @@ ul.list > li {
     }
   }
 
-.imgs {
-  @include grid(13, 0);
-  margin-top: 60px;
+section.three-fourths.paperpile {
+  .imgs {
+    @include grid(13, 0);
+    margin-top: 60px;
+    .company-logo, .person-logo, .initiative-logo {
+      display: block;
+      padding: 10px;
+    }
+  }
+  .factsheet {
+    @include grid(33, 1);
+    .title.one h2 {
+      width: 101%;
+      // padding: 0px 2px 0px 2px;
+      @include inset($medium-grey, 0);
+    }
+   dl.multiple-table {
+     padding-top: 10px;
+     border-top: 1px solid $light-grey;
+     dt {
+       @include grid(12, 0);
+       clear: left;
+       float: left;
+       margin: 0;
+       padding: 2px;
+       font-weight: $font-weight;
+       font-size: 0.9em;
+       }
+     dd {
+       padding: 2px;
+       font-weight: 500;
+       @include grid(36, 0);
+       }
+      }
+    .sweets-large {
+      float: right;
+    }
+    .sweets-lab.sweets-large {
+      margin-top: -118px;
+    }
+    .sweets-person.sweets-large, .sweets-heart.sweets-large {
+      margin-top: -100px;
+    }
+    .actions {
+      .btn {
+        margin: 120px 10px 0 0;
+        float: right;
+      }
+    }
+  }
 }
 
-img.logo, img.map {
-  display: block;
-  padding: 10px;
-}
-
-.factsheet {
-  @include grid(34, 0);
-  & .title.one h2 {
-    width: 101%;
-    // padding: 0px 2px 0px 2px;
-    @include inset($medium-grey, 0);
+section.sidebar.fourth.paperpile {
+  .sweets-info.sweets-large {
+    float: left;
+    font-size: 40px;
+    margin: -40px 0 0 -20px;
   }
 }
 
@@ -340,23 +393,7 @@ dl dd {
   margin: 0;
 }
 
-dl.multiple-table {
-  padding-top: 10px;
-  border-top: 1px solid $light-grey;
-  & dt {
-    @include grid(12, 0);
-    clear: left;
-    float: left;
-    margin: 0;
-    padding: 2px;
-    font-weight: $font-weight;
-    font-size: 0.9em;
-    }
-  & dd {
-    padding: 2px;
-    @include grid(36, 0);
-    }
-  }
+
 
 .grey-bg {
   background-color: $light-grey;
@@ -366,6 +403,20 @@ dl.multiple-table {
 
 form.simple_form {
   margin-top: 25px;
+  .invite-link {
+    margin-top: -55px;
+  }
+  .company-link {
+    margin-top: -47px;
+    padding-left: 10px;
+    i {
+      margin: 3px 0px 0px 0px;
+    }
+  }
+  .initiatives-link {
+    margin-top: -57px;
+    padding-left: 10px;
+  }
 }
 
 fieldset {
@@ -383,6 +434,10 @@ input[type="checkbox"] {
 form .links, form .form-actions {
   @include grid(12, 16);
 }
+
+#person_birthdate_1i { width: 10%; }
+#person_birthdate_2i { width: 20%; }
+#person_birthdate_3i { width: 15%; }
 
 input.whole {
   @include grid(48, 0);
@@ -418,11 +473,24 @@ input.eighth {
 }
 
 ul.steps {
+  .btn.tiny {
+    color: $white;
+    margin: 0;
+    padding: 0 6px;
+  }
   li {
     color: $dark-grey;
     a {
-    color: $dark-grey;
-    padding: 0.5em 0.1em;
+      color: $dark-grey;
+      padding: 0.5em 0.1em;
+    &.green {
+      color: $color-success;
+      font-weight: 500;
+    }
+    &.red {
+      color: $color-error;
+      font-weight: 500;
+    }
     i {
       font-size: 1.2em;
     }
@@ -441,7 +509,120 @@ header.whole.compact {
   margin-bottom: 40px;
   nav ul {
     @include grid(41, 1);
+    margin-top: 25px;
   }
 }
 
+// Maps
+.gmaps4rails_map {
+  height: 160px;
+  width: 160px;
+}
 
+.map_wrapper {
+  padding: 10px;
+}
+
+.ui-datepicker {
+  background: $white;
+  border: 1px solid $light-grey;
+  @include box-shadow("1px 1px 1px 0px #ccc");
+  .ui-datepicker-header {
+    background: $light-grey;
+    .ui-datepicker-prev {
+      float: left;
+      cursor: hand;
+      cursor: pointer;
+    }
+    .ui-datepicker-next {
+      float: right;
+      cursor: hand;
+      cursor: pointer;
+    }
+    .ui-datepicker-title {
+      float: left;
+      margin-left: 30px;
+      font-weight: 500;
+    }
+  }
+  table {
+    margin-bottom: 0;
+  }
+}
+
+ul.messages {
+  margin: 0;
+  li {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+input[type="text"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], input[type="password"], input, textarea, select {
+  border: 1px solid #BFBFBF;
+  border-radius: 0.2em 0.2em 0.2em 0.2em;
+  box-shadow: 0 1px 3px rgba(5, 5, 5, 0.1) inset;
+  color: #333333;
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  line-height: 1.5em;
+  margin: -1px 0.5em 0 0;
+  padding: 0.6em;
+  transition: border 0.1s ease 0s;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+ul.select2-choices {
+  border: 1px solid #BFBFBF;
+  border-radius: 0.2em 0.2em 0.2em 0.2em;
+  box-shadow: 0 1px 3px rgba(5, 5, 5, 0.1) inset;
+}
+
+.select2-container-multi {
+  border: 0 none;
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+  background: none repeat scroll 0 0 transparent !important;
+  border: 0 none;
+  box-shadow: none;
+  color: #666666;
+  font-family: sans-serif;
+  font-size: 100%;
+  height: 30px;
+  margin: 1px 0;
+  outline: 0 none;
+  padding: 5px;
+}
+
+.sign_in_btn {
+  // @include grid(32,0)
+}
+
+.sign_up_link {
+  @include grid(24, 4); ;
+  font-size: 1.1em;
+  font-weight: 200;
+}
+
+li.select2-search-choice {
+  div {
+    width: auto;
+    margin: 0;
+    padding: 2px;
+  }
+  .select2-search-choice-close {
+    top: 7px;
+  }
+}
+
+@include placeholder($medium-grey);
+
+#inviteModal {
+  div {
+    width: 100%;
+  }
+  label {
+    width: 10%;
+  }
+}

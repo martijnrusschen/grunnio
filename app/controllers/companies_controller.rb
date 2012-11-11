@@ -1,4 +1,7 @@
 class CompaniesController < ResourceController
+  respond_to :html
+  respond_to :js, only: :create
+
   authorize_actions_for Company, :except => [:show, :index]
 
   def index
@@ -23,15 +26,16 @@ class CompaniesController < ResourceController
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.find_using_slug(params[:id])
     @card = @company.card
     @location = @company.location
+    @json = @company.location.to_gmaps4rails
     add_breadcrumb @company.name, admin_company_path(@company)
     show!
   end
 
   def edit
-    @company = Company.find(params[:id])
+    @company = Company.find_using_slug(params[:id])
     authorize_action_for(@company)
     @card = @company.card.nil? ? @company.build_card : @company.card
     @location = @company.location.nil? ? @company.build_location : @company.location
@@ -39,8 +43,13 @@ class CompaniesController < ResourceController
     edit!
   end
 
+  def update
+    @company = Company.find_using_slug(params[:id])
+    update!
+  end
+
   def destroy
-    @company = Company.find(params[:id])
+    @company = Company.find_using_slug(params[:id])
     authorize_action_for(@company)
     destroy!
   end

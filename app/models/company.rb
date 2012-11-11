@@ -14,11 +14,14 @@
 #  websites            :hstore
 #  logo                :string(255)
 #  category_id         :integer
+#  published           :boolean          default(TRUE)
+#  cached_slug         :string(255)
 #
 
 class Company < ActiveRecord::Base
   include Authority::Abilities
   resourcify
+  is_sluggable :name
   scope :published, where(published: true)
 
   serialize :websites, ActiveRecord::Coders::Hstore
@@ -35,9 +38,10 @@ class Company < ActiveRecord::Base
   :logo,
   :logo_cache,
   :blog,
-  :published
+  :published,
+  :person_ids
 
-  hstore_accessor :websites, :corporate, :blog
+  # hstore_accessor :websites, :corporate, :blog
   # oneindig adressen, met keuzelijst label corporate / blog
 
   has_one :card, as: :cardable
@@ -56,17 +60,15 @@ class Company < ActiveRecord::Base
 
   attr_taggable :specialities
 
-  validates :name, length: { maximum: 255 }, presence: true
+  validates :name, length: { maximum: 255 }, presence: true, uniqueness: true
+  validates :description, presence: true
   validates :founded_in, numericality: { only_integer: true }, length: { is: 4 }, allow_blank: true
-  validates :kvk_number, length: { is: 8 }, numericality: { only_integer: true }, allow_blank: true
+  validates :kvk_number, length: { is: 8 }, numericality: { only_integer: true }, allow_blank: true, uniqueness: true
   validates :number_of_employees, numericality: { only_integer: true }, allow_blank: true
 
-  # TODO Category: tagging
-  # design, development, services, product, consultancy - een per bedrijf
-  # Producten toevoegen als model
-
 def self.popular_tags_list
-  Company.popular_tags.collect(&:name)
+  tags ||= Company.tags.collect(&:name).sort
+  tags
 end
 
 end

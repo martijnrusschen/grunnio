@@ -1,3 +1,6 @@
+-content_for :title do
+  ="Initiatieven op Grunn.io"
+
 -content_for :main do
   %section.whole.paperpile.initiatieven
     .third
@@ -5,7 +8,9 @@
         %i.sweets-heart.sweets-large
         %h2{title: 'Initiatieven'} Initiatieven
       %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg nieuwe initiatieven toe.
-      = link_to "toevoegen", new_initiative_path, class: 'btn'
+      = link_to new_initiative_path, class: 'btn large' do
+        %i.sweets-plus
+        toevoegen
     .two-thirds
       .title.two
         %i.icon-share-alt.grey-icon.left
