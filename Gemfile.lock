@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/dockyard/client_side_validations-simple_form.git
+  revision: 7364ed2fe0a620f58753d0c0953f2b0e15bedcaa
+  specs:
+    client_side_validations-simple_form (2.0.0)
+      client_side_validations (~> 3.2.0)
+      simple_form (~> 2.0.3)
+
+GIT
   remote: git://github.com/softa/activerecord-postgres-hstore.git
   revision: 396f5af9af5eb70b7d9721a5bb14e14afee5cc38
   specs:
@@ -68,6 +76,7 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    client_side_validations (3.2.1)
     cocoon (1.0.22)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -345,6 +354,8 @@ DEPENDENCIES
   breadcrumbs_on_rails (~> 2.2.0)
   capistrano (~> 2.13.3)
   carrierwave
+  client_side_validations
+  client_side_validations-simple_form!
   cocoon (~> 1.0.22)
   coffee-rails (~> 3.2.1)
   country_select (~> 1.0.1)

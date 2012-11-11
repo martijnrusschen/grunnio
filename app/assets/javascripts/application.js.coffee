@@ -7,6 +7,8 @@
 #= require gmaps4rails/gmaps4rails.base
 #= require gmaps4rails/gmaps4rails.googlemaps
 #= require jquery.reveal
+#= require rails.validations
+#= require rails.validations.simple_form
 
 # Remove Facebook #_=_ from auth redirect
 if window.location.hash is "#_=_"

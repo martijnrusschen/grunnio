@@ -17,6 +17,9 @@ gem 'jquery-rails', '~> 2.1.2'
 gem 'simple_form', '~> 2.0.3'
 gem 'cocoon', '~> 1.0.22'
 gem 'country_select', '~> 1.0.1'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form', github: 'dockyard/client_side_validations-simple_form'
+
 gem 'breadcrumbs_on_rails', '~> 2.2.0'
 
 gem 'rocket_tag', '~> 0.5.6'
