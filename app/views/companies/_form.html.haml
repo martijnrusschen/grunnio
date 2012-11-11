@@ -1,4 +1,4 @@
-= simple_form_for([@company], wrapper: :taiga, :html => {:multipart => true} ) do |f|
+= simple_form_for([@company], wrapper: :taiga, validate: true, :html => {:multipart => true} ) do |f|
   = f.error_notification
 
   %fieldset
@@ -24,15 +24,12 @@
     %fieldset
       %legend contact
       = render 'shared/cards/fields', f: c
-
-  = f.simple_fields_for :location do |l|
-    %fieldset
-      %legend bezoekadres
+    = f.simple_fields_for :location do |l|
       = render 'shared/locations/fields', f: l
 
-    = f.input :published, label: 'Publiceren op Grunn.io?'
+    = f.input :published, label: 'Tonen in de Grunn.io index?'
   .form-actions
-    = f.submit class: 'btn success large'
+    = f.submit class: 'btn large'
 
 #inviteModal.reveal-modal
   = render 'devise/invitations/modal', resource: Account.new
