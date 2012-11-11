@@ -386,8 +386,8 @@ CREATE TABLE locations (
     locality character varying(255),
     region character varying(255),
     country character varying(255),
-    latitude double precision,
-    longitude double precision,
+    latitude double precision DEFAULT 53.2187,
+    longitude double precision DEFAULT 6.567,
     locatable_id integer,
     locatable_type character varying(255),
     created_at timestamp without time zone NOT NULL,
@@ -1180,3 +1180,5 @@ INSERT INTO schema_migrations (version) VALUES ('20121105232758');
 INSERT INTO schema_migrations (version) VALUES ('20121105232815');
 
 INSERT INTO schema_migrations (version) VALUES ('20121105232834');
+
+INSERT INTO schema_migrations (version) VALUES ('20121111194708');
