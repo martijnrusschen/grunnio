@@ -13,4 +13,8 @@ module ApplicationHelper
   def dash(field)
     field.blank? ? "-" : field
   end
+
+  def name_link_list(collection)
+    collection.empty? ? "-" : raw(collection.collect{ |c| link_to(c.name, c) }.to_sentence)
+  end
 end

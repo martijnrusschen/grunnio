@@ -26,8 +26,7 @@
             \-
         %dt Personen:
         %dd
-          - resource.people.each do |p|
-            =link_to(p.name, p)
+          = name_link_list(resource.people)
 
       = render 'shared/factsheet_actions'
   =render 'shared/sidebar'

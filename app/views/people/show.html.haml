@@ -29,12 +29,10 @@
         %dd= dash(@person.card.phone)
         %dt Bedrijven:
         %dd
-          - @person.companies.each do |c|
-            =link_to(c.name, c)
+          = name_link_list(@person.companies)
         %dt Initiatieven:
         %dd
-          - @person.initiatives.each do |i|
-            =link_to(i.name, i)
+          = name_link_list(@person.initiatives)
 
 
       = render 'shared/factsheet_actions'
