@@ -4,12 +4,12 @@
       = f.error_notification
 
       %fieldset
-        %legend Maak een Grunn.io account aan
-        = f.input :email, required: true, autofocus: true, input_html: { class: 'half' }
+        %legend Maak hier jouw account voor Grunn.io aan
+        = f.input :email, required: true, autofocus: true, input_html: { class: 'half' }, label: "E-mailadres"
 
         - if f.object.password_required?
-          = f.input :password, required: true, input_html: { class: 'half' }, label: 'wachtwoord'
-          = f.input :password_confirmation, required: true, input_html: { class: 'half' }, label: 'bevestig wachtwoord'
+          = f.input :password, required: true, input_html: { class: 'half' }, label: 'Wachtwoord'
+          = f.input :password_confirmation, required: true, input_html: { class: 'half' }, label: 'Bevestig wachtwoord'
 
       .form-actions
         = f.submit 'Aanmelden', class: 'btn'

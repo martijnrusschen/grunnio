@@ -12,10 +12,10 @@
       .title.one
         %i.sweets-lab.sweets-large
         %h2{title: 'Bedrijven'} Bedrijven
-      %p Open database van IT bedrijven en producten uit Groningen: ontdek de parels uit het Noorden of voeg bedrijfsgegevens toe.
+      %p Ontdek wat er in Groningen gevestigd is of voeg jouw eigen Groningse onderneming toe.
       = link_to new_company_path, class: 'btn large' do
         %i.sweets-plus
-        toevoegen
+        Toevoegen
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
@@ -41,15 +41,15 @@
       .title.one
         %i.sweets-people.sweets-large
         %h2{title: 'Personen'} Personen
-      %p Maak kennis met de motor achter de Groninger tech-scene: de locals. Het zijn de mensen die het doen.
+      %p Vindt Groningse ondernemers en oprichters of voeg jezelf toe aan de database.
       - if account_signed_in?
         = link_to edit_person_path(current_account.person), class: 'btn large' do
           %i.sweets-edit
-          werk je profiel bij
+          Werk je profiel bij
       - else
         =link_to new_account_registration_path, class: 'btn large' do
           %i.sweets-plus
-          voeg jezelf toe
+          Toevoegen
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
@@ -77,10 +77,10 @@
       .title.one
         %i.sweets-heart.sweets-large
         %h2{title: 'Initiatieven'} Initiatieven
-      %p Dag en nacht, altijd wat te doen.
+      %p Initiatieven: Ontdek welke meetups er in Groningen worden georganiseerd en voeg je eigen initiatief toe.
       = link_to new_initiative_path, class: 'btn large' do
         %i.sweets-plus
-        toevoegen
+        Toevoegen
     .third
       .title.two
         %i.icon-share-alt.blue-icon.left
