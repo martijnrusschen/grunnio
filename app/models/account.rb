@@ -92,4 +92,8 @@ class Account < ActiveRecord::Base
     super
   end
 
+  def is_admin?
+    false
+  end
+
 end
