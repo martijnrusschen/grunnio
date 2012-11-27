@@ -19,7 +19,8 @@
         %dt Beschrijving:
         %dd= dash(@company.description)
         %dt Specialiteiten:
-        %dd= dash(@company.specialities)
+        %dd= dash(@company.specialities.map{ |i|  %Q(#{i}) }.join(', '))
+        %dd= @company.specialities.first
         %dt Opgericht in:
         %dd= dash(@company.founded_in)
         %dt # Werknemers:
