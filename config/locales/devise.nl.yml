@@ -14,7 +14,7 @@ nl:
   devise:
     failure:
       already_authenticated: 'Je bent al aangemeld.'
-      unauthenticated: 'Meld je aan om verder te gaan.'
+      unauthenticated: 'Log in of meld je aan om verder te gaan.'
       unconfirmed: 'Je dient je emailadres te bevestigen alvorens verder te gaan.'
       locked: 'Je account is vergrendeld.'
       invalid: 'Ongeldig emailadres or wachtwoord.'

@@ -27,7 +27,7 @@
           %i.icon-signout
           %span.text afmelden
     - else
-      Aanmelden met:
+      Aanmelden/Inloggen met:
       %li
         = link_to(account_omniauth_authorize_path(:facebook), title: "Facebook") do
           %i.icon-facebook
@@ -44,6 +44,3 @@
         = link_to(new_account_session_path, title: "Grunn.io account") do
           %i.icon-envelope
           // %span.text Grunn.io
-      %li
-        = link_to("| nog geen account?", new_account_registration_path)
-

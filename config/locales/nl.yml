@@ -226,34 +226,50 @@ nl:
         location: locatie
       attributes:
         company:
-          category: categorie
-          description: beschrijving
-          founded_in: opgericht in
-          kvk_number: KVK-nummer
-          name: bedrijfsnaam
-          number_of_employees: "# werknemers"
-          company_type: type
+          category: Categorie
+          description: Beschrijving
+          founded_in: Opgericht in
+          kvk_number: KvK-nummer
+          name: Bedrijfsnaam
+          number_of_employees: "Aantal werknemers"
+          logo: Logo
+          published: Tonen in de Grunn.io-index?
+          people: Personen
         person:
-          biography: bio
-          birthdate: geboortedatum
-          headline: headline
-          name: naam
-          specialities: specialiteiten
+          biography: Biografie
+          birthdate: Geboortedatum
+          headline: Headline
+          name: Naam
+          specialities: Specialiteiten
+          avatar: Foto
+          published: Tonen in de Grunn.io-index?
+          companies: Bedrijven
+          initiatives: Initiatieven
         initiative:
-          name: naam
+          name: Naam
+          description: Beschrijving
+          logo: Logo
+          published: Tonen in de Grunn.io-index?
+          people: Personen
+          specialities: Specialiteiten
         job:
-          description: functieomschrijving
-          title: functietitel
+          description: Functieomschrijving
+          title: Functietitel
         card:
-          general_email_address: e-mail
-          phone: telefoon
-          twitter_username: twitter
-          website_url: website
+          general_email_address: E-mail
+          phone: Telefoon
+          twitter_username: Twitter @
+          website_url: Website
+          blog_url: Blog
+          personal_url: Persoonlijk
         location:
-          street_address: straat
-          extended_address: toevoeging
-          postal_code: postcode
-          city: stad
-          locality: localiteit
-          region: provincie
+          street_address: Straat
+          extended_address: Toevoeging
+          postal_code: Postcode
+          city: Stad
+          locality: Localiteit
+          region: Provincie
           country: land
+          address: Adres
+          latitude: Latitude
+          longitude: longitude

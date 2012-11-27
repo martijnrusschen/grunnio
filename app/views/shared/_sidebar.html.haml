@@ -1,3 +1,3 @@
 %section.sidebar.fourth.paperpile
   %i.sweets-info.sweets-large
-  %p= raw "Grunn.io is een database vol met internet technologie, van de vruchtbare bodem van Groningen. Maak kennis met professionals als #{p = Person.all.sample; link_to(p.name, person_path(p))} en de mensen achter #{c = Company.all.sample; link_to(c.name, company_path(c))}, voeg zelf gegevens toe of lees het laatste nieuws."
+  %p= raw "Grunn.io is de open database met technologiebedrijven als #{c = Company.all.sample; link_to(c.name, company_path(c))}, specialisten als #{p = Person.all.sample; link_to(p.name, person_path(p))} en initiatieven als #{p = Initiative.all.sample; link_to(p.name, person_path(p))} uit het technologisch innovatieve Groningen."
