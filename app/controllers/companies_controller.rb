@@ -21,8 +21,8 @@ class CompaniesController < ResourceController
     @company = Company.new(params[:company])
     @card = @company.card
     @location = @company.location
-    @current_account.add_role :owner, @company
     create!
+    @current_account.add_role :owner, @company if @company.save
   end
 
   def show

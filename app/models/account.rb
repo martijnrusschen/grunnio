@@ -93,7 +93,7 @@ class Account < ActiveRecord::Base
   end
 
   def is_admin?
-    false
+    has_role? :admin
   end
 
 end
