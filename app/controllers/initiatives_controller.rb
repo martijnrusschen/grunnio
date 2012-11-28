@@ -20,8 +20,8 @@ class InitiativesController < ResourceController
    @initiative = Initiative.new(params[:initiative])
    @card = @initiative.card
    @location = @initiative.location
-   @current_account.add_role :owner, @initiative
    create!
+   @current_account.add_role :owner, @initiative if @initiative.save
   end
 
   def show
