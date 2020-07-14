@@ -5,7 +5,7 @@ gem 'capistrano', '~> 2.13.3'
 gem 'pg', '~> 0.14.1'
 gem 'rails-i18n', '~> 0.6.1'
 gem 'activerecord-postgres-hstore', git: 'git://github.com/softa/activerecord-postgres-hstore.git'
-gem 'geocoder', '~> 1.1.3'
+gem 'geocoder', '~> 1.6.3'
 gem 'gmaps4rails'
 gem 'squeel', '1.0.9'  # Rocket tag depends on squeel, but there's a bug in squeel 1.0.11
 gem 'slugged'
