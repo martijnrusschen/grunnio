@@ -205,7 +205,7 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    oauth (0.4.7)
+    oauth (0.5.6)
     oauth2 (0.8.0)
       faraday (~> 0.8)
       httpauth (~> 0.1)
